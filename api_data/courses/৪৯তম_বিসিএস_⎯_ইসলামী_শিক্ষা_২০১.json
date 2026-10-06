@@ -1,0 +1,210 @@
+{
+ "subject_id": 119,
+ "name": "৪৯তম বিসিএস ⎯ ইসলামী শিক্ষা [২০১]",
+ "slug_or_type": "",
+ "exams_count": 20,
+ "questions_total": 1650,
+ "exams": [
+  {
+   "exam_id": 12190,
+   "date": "Aug 11, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12190",
+   "files": [
+    "exam_maps/exam_12190.json"
+   ]
+  },
+  {
+   "exam_id": 12191,
+   "date": "Aug 14, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12191",
+   "files": [
+    "exam_maps/exam_12191.json"
+   ]
+  },
+  {
+   "exam_id": 12192,
+   "date": "Aug 17, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12192",
+   "files": [
+    "exam_maps/exam_12192.json"
+   ]
+  },
+  {
+   "exam_id": 12193,
+   "date": "Aug 20, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12193",
+   "files": [
+    "exam_maps/exam_12193.json"
+   ]
+  },
+  {
+   "exam_id": 12194,
+   "date": "Aug 23, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12194",
+   "files": [
+    "exam_maps/exam_12194.json"
+   ]
+  },
+  {
+   "exam_id": 12195,
+   "date": "Aug 26, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12195",
+   "files": [
+    "exam_maps/exam_12195.json"
+   ]
+  },
+  {
+   "exam_id": 12196,
+   "date": "Aug 29, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12196",
+   "files": [
+    "exam_maps/exam_12196.json"
+   ]
+  },
+  {
+   "exam_id": 12197,
+   "date": "Sep 01, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12197",
+   "files": [
+    "exam_maps/exam_12197.json"
+   ]
+  },
+  {
+   "exam_id": 12198,
+   "date": "Sep 04, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12198",
+   "files": [
+    "exam_maps/exam_12198.json"
+   ]
+  },
+  {
+   "exam_id": 12199,
+   "date": "Sep 07, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12199",
+   "files": [
+    "exam_maps/exam_12199.json"
+   ]
+  },
+  {
+   "exam_id": 12200,
+   "date": "Sep 10, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12200",
+   "files": [
+    "exam_maps/exam_12200.json"
+   ]
+  },
+  {
+   "exam_id": 12201,
+   "date": "Sep 14, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12201",
+   "files": [
+    "exam_maps/exam_12201.json"
+   ]
+  },
+  {
+   "exam_id": 12202,
+   "date": "Sep 21, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12202",
+   "files": [
+    "exam_maps/exam_12202.json"
+   ]
+  },
+  {
+   "exam_id": 12203,
+   "date": "Sep 24, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12203",
+   "files": [
+    "exam_maps/exam_12203.json"
+   ]
+  },
+  {
+   "exam_id": 12204,
+   "date": "Sep 28, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12204",
+   "files": [
+    "exam_maps/exam_12204.json"
+   ]
+  },
+  {
+   "exam_id": 12205,
+   "date": "Oct 04, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12205",
+   "files": [
+    "exam_maps/exam_12205.json"
+   ]
+  },
+  {
+   "exam_id": 12206,
+   "date": "Oct 05, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12206",
+   "files": [
+    "exam_maps/exam_12206.json"
+   ]
+  },
+  {
+   "exam_id": 12207,
+   "date": "Oct 06, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12207",
+   "files": [
+    "exam_maps/exam_12207.json"
+   ]
+  },
+  {
+   "exam_id": 12208,
+   "date": "Oct 07, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12208",
+   "files": [
+    "exam_maps/exam_12208.json"
+   ]
+  },
+  {
+   "exam_id": 12209,
+   "date": "Oct 08, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12209",
+   "files": [
+    "exam_maps/exam_12209.json"
+   ]
+  }
+ ],
+ "filename": "৪৯তম_বিসিএস_⎯_ইসলামী_শিক্ষা_২০১.json"
+}

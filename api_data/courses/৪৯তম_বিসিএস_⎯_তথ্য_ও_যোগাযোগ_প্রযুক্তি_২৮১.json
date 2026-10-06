@@ -1,0 +1,210 @@
+{
+ "subject_id": 142,
+ "name": "৪৯তম বিসিএস ⎯ তথ্য ও যোগাযোগ প্রযুক্তি [২৮১]",
+ "slug_or_type": "",
+ "exams_count": 20,
+ "questions_total": 1650,
+ "exams": [
+  {
+   "exam_id": 12431,
+   "date": "Aug 11, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12431",
+   "files": [
+    "exam_maps/exam_12431.json"
+   ]
+  },
+  {
+   "exam_id": 12432,
+   "date": "Aug 17, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12432",
+   "files": [
+    "exam_maps/exam_12432.json"
+   ]
+  },
+  {
+   "exam_id": 12433,
+   "date": "Aug 21, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12433",
+   "files": [
+    "exam_maps/exam_12433.json"
+   ]
+  },
+  {
+   "exam_id": 12434,
+   "date": "Aug 26, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12434",
+   "files": [
+    "exam_maps/exam_12434.json"
+   ]
+  },
+  {
+   "exam_id": 12435,
+   "date": "Aug 30, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12435",
+   "files": [
+    "exam_maps/exam_12435.json"
+   ]
+  },
+  {
+   "exam_id": 12436,
+   "date": "Sep 03, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12436",
+   "files": [
+    "exam_maps/exam_12436.json"
+   ]
+  },
+  {
+   "exam_id": 12437,
+   "date": "Sep 05, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12437",
+   "files": [
+    "exam_maps/exam_12437.json"
+   ]
+  },
+  {
+   "exam_id": 12438,
+   "date": "Sep 09, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12438",
+   "files": [
+    "exam_maps/exam_12438.json"
+   ]
+  },
+  {
+   "exam_id": 12439,
+   "date": "Sep 12, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12439",
+   "files": [
+    "exam_maps/exam_12439.json"
+   ]
+  },
+  {
+   "exam_id": 12440,
+   "date": "Sep 14, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12440",
+   "files": [
+    "exam_maps/exam_12440.json"
+   ]
+  },
+  {
+   "exam_id": 12441,
+   "date": "Sep 16, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12441",
+   "files": [
+    "exam_maps/exam_12441.json"
+   ]
+  },
+  {
+   "exam_id": 12442,
+   "date": "Sep 22, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12442",
+   "files": [
+    "exam_maps/exam_12442.json"
+   ]
+  },
+  {
+   "exam_id": 12443,
+   "date": "Sep 25, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12443",
+   "files": [
+    "exam_maps/exam_12443.json"
+   ]
+  },
+  {
+   "exam_id": 12444,
+   "date": "Sep 27, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12444",
+   "files": [
+    "exam_maps/exam_12444.json"
+   ]
+  },
+  {
+   "exam_id": 12445,
+   "date": "Sep 29, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12445",
+   "files": [
+    "exam_maps/exam_12445.json"
+   ]
+  },
+  {
+   "exam_id": 12446,
+   "date": "Oct 04, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12446",
+   "files": [
+    "exam_maps/exam_12446.json"
+   ]
+  },
+  {
+   "exam_id": 12447,
+   "date": "Oct 05, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12447",
+   "files": [
+    "exam_maps/exam_12447.json"
+   ]
+  },
+  {
+   "exam_id": 12448,
+   "date": "Oct 06, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12448",
+   "files": [
+    "exam_maps/exam_12448.json"
+   ]
+  },
+  {
+   "exam_id": 12449,
+   "date": "Oct 07, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12449",
+   "files": [
+    "exam_maps/exam_12449.json"
+   ]
+  },
+  {
+   "exam_id": 12450,
+   "date": "Oct 08, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12450",
+   "files": [
+    "exam_maps/exam_12450.json"
+   ]
+  }
+ ],
+ "filename": "৪৯তম_বিসিএস_⎯_তথ্য_ও_যোগাযোগ_প্রযুক্তি_২৮১.json"
+}

@@ -1,0 +1,210 @@
+{
+ "subject_id": 120,
+ "name": "৪৯তম বিসিএস ⎯ ইসলামের ইতিহাস ও সংস্কৃতি [১৯১]",
+ "slug_or_type": "",
+ "exams_count": 20,
+ "questions_total": 1670,
+ "exams": [
+  {
+   "exam_id": 12491,
+   "date": "Aug 12, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12491",
+   "files": [
+    "exam_maps/exam_12491.json"
+   ]
+  },
+  {
+   "exam_id": 12492,
+   "date": "Aug 15, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12492",
+   "files": [
+    "exam_maps/exam_12492.json"
+   ]
+  },
+  {
+   "exam_id": 12493,
+   "date": "Aug 18, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12493",
+   "files": [
+    "exam_maps/exam_12493.json"
+   ]
+  },
+  {
+   "exam_id": 12494,
+   "date": "Aug 21, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12494",
+   "files": [
+    "exam_maps/exam_12494.json"
+   ]
+  },
+  {
+   "exam_id": 12495,
+   "date": "Aug 24, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12495",
+   "files": [
+    "exam_maps/exam_12495.json"
+   ]
+  },
+  {
+   "exam_id": 12496,
+   "date": "Aug 27, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12496",
+   "files": [
+    "exam_maps/exam_12496.json"
+   ]
+  },
+  {
+   "exam_id": 12497,
+   "date": "Aug 30, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12497",
+   "files": [
+    "exam_maps/exam_12497.json"
+   ]
+  },
+  {
+   "exam_id": 12498,
+   "date": "Sep 02, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12498",
+   "files": [
+    "exam_maps/exam_12498.json"
+   ]
+  },
+  {
+   "exam_id": 12499,
+   "date": "Sep 05, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12499",
+   "files": [
+    "exam_maps/exam_12499.json"
+   ]
+  },
+  {
+   "exam_id": 12500,
+   "date": "Sep 08, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12500",
+   "files": [
+    "exam_maps/exam_12500.json"
+   ]
+  },
+  {
+   "exam_id": 12501,
+   "date": "Sep 12, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12501",
+   "files": [
+    "exam_maps/exam_12501.json"
+   ]
+  },
+  {
+   "exam_id": 12502,
+   "date": "Sep 14, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12502",
+   "files": [
+    "exam_maps/exam_12502.json"
+   ]
+  },
+  {
+   "exam_id": 12503,
+   "date": "Sep 20, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12503",
+   "files": [
+    "exam_maps/exam_12503.json"
+   ]
+  },
+  {
+   "exam_id": 12504,
+   "date": "Sep 23, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12504",
+   "files": [
+    "exam_maps/exam_12504.json"
+   ]
+  },
+  {
+   "exam_id": 12505,
+   "date": "Sep 26, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12505",
+   "files": [
+    "exam_maps/exam_12505.json"
+   ]
+  },
+  {
+   "exam_id": 12506,
+   "date": "Oct 04, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12506",
+   "files": [
+    "exam_maps/exam_12506.json"
+   ]
+  },
+  {
+   "exam_id": 12507,
+   "date": "Oct 05, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12507",
+   "files": [
+    "exam_maps/exam_12507.json"
+   ]
+  },
+  {
+   "exam_id": 12508,
+   "date": "Oct 06, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12508",
+   "files": [
+    "exam_maps/exam_12508.json"
+   ]
+  },
+  {
+   "exam_id": 12509,
+   "date": "Oct 07, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12509",
+   "files": [
+    "exam_maps/exam_12509.json"
+   ]
+  },
+  {
+   "exam_id": 12510,
+   "date": "Oct 08, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12510",
+   "files": [
+    "exam_maps/exam_12510.json"
+   ]
+  }
+ ],
+ "filename": "৪৯তম_বিসিএস_⎯_ইসলামের_ইতিহাস_ও_সংস্কৃতি_১৯১.json"
+}

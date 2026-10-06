@@ -1,0 +1,100 @@
+{
+ "subject_id": 174,
+ "name": "ব্যাংক নিয়োগ ⎯ সিনিয়র অফিসার [SO]",
+ "slug_or_type": "",
+ "exams_count": 9,
+ "questions_total": 335,
+ "exams": [
+  {
+   "exam_id": 16988,
+   "date": "Sep 16, 2026",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-16988",
+   "files": [
+    "exam_maps/exam_16988.json"
+   ]
+  },
+  {
+   "exam_id": 16989,
+   "date": "Sep 18, 2026",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-16989",
+   "files": [
+    "exam_maps/exam_16989.json"
+   ]
+  },
+  {
+   "exam_id": 16990,
+   "date": "Sep 20, 2026",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-16990",
+   "files": [
+    "exam_maps/exam_16990.json"
+   ]
+  },
+  {
+   "exam_id": 16992,
+   "date": "Sep 23, 2026",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-16992",
+   "files": [
+    "exam_maps/exam_16992.json"
+   ]
+  },
+  {
+   "exam_id": 16993,
+   "date": "Sep 25, 2026",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-16993",
+   "files": [
+    "exam_maps/exam_16993.json"
+   ]
+  },
+  {
+   "exam_id": 16994,
+   "date": "Sep 28, 2026",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-16994",
+   "files": [
+    "exam_maps/exam_16994.json"
+   ]
+  },
+  {
+   "exam_id": 16996,
+   "date": "Sep 30, 2026",
+   "question_number": 35,
+   "is_omr": true,
+   "slug": "2344889-16996",
+   "files": [
+    "exam_maps/exam_16996.json"
+   ]
+  },
+  {
+   "exam_id": 16997,
+   "date": "Oct 02, 2026",
+   "question_number": 35,
+   "is_omr": true,
+   "slug": "2344889-16997",
+   "files": [
+    "exam_maps/exam_16997.json"
+   ]
+  },
+  {
+   "exam_id": 16998,
+   "date": "Oct 04, 2026",
+   "question_number": 35,
+   "is_omr": true,
+   "slug": "2344889-16998",
+   "files": [
+    "exam_maps/exam_16998.json"
+   ]
+  }
+ ],
+ "filename": "ব্যাংক_নিয়োগ_⎯_সিনিয়র_অফিসার_SO.json"
+}

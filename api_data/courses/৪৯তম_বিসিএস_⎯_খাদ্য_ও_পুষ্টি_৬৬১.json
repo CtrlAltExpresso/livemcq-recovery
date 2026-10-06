@@ -1,0 +1,210 @@
+{
+ "subject_id": 134,
+ "name": "৪৯তম বিসিএস ⎯ খাদ্য ও পুষ্টি [৬৬১]",
+ "slug_or_type": "",
+ "exams_count": 20,
+ "questions_total": 1690,
+ "exams": [
+  {
+   "exam_id": 12451,
+   "date": "Aug 15, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12451",
+   "files": [
+    "exam_maps/exam_12451.json"
+   ]
+  },
+  {
+   "exam_id": 12452,
+   "date": "Aug 21, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12452",
+   "files": [
+    "exam_maps/exam_12452.json"
+   ]
+  },
+  {
+   "exam_id": 12453,
+   "date": "Aug 23, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12453",
+   "files": [
+    "exam_maps/exam_12453.json"
+   ]
+  },
+  {
+   "exam_id": 12454,
+   "date": "Aug 26, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12454",
+   "files": [
+    "exam_maps/exam_12454.json"
+   ]
+  },
+  {
+   "exam_id": 12455,
+   "date": "Aug 29, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12455",
+   "files": [
+    "exam_maps/exam_12455.json"
+   ]
+  },
+  {
+   "exam_id": 12456,
+   "date": "Sep 01, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12456",
+   "files": [
+    "exam_maps/exam_12456.json"
+   ]
+  },
+  {
+   "exam_id": 12457,
+   "date": "Sep 04, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12457",
+   "files": [
+    "exam_maps/exam_12457.json"
+   ]
+  },
+  {
+   "exam_id": 12458,
+   "date": "Sep 07, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12458",
+   "files": [
+    "exam_maps/exam_12458.json"
+   ]
+  },
+  {
+   "exam_id": 12459,
+   "date": "Sep 10, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12459",
+   "files": [
+    "exam_maps/exam_12459.json"
+   ]
+  },
+  {
+   "exam_id": 12460,
+   "date": "Sep 13, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12460",
+   "files": [
+    "exam_maps/exam_12460.json"
+   ]
+  },
+  {
+   "exam_id": 12461,
+   "date": "Sep 16, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12461",
+   "files": [
+    "exam_maps/exam_12461.json"
+   ]
+  },
+  {
+   "exam_id": 12462,
+   "date": "Sep 20, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12462",
+   "files": [
+    "exam_maps/exam_12462.json"
+   ]
+  },
+  {
+   "exam_id": 12463,
+   "date": "Sep 23, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12463",
+   "files": [
+    "exam_maps/exam_12463.json"
+   ]
+  },
+  {
+   "exam_id": 12464,
+   "date": "Sep 26, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12464",
+   "files": [
+    "exam_maps/exam_12464.json"
+   ]
+  },
+  {
+   "exam_id": 12465,
+   "date": "Sep 29, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12465",
+   "files": [
+    "exam_maps/exam_12465.json"
+   ]
+  },
+  {
+   "exam_id": 12466,
+   "date": "Oct 04, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12466",
+   "files": [
+    "exam_maps/exam_12466.json"
+   ]
+  },
+  {
+   "exam_id": 12467,
+   "date": "Oct 05, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12467",
+   "files": [
+    "exam_maps/exam_12467.json"
+   ]
+  },
+  {
+   "exam_id": 12468,
+   "date": "Oct 06, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12468",
+   "files": [
+    "exam_maps/exam_12468.json"
+   ]
+  },
+  {
+   "exam_id": 12469,
+   "date": "Oct 07, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12469",
+   "files": [
+    "exam_maps/exam_12469.json"
+   ]
+  },
+  {
+   "exam_id": 12470,
+   "date": "Oct 08, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12470",
+   "files": [
+    "exam_maps/exam_12470.json"
+   ]
+  }
+ ],
+ "filename": "৪৯তম_বিসিএস_⎯_খাদ্য_ও_পুষ্টি_৬৬১.json"
+}

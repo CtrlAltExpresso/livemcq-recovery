@@ -69,7 +69,12 @@ for sid, rows in sorted(exams.items(), key=lambda kv: -sum(qcount(x) for x in kv
     }
     with open(f'{OUT}/course_{sid}.json', 'w') as f:
         json.dump(course, f, ensure_ascii=False, indent=1)
-    course['filename'] = f'course_{sid}_{slugify(course["name"])}.json'
+    # name-only filename; fallback to id-suffix if a collision ever occurs
+    stem = slugify(course["name"])
+    fname = f'{stem}.json'
+    if os.path.exists(f'{OUT}/{fname}'):
+        fname = f'{stem}_{sid}.json'
+    course['filename'] = fname
     with open(f'{OUT}/{course["filename"]}', 'w') as f:
         json.dump(course, f, ensure_ascii=False, indent=1)
     os.remove(f'{OUT}/course_{sid}.json')
