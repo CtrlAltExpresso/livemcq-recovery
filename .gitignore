@@ -1,0 +1,7 @@
+# oversized duplicate of question_bank_chunks/ (106MB > GitHub 100MB limit)
+api_data/all_questions.jsonl
+# temp/derived-local
+*.tmp
+*.out
+*.log
+.DS_Store

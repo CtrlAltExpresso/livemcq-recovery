@@ -1,0 +1,123 @@
+DATA RECOVERY AUTHORIZATION -- LIVEMCQ APPLICATION
+
+Date: 06 October 2026
+Reference: LMCQ-DR-2026-1006
+
+From: Nabil Rahman
+Role: Founder & Lead Developer, LiveMCQ
+Email: nabilrahman@livemcq.com
+Phone: +880 1935452344
+
+To: Sakib Khan
+Email: sakibkhan1213@gmail.com
+
+RE: Authorization to Assist in Recovery of LiveMCQ Application Data
+
+Dear Sakib,
+
+I, Nabil Rahman, Founder and Lead Developer of the Android application LiveMCQ, hereby formally authorize you, Sakib Khan, to assist me in recovering and restoring the application's source code, data, assets, and associated development materials following the loss of my primary development environment.
+
+1. Background
+
+On or around 28 September 2026, my primary development computer suffered a catastrophic SSD failure. The affected storage contained the principal development copy of LiveMCQ and associated project materials.
+
+As a result, I lost access to:
+
+The primary LiveMCQ source-code repository
+Local development files and project configuration
+Development assets and documentation
+Local databases and backups
+Other files associated with the application's development
+
+The LiveMCQ application remains installed on certain devices, and portions of its backend infrastructure remain operational.
+
+2. Authorization
+
+I expressly and voluntarily authorize Sakib Khan to perform reasonable technical recovery operations involving LiveMCQ, including:
+
+A. Installed Application
+
+The LiveMCQ APK installed on his personal device, including copying, inspection, decompilation, reverse engineering, static analysis, and reconstruction where reasonably necessary to recover the application's source code and associated materials.
+
+B. Local Application Data
+
+LiveMCQ-specific databases, cached files, preferences, configuration files, locally stored content, and other application data accessible on his device.
+
+C. Backend Infrastructure
+
+The LiveMCQ backend server, application database, server-side application files, and related hosting resources that I own or administer.
+
+D. Recovery Materials
+
+Any source files, APKs, archives, assets, backups, documentation, or other LiveMCQ-related materials supplied by me or by contributors acting with my authorization.
+
+3. Server and Hosting Access
+
+I expressly confirm that any server, hosting, database, SSH, control-panel, or other credentials that I provide to Sakib Khan will be provided voluntarily and with my full consent.
+
+I authorize him to use those credentials solely for LiveMCQ recovery, backup, analysis, reconstruction, and restoration.
+
+This authorization does not extend to unrelated systems, accounts, users, or third-party information.
+
+4. Intellectual Property
+
+I confirm that LiveMCQ and its associated development materials are owned or controlled by me, subject to any rights belonging to legitimate contributors or third parties.
+
+All recovered source code, databases, application assets, designs, documentation, and other original materials shall remain the property of their respective lawful owners.
+
+Sakib Khan receives no ownership interest, commercial license, or independent right to distribute or exploit LiveMCQ as a result of this authorization.
+
+Any scripts, recovery utilities, documentation, reconstructed code, or other technical work produced specifically for this recovery project shall be provided to me for incorporation into the recovered project, subject to applicable law and any separate agreement between us.
+
+5. Contributors and Collaborators
+
+I confirm that individuals who contributed code, content, design, organization, testing, or other materials to LiveMCQ did so with my knowledge and with the intention that their contributions be incorporated into the project.
+
+To the best of my knowledge, there are no unresolved third-party disputes preventing the recovery of LiveMCQ materials.
+
+If any third-party ownership or licensing issue is subsequently identified, I will be responsible for addressing that issue with the relevant rights holder.
+
+6. Good-Faith Recovery and Limitation of Liability
+
+Sakib Khan is assisting me in good faith and at my explicit request.
+
+I acknowledge that data recovery can involve corrupted, incomplete, encrypted, or permanently inaccessible information and that successful recovery cannot be guaranteed.
+
+To the fullest extent permitted by applicable law, Sakib Khan shall not be held responsible merely because:
+
+Some data cannot be recovered;
+Recovered data is incomplete or corrupted;
+The original source code cannot be reconstructed perfectly;
+Technical problems occur during an otherwise authorized recovery operation; or
+The recovery process does not produce the desired result.
+
+This limitation does not apply to conduct that cannot legally be excluded or limited.
+
+7. Confidentiality
+
+Any credentials, source code, databases, unpublished application materials, or other confidential information provided to Sakib Khan under this authorization shall be used solely for the LiveMCQ recovery project and shall not be intentionally disclosed to unrelated third parties.
+
+8. Duration
+
+This authorization becomes effective on 06 October 2026 and remains valid until 31 December 2026, unless revoked earlier by me in writing.
+
+Upon completion or termination of the recovery project, Sakib Khan shall cease using the access granted under this authorization.
+
+9. Confirmation of Consent
+
+I confirm that I am issuing this authorization voluntarily and that I understand the scope of access granted by this document.
+
+This authorization is intended solely to document my consent for the recovery and restoration of LiveMCQ and does not authorize access to systems or information that I do not own or have permission to access.
+
+Sincerely,
+
+Nabil Rahman
+Founder & Lead Developer
+LiveMCQ
+
+Email: nabilrahman@livemcq.com
+Phone: +880 1935452344
+Reference: LMCQ-DR-2026-1006
+
+Authorized Technical Assistant:
+Sakib Khan
