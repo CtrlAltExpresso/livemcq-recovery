@@ -1,0 +1,40 @@
+{
+ "subject_id": 155,
+ "name": "স্পেশাল বিসিএস ⎯ জেনারেল [Rapid ব্যাচ ⎯ ২০২৬]",
+ "slug_or_type": "",
+ "exams_count": 3,
+ "questions_total": 120,
+ "exams": [
+  {
+   "exam_id": 17049,
+   "date": "Oct 01, 2026",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-17049",
+   "files": [
+    "exam_maps/exam_17049.json"
+   ]
+  },
+  {
+   "exam_id": 17050,
+   "date": "Oct 03, 2026",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-17050",
+   "files": [
+    "exam_maps/exam_17050.json"
+   ]
+  },
+  {
+   "exam_id": 17051,
+   "date": "Oct 05, 2026",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-17051",
+   "files": [
+    "exam_maps/exam_17051.json"
+   ]
+  }
+ ],
+ "filename": "course_155_স্পেশাল_বিসিএস_⎯_জেনারেল_Rapid_ব্যাচ_⎯_২০২৬.json"
+}

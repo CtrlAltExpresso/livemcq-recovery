@@ -1,0 +1,210 @@
+{
+ "subject_id": 133,
+ "name": "৪৯তম বিসিএস ⎯ গার্হস্থ্য অর্থনীতি [৩৯১]",
+ "slug_or_type": "",
+ "exams_count": 20,
+ "questions_total": 1670,
+ "exams": [
+  {
+   "exam_id": 12471,
+   "date": "Aug 11, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12471",
+   "files": [
+    "exam_maps/exam_12471.json"
+   ]
+  },
+  {
+   "exam_id": 12472,
+   "date": "Aug 14, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12472",
+   "files": [
+    "exam_maps/exam_12472.json"
+   ]
+  },
+  {
+   "exam_id": 12473,
+   "date": "Aug 17, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12473",
+   "files": [
+    "exam_maps/exam_12473.json"
+   ]
+  },
+  {
+   "exam_id": 12474,
+   "date": "Aug 20, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12474",
+   "files": [
+    "exam_maps/exam_12474.json"
+   ]
+  },
+  {
+   "exam_id": 12475,
+   "date": "Aug 23, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12475",
+   "files": [
+    "exam_maps/exam_12475.json"
+   ]
+  },
+  {
+   "exam_id": 12476,
+   "date": "Aug 26, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12476",
+   "files": [
+    "exam_maps/exam_12476.json"
+   ]
+  },
+  {
+   "exam_id": 12477,
+   "date": "Aug 29, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12477",
+   "files": [
+    "exam_maps/exam_12477.json"
+   ]
+  },
+  {
+   "exam_id": 12478,
+   "date": "Sep 02, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12478",
+   "files": [
+    "exam_maps/exam_12478.json"
+   ]
+  },
+  {
+   "exam_id": 12479,
+   "date": "Sep 04, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12479",
+   "files": [
+    "exam_maps/exam_12479.json"
+   ]
+  },
+  {
+   "exam_id": 12480,
+   "date": "Sep 07, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12480",
+   "files": [
+    "exam_maps/exam_12480.json"
+   ]
+  },
+  {
+   "exam_id": 12481,
+   "date": "Sep 12, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12481",
+   "files": [
+    "exam_maps/exam_12481.json"
+   ]
+  },
+  {
+   "exam_id": 12482,
+   "date": "Sep 15, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12482",
+   "files": [
+    "exam_maps/exam_12482.json"
+   ]
+  },
+  {
+   "exam_id": 12483,
+   "date": "Sep 21, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12483",
+   "files": [
+    "exam_maps/exam_12483.json"
+   ]
+  },
+  {
+   "exam_id": 12484,
+   "date": "Sep 25, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12484",
+   "files": [
+    "exam_maps/exam_12484.json"
+   ]
+  },
+  {
+   "exam_id": 12485,
+   "date": "Sep 28, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12485",
+   "files": [
+    "exam_maps/exam_12485.json"
+   ]
+  },
+  {
+   "exam_id": 12486,
+   "date": "Oct 04, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12486",
+   "files": [
+    "exam_maps/exam_12486.json"
+   ]
+  },
+  {
+   "exam_id": 12487,
+   "date": "Oct 05, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12487",
+   "files": [
+    "exam_maps/exam_12487.json"
+   ]
+  },
+  {
+   "exam_id": 12488,
+   "date": "Oct 06, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12488",
+   "files": [
+    "exam_maps/exam_12488.json"
+   ]
+  },
+  {
+   "exam_id": 12489,
+   "date": "Oct 07, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12489",
+   "files": [
+    "exam_maps/exam_12489.json"
+   ]
+  },
+  {
+   "exam_id": 12490,
+   "date": "Oct 08, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12490",
+   "files": [
+    "exam_maps/exam_12490.json"
+   ]
+  }
+ ],
+ "filename": "course_133_৪৯তম_বিসিএস_⎯_গার্হস্থ্য_অর্থনীতি_৩৯১.json"
+}

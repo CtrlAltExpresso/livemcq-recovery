@@ -1,0 +1,210 @@
+{
+ "subject_id": 125,
+ "name": "৪৯তম বিসিএস ⎯ হিসাববিজ্ঞান [৭০১]",
+ "slug_or_type": "",
+ "exams_count": 20,
+ "questions_total": 1690,
+ "exams": [
+  {
+   "exam_id": 12051,
+   "date": "Aug 10, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12051",
+   "files": [
+    "exam_maps/exam_12051.json"
+   ]
+  },
+  {
+   "exam_id": 12075,
+   "date": "Aug 16, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12075",
+   "files": [
+    "exam_maps/exam_12075.json"
+   ]
+  },
+  {
+   "exam_id": 12076,
+   "date": "Aug 20, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12076",
+   "files": [
+    "exam_maps/exam_12076.json"
+   ]
+  },
+  {
+   "exam_id": 12077,
+   "date": "Aug 24, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12077",
+   "files": [
+    "exam_maps/exam_12077.json"
+   ]
+  },
+  {
+   "exam_id": 12078,
+   "date": "Aug 28, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12078",
+   "files": [
+    "exam_maps/exam_12078.json"
+   ]
+  },
+  {
+   "exam_id": 12079,
+   "date": "Sep 01, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12079",
+   "files": [
+    "exam_maps/exam_12079.json"
+   ]
+  },
+  {
+   "exam_id": 12080,
+   "date": "Sep 05, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12080",
+   "files": [
+    "exam_maps/exam_12080.json"
+   ]
+  },
+  {
+   "exam_id": 12081,
+   "date": "Sep 08, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12081",
+   "files": [
+    "exam_maps/exam_12081.json"
+   ]
+  },
+  {
+   "exam_id": 12082,
+   "date": "Sep 11, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12082",
+   "files": [
+    "exam_maps/exam_12082.json"
+   ]
+  },
+  {
+   "exam_id": 12083,
+   "date": "Sep 14, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12083",
+   "files": [
+    "exam_maps/exam_12083.json"
+   ]
+  },
+  {
+   "exam_id": 12084,
+   "date": "Sep 17, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12084",
+   "files": [
+    "exam_maps/exam_12084.json"
+   ]
+  },
+  {
+   "exam_id": 12085,
+   "date": "Sep 20, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12085",
+   "files": [
+    "exam_maps/exam_12085.json"
+   ]
+  },
+  {
+   "exam_id": 12086,
+   "date": "Sep 23, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12086",
+   "files": [
+    "exam_maps/exam_12086.json"
+   ]
+  },
+  {
+   "exam_id": 12087,
+   "date": "Sep 26, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12087",
+   "files": [
+    "exam_maps/exam_12087.json"
+   ]
+  },
+  {
+   "exam_id": 12088,
+   "date": "Sep 29, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12088",
+   "files": [
+    "exam_maps/exam_12088.json"
+   ]
+  },
+  {
+   "exam_id": 12089,
+   "date": "Oct 04, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12089",
+   "files": [
+    "exam_maps/exam_12089.json"
+   ]
+  },
+  {
+   "exam_id": 12090,
+   "date": "Oct 05, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12090",
+   "files": [
+    "exam_maps/exam_12090.json"
+   ]
+  },
+  {
+   "exam_id": 12091,
+   "date": "Oct 06, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12091",
+   "files": [
+    "exam_maps/exam_12091.json"
+   ]
+  },
+  {
+   "exam_id": 12092,
+   "date": "Oct 07, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12092",
+   "files": [
+    "exam_maps/exam_12092.json"
+   ]
+  },
+  {
+   "exam_id": 12093,
+   "date": "Oct 08, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12093",
+   "files": [
+    "exam_maps/exam_12093.json"
+   ]
+  }
+ ],
+ "filename": "course_125_৪৯তম_বিসিএস_⎯_হিসাববিজ্ঞান_৭০১.json"
+}

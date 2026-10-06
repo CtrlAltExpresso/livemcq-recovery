@@ -1,0 +1,210 @@
+{
+ "subject_id": 112,
+ "name": "৪৯তম বিসিএস ⎯ ইংরেজি [১২১]",
+ "slug_or_type": "",
+ "exams_count": 20,
+ "questions_total": 1620,
+ "exams": [
+  {
+   "exam_id": 12050,
+   "date": "Aug 11, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12050",
+   "files": [
+    "exam_maps/exam_12050.json"
+   ]
+  },
+  {
+   "exam_id": 12056,
+   "date": "Aug 14, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12056",
+   "files": [
+    "exam_maps/exam_12056.json"
+   ]
+  },
+  {
+   "exam_id": 12057,
+   "date": "Aug 17, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12057",
+   "files": [
+    "exam_maps/exam_12057.json"
+   ]
+  },
+  {
+   "exam_id": 12058,
+   "date": "Aug 20, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12058",
+   "files": [
+    "exam_maps/exam_12058.json"
+   ]
+  },
+  {
+   "exam_id": 12059,
+   "date": "Aug 23, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12059",
+   "files": [
+    "exam_maps/exam_12059.json"
+   ]
+  },
+  {
+   "exam_id": 12060,
+   "date": "Aug 26, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12060",
+   "files": [
+    "exam_maps/exam_12060.json"
+   ]
+  },
+  {
+   "exam_id": 12061,
+   "date": "Aug 29, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12061",
+   "files": [
+    "exam_maps/exam_12061.json"
+   ]
+  },
+  {
+   "exam_id": 12062,
+   "date": "Sep 01, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12062",
+   "files": [
+    "exam_maps/exam_12062.json"
+   ]
+  },
+  {
+   "exam_id": 12063,
+   "date": "Sep 04, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12063",
+   "files": [
+    "exam_maps/exam_12063.json"
+   ]
+  },
+  {
+   "exam_id": 12064,
+   "date": "Sep 08, 2025",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-12064",
+   "files": [
+    "exam_maps/exam_12064.json"
+   ]
+  },
+  {
+   "exam_id": 12065,
+   "date": "Sep 11, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12065",
+   "files": [
+    "exam_maps/exam_12065.json"
+   ]
+  },
+  {
+   "exam_id": 12066,
+   "date": "Sep 16, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12066",
+   "files": [
+    "exam_maps/exam_12066.json"
+   ]
+  },
+  {
+   "exam_id": 12067,
+   "date": "Sep 22, 2025",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-12067",
+   "files": [
+    "exam_maps/exam_12067.json"
+   ]
+  },
+  {
+   "exam_id": 12068,
+   "date": "Sep 25, 2025",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-12068",
+   "files": [
+    "exam_maps/exam_12068.json"
+   ]
+  },
+  {
+   "exam_id": 12069,
+   "date": "Sep 29, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12069",
+   "files": [
+    "exam_maps/exam_12069.json"
+   ]
+  },
+  {
+   "exam_id": 12070,
+   "date": "Oct 04, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12070",
+   "files": [
+    "exam_maps/exam_12070.json"
+   ]
+  },
+  {
+   "exam_id": 12071,
+   "date": "Oct 05, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12071",
+   "files": [
+    "exam_maps/exam_12071.json"
+   ]
+  },
+  {
+   "exam_id": 12072,
+   "date": "Oct 06, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12072",
+   "files": [
+    "exam_maps/exam_12072.json"
+   ]
+  },
+  {
+   "exam_id": 12073,
+   "date": "Oct 07, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12073",
+   "files": [
+    "exam_maps/exam_12073.json"
+   ]
+  },
+  {
+   "exam_id": 12074,
+   "date": "Oct 08, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12074",
+   "files": [
+    "exam_maps/exam_12074.json"
+   ]
+  }
+ ],
+ "filename": "course_112_৪৯তম_বিসিএস_⎯_ইংরেজি_১২১.json"
+}

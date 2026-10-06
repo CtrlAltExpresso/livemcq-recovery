@@ -1,0 +1,210 @@
+{
+ "subject_id": 122,
+ "name": "৪৯তম বিসিএস ⎯ উদ্ভিদবিদ্যা [৫৮১]",
+ "slug_or_type": "",
+ "exams_count": 20,
+ "questions_total": 1710,
+ "exams": [
+  {
+   "exam_id": 12511,
+   "date": "Aug 14, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12511",
+   "files": [
+    "exam_maps/exam_12511.json"
+   ]
+  },
+  {
+   "exam_id": 12512,
+   "date": "Aug 22, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12512",
+   "files": [
+    "exam_maps/exam_12512.json"
+   ]
+  },
+  {
+   "exam_id": 12513,
+   "date": "Aug 24, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12513",
+   "files": [
+    "exam_maps/exam_12513.json"
+   ]
+  },
+  {
+   "exam_id": 12514,
+   "date": "Aug 27, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12514",
+   "files": [
+    "exam_maps/exam_12514.json"
+   ]
+  },
+  {
+   "exam_id": 12515,
+   "date": "Aug 30, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12515",
+   "files": [
+    "exam_maps/exam_12515.json"
+   ]
+  },
+  {
+   "exam_id": 12516,
+   "date": "Sep 02, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12516",
+   "files": [
+    "exam_maps/exam_12516.json"
+   ]
+  },
+  {
+   "exam_id": 12517,
+   "date": "Sep 05, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12517",
+   "files": [
+    "exam_maps/exam_12517.json"
+   ]
+  },
+  {
+   "exam_id": 12518,
+   "date": "Sep 08, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12518",
+   "files": [
+    "exam_maps/exam_12518.json"
+   ]
+  },
+  {
+   "exam_id": 12519,
+   "date": "Sep 10, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12519",
+   "files": [
+    "exam_maps/exam_12519.json"
+   ]
+  },
+  {
+   "exam_id": 12520,
+   "date": "Sep 13, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12520",
+   "files": [
+    "exam_maps/exam_12520.json"
+   ]
+  },
+  {
+   "exam_id": 12521,
+   "date": "Sep 16, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12521",
+   "files": [
+    "exam_maps/exam_12521.json"
+   ]
+  },
+  {
+   "exam_id": 12522,
+   "date": "Sep 21, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12522",
+   "files": [
+    "exam_maps/exam_12522.json"
+   ]
+  },
+  {
+   "exam_id": 12523,
+   "date": "Sep 24, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12523",
+   "files": [
+    "exam_maps/exam_12523.json"
+   ]
+  },
+  {
+   "exam_id": 12524,
+   "date": "Sep 27, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12524",
+   "files": [
+    "exam_maps/exam_12524.json"
+   ]
+  },
+  {
+   "exam_id": 12525,
+   "date": "Sep 29, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12525",
+   "files": [
+    "exam_maps/exam_12525.json"
+   ]
+  },
+  {
+   "exam_id": 12526,
+   "date": "Oct 04, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12526",
+   "files": [
+    "exam_maps/exam_12526.json"
+   ]
+  },
+  {
+   "exam_id": 12527,
+   "date": "Oct 05, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12527",
+   "files": [
+    "exam_maps/exam_12527.json"
+   ]
+  },
+  {
+   "exam_id": 12528,
+   "date": "Oct 06, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12528",
+   "files": [
+    "exam_maps/exam_12528.json"
+   ]
+  },
+  {
+   "exam_id": 12529,
+   "date": "Oct 07, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12529",
+   "files": [
+    "exam_maps/exam_12529.json"
+   ]
+  },
+  {
+   "exam_id": 12530,
+   "date": "Oct 08, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12530",
+   "files": [
+    "exam_maps/exam_12530.json"
+   ]
+  }
+ ],
+ "filename": "course_122_৪৯তম_বিসিএস_⎯_উদ্ভিদবিদ্যা_৫৮১.json"
+}

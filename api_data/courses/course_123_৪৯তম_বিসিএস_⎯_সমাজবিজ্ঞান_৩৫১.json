@@ -1,0 +1,210 @@
+{
+ "subject_id": 123,
+ "name": "৪৯তম বিসিএস ⎯ সমাজবিজ্ঞান [৩৫১]",
+ "slug_or_type": "",
+ "exams_count": 20,
+ "questions_total": 1550,
+ "exams": [
+  {
+   "exam_id": 12531,
+   "date": "Aug 12, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12531",
+   "files": [
+    "exam_maps/exam_12531.json"
+   ]
+  },
+  {
+   "exam_id": 12532,
+   "date": "Aug 15, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12532",
+   "files": [
+    "exam_maps/exam_12532.json"
+   ]
+  },
+  {
+   "exam_id": 12533,
+   "date": "Aug 18, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12533",
+   "files": [
+    "exam_maps/exam_12533.json"
+   ]
+  },
+  {
+   "exam_id": 12534,
+   "date": "Aug 21, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12534",
+   "files": [
+    "exam_maps/exam_12534.json"
+   ]
+  },
+  {
+   "exam_id": 12535,
+   "date": "Aug 24, 2025",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-12535",
+   "files": [
+    "exam_maps/exam_12535.json"
+   ]
+  },
+  {
+   "exam_id": 12536,
+   "date": "Aug 27, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12536",
+   "files": [
+    "exam_maps/exam_12536.json"
+   ]
+  },
+  {
+   "exam_id": 12537,
+   "date": "Aug 30, 2025",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-12537",
+   "files": [
+    "exam_maps/exam_12537.json"
+   ]
+  },
+  {
+   "exam_id": 12538,
+   "date": "Sep 02, 2025",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-12538",
+   "files": [
+    "exam_maps/exam_12538.json"
+   ]
+  },
+  {
+   "exam_id": 12539,
+   "date": "Sep 05, 2025",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-12539",
+   "files": [
+    "exam_maps/exam_12539.json"
+   ]
+  },
+  {
+   "exam_id": 12540,
+   "date": "Sep 08, 2025",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-12540",
+   "files": [
+    "exam_maps/exam_12540.json"
+   ]
+  },
+  {
+   "exam_id": 12541,
+   "date": "Sep 11, 2025",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-12541",
+   "files": [
+    "exam_maps/exam_12541.json"
+   ]
+  },
+  {
+   "exam_id": 12542,
+   "date": "Sep 14, 2025",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-12542",
+   "files": [
+    "exam_maps/exam_12542.json"
+   ]
+  },
+  {
+   "exam_id": 12543,
+   "date": "Sep 20, 2025",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-12543",
+   "files": [
+    "exam_maps/exam_12543.json"
+   ]
+  },
+  {
+   "exam_id": 12544,
+   "date": "Sep 23, 2025",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-12544",
+   "files": [
+    "exam_maps/exam_12544.json"
+   ]
+  },
+  {
+   "exam_id": 12545,
+   "date": "Sep 26, 2025",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-12545",
+   "files": [
+    "exam_maps/exam_12545.json"
+   ]
+  },
+  {
+   "exam_id": 12546,
+   "date": "Oct 04, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12546",
+   "files": [
+    "exam_maps/exam_12546.json"
+   ]
+  },
+  {
+   "exam_id": 12547,
+   "date": "Oct 05, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12547",
+   "files": [
+    "exam_maps/exam_12547.json"
+   ]
+  },
+  {
+   "exam_id": 12548,
+   "date": "Oct 06, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12548",
+   "files": [
+    "exam_maps/exam_12548.json"
+   ]
+  },
+  {
+   "exam_id": 12549,
+   "date": "Oct 07, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12549",
+   "files": [
+    "exam_maps/exam_12549.json"
+   ]
+  },
+  {
+   "exam_id": 12550,
+   "date": "Oct 08, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12550",
+   "files": [
+    "exam_maps/exam_12550.json"
+   ]
+  }
+ ],
+ "filename": "course_123_৪৯তম_বিসিএস_⎯_সমাজবিজ্ঞান_৩৫১.json"
+}

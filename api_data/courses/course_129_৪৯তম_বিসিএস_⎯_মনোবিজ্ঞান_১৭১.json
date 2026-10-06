@@ -1,0 +1,210 @@
+{
+ "subject_id": 129,
+ "name": "৪৯তম বিসিএস ⎯ মনোবিজ্ঞান [১৭১]",
+ "slug_or_type": "",
+ "exams_count": 20,
+ "questions_total": 1690,
+ "exams": [
+  {
+   "exam_id": 12250,
+   "date": "Aug 15, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12250",
+   "files": [
+    "exam_maps/exam_12250.json"
+   ]
+  },
+  {
+   "exam_id": 12251,
+   "date": "Aug 18, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12251",
+   "files": [
+    "exam_maps/exam_12251.json"
+   ]
+  },
+  {
+   "exam_id": 12252,
+   "date": "Aug 21, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12252",
+   "files": [
+    "exam_maps/exam_12252.json"
+   ]
+  },
+  {
+   "exam_id": 12253,
+   "date": "Aug 24, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12253",
+   "files": [
+    "exam_maps/exam_12253.json"
+   ]
+  },
+  {
+   "exam_id": 12254,
+   "date": "Aug 27, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12254",
+   "files": [
+    "exam_maps/exam_12254.json"
+   ]
+  },
+  {
+   "exam_id": 12255,
+   "date": "Aug 30, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12255",
+   "files": [
+    "exam_maps/exam_12255.json"
+   ]
+  },
+  {
+   "exam_id": 12256,
+   "date": "Sep 02, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12256",
+   "files": [
+    "exam_maps/exam_12256.json"
+   ]
+  },
+  {
+   "exam_id": 12257,
+   "date": "Sep 05, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12257",
+   "files": [
+    "exam_maps/exam_12257.json"
+   ]
+  },
+  {
+   "exam_id": 12258,
+   "date": "Sep 08, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12258",
+   "files": [
+    "exam_maps/exam_12258.json"
+   ]
+  },
+  {
+   "exam_id": 12259,
+   "date": "Sep 11, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12259",
+   "files": [
+    "exam_maps/exam_12259.json"
+   ]
+  },
+  {
+   "exam_id": 12260,
+   "date": "Sep 14, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12260",
+   "files": [
+    "exam_maps/exam_12260.json"
+   ]
+  },
+  {
+   "exam_id": 12261,
+   "date": "Sep 20, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12261",
+   "files": [
+    "exam_maps/exam_12261.json"
+   ]
+  },
+  {
+   "exam_id": 12262,
+   "date": "Sep 23, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12262",
+   "files": [
+    "exam_maps/exam_12262.json"
+   ]
+  },
+  {
+   "exam_id": 12263,
+   "date": "Sep 26, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12263",
+   "files": [
+    "exam_maps/exam_12263.json"
+   ]
+  },
+  {
+   "exam_id": 12264,
+   "date": "Sep 29, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12264",
+   "files": [
+    "exam_maps/exam_12264.json"
+   ]
+  },
+  {
+   "exam_id": 12265,
+   "date": "Oct 04, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12265",
+   "files": [
+    "exam_maps/exam_12265.json"
+   ]
+  },
+  {
+   "exam_id": 12266,
+   "date": "Oct 05, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12266",
+   "files": [
+    "exam_maps/exam_12266.json"
+   ]
+  },
+  {
+   "exam_id": 12267,
+   "date": "Oct 06, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12267",
+   "files": [
+    "exam_maps/exam_12267.json"
+   ]
+  },
+  {
+   "exam_id": 12268,
+   "date": "Oct 07, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12268",
+   "files": [
+    "exam_maps/exam_12268.json"
+   ]
+  },
+  {
+   "exam_id": 12269,
+   "date": "Oct 08, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12269",
+   "files": [
+    "exam_maps/exam_12269.json"
+   ]
+  }
+ ],
+ "filename": "course_129_৪৯তম_বিসিএস_⎯_মনোবিজ্ঞান_১৭১.json"
+}

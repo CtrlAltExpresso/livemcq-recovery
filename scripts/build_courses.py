@@ -2,11 +2,19 @@
 """Build course -> exams -> questions structure from canonical lists + filters.
 Outputs: api_data/courses/courses.json (master) and api_data/courses/course_<id>.json (per course).
 Writes only; never modifies existing data files."""
-import json, glob, collections, os
+import json, glob, collections, os, re, unicodedata
 
 API = '/home/sakib/offlineMCQ/api_data'
 OUT = f'{API}/courses'
 os.makedirs(OUT, exist_ok=True)
+
+def slugify(name):
+    """keep everything except ASCII control/space/punctuation; collapse runs to single _, trim to 80 chars."""
+    name = (name or '').strip()
+    name = re.sub(r'[\x00-\x20\x7f-\xa0\[\](){}<>"\'`!@#$%^&*+=|:;,./?\\~-]+', ' ', name)
+    name = re.sub(r'\s+', '_', name)
+    name = re.sub(r'_+', '_', name).strip('_')
+    return name[:80]
 
 # subject metadata from filters
 filters = {}
@@ -61,7 +69,11 @@ for sid, rows in sorted(exams.items(), key=lambda kv: -sum(qcount(x) for x in kv
     }
     with open(f'{OUT}/course_{sid}.json', 'w') as f:
         json.dump(course, f, ensure_ascii=False, indent=1)
-    master.append({k: course[k] for k in ('subject_id', 'name', 'slug_or_type', 'exams_count', 'questions_total')})
+    course['filename'] = f'course_{sid}_{slugify(course["name"])}.json'
+    with open(f'{OUT}/{course["filename"]}', 'w') as f:
+        json.dump(course, f, ensure_ascii=False, indent=1)
+    os.remove(f'{OUT}/course_{sid}.json')
+    master.append({k: course[k] for k in ('subject_id', 'name', 'slug_or_type', 'exams_count', 'questions_total', 'filename')})
 
 with open(f'{OUT}/courses.json', 'w') as f:
     json.dump(master, f, ensure_ascii=False, indent=1)
