@@ -1,0 +1,129 @@
+{
+ "subject_id": 108,
+ "name": "স্পেশাল বিসিএস [স্বাস্থ্য] ⎯ ডেন্টাল মডেল টেস্ট [২০২৬]",
+ "slug_or_type": "",
+ "exams_count": 12,
+ "questions_total": 1800,
+ "exams": [
+  {
+   "exam_id": 11669,
+   "date": "Jul 03, 2025",
+   "question_number": 80,
+   "is_omr": true,
+   "slug": "2344889-11669",
+   "files": [
+    "exam_maps/exam_11669.json"
+   ]
+  },
+  {
+   "exam_id": 11670,
+   "date": "Jul 05, 2025",
+   "question_number": 80,
+   "is_omr": true,
+   "slug": "2344889-11670",
+   "files": [
+    "exam_maps/exam_11670.json"
+   ]
+  },
+  {
+   "exam_id": 11671,
+   "date": "Jul 07, 2025",
+   "question_number": 80,
+   "is_omr": true,
+   "slug": "2344889-11671",
+   "files": [
+    "exam_maps/exam_11671.json"
+   ]
+  },
+  {
+   "exam_id": 11672,
+   "date": "Jul 09, 2025",
+   "question_number": 80,
+   "is_omr": true,
+   "slug": "2344889-11672",
+   "files": [
+    "exam_maps/exam_11672.json"
+   ]
+  },
+  {
+   "exam_id": 11673,
+   "date": "Jul 10, 2025",
+   "question_number": 80,
+   "is_omr": true,
+   "slug": "2344889-11673",
+   "files": [
+    "exam_maps/exam_11673.json"
+   ]
+  },
+  {
+   "exam_id": 11674,
+   "date": "Jul 12, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-11674",
+   "files": [
+    "exam_maps/exam_11674.json"
+   ]
+  },
+  {
+   "exam_id": 11675,
+   "date": "Jul 14, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-11675",
+   "files": [
+    "exam_maps/exam_11675.json"
+   ]
+  },
+  {
+   "exam_id": 11676,
+   "date": "Jul 15, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-11676",
+   "files": [
+    "exam_maps/exam_11676.json"
+   ]
+  },
+  {
+   "exam_id": 16540,
+   "date": "Aug 14, 2026",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-16540",
+   "files": [
+    "exam_maps/exam_16540.json"
+   ]
+  },
+  {
+   "exam_id": 16555,
+   "date": "Aug 28, 2026",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-16555",
+   "files": [
+    "exam_maps/exam_16555.json"
+   ]
+  },
+  {
+   "exam_id": 16802,
+   "date": "Sep 11, 2026",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-16802",
+   "files": [
+    "exam_maps/exam_16802.json"
+   ]
+  },
+  {
+   "exam_id": 16803,
+   "date": "Sep 26, 2026",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-16803",
+   "files": [
+    "exam_maps/exam_16803.json"
+   ]
+  }
+ ]
+}

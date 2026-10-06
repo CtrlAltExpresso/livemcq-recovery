@@ -1,0 +1,209 @@
+{
+ "subject_id": 140,
+ "name": "৪৯তম বিসিএস ⎯ কম্পিউটার সায়েন্স (CSE) [৯৭১]",
+ "slug_or_type": "",
+ "exams_count": 20,
+ "questions_total": 1670,
+ "exams": [
+  {
+   "exam_id": 12392,
+   "date": "Aug 10, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12392",
+   "files": [
+    "exam_maps/exam_12392.json"
+   ]
+  },
+  {
+   "exam_id": 12393,
+   "date": "Aug 16, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12393",
+   "files": [
+    "exam_maps/exam_12393.json"
+   ]
+  },
+  {
+   "exam_id": 12394,
+   "date": "Aug 21, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12394",
+   "files": [
+    "exam_maps/exam_12394.json"
+   ]
+  },
+  {
+   "exam_id": 12395,
+   "date": "Aug 25, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-12395",
+   "files": [
+    "exam_maps/exam_12395.json"
+   ]
+  },
+  {
+   "exam_id": 12396,
+   "date": "Aug 28, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12396",
+   "files": [
+    "exam_maps/exam_12396.json"
+   ]
+  },
+  {
+   "exam_id": 12397,
+   "date": "Aug 31, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12397",
+   "files": [
+    "exam_maps/exam_12397.json"
+   ]
+  },
+  {
+   "exam_id": 12398,
+   "date": "Sep 02, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12398",
+   "files": [
+    "exam_maps/exam_12398.json"
+   ]
+  },
+  {
+   "exam_id": 12399,
+   "date": "Sep 05, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12399",
+   "files": [
+    "exam_maps/exam_12399.json"
+   ]
+  },
+  {
+   "exam_id": 12400,
+   "date": "Sep 08, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12400",
+   "files": [
+    "exam_maps/exam_12400.json"
+   ]
+  },
+  {
+   "exam_id": 12401,
+   "date": "Sep 11, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12401",
+   "files": [
+    "exam_maps/exam_12401.json"
+   ]
+  },
+  {
+   "exam_id": 12402,
+   "date": "Sep 14, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12402",
+   "files": [
+    "exam_maps/exam_12402.json"
+   ]
+  },
+  {
+   "exam_id": 12403,
+   "date": "Sep 20, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12403",
+   "files": [
+    "exam_maps/exam_12403.json"
+   ]
+  },
+  {
+   "exam_id": 12404,
+   "date": "Sep 23, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12404",
+   "files": [
+    "exam_maps/exam_12404.json"
+   ]
+  },
+  {
+   "exam_id": 12405,
+   "date": "Sep 26, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12405",
+   "files": [
+    "exam_maps/exam_12405.json"
+   ]
+  },
+  {
+   "exam_id": 12406,
+   "date": "Sep 29, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12406",
+   "files": [
+    "exam_maps/exam_12406.json"
+   ]
+  },
+  {
+   "exam_id": 12407,
+   "date": "Oct 04, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12407",
+   "files": [
+    "exam_maps/exam_12407.json"
+   ]
+  },
+  {
+   "exam_id": 12408,
+   "date": "Oct 05, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12408",
+   "files": [
+    "exam_maps/exam_12408.json"
+   ]
+  },
+  {
+   "exam_id": 12409,
+   "date": "Oct 06, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12409",
+   "files": [
+    "exam_maps/exam_12409.json"
+   ]
+  },
+  {
+   "exam_id": 12410,
+   "date": "Oct 07, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12410",
+   "files": [
+    "exam_maps/exam_12410.json"
+   ]
+  },
+  {
+   "exam_id": 12411,
+   "date": "Oct 08, 2025",
+   "question_number": 200,
+   "is_omr": true,
+   "slug": "2344889-12411",
+   "files": [
+    "exam_maps/exam_12411.json"
+   ]
+  }
+ ]
+}

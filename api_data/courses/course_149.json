@@ -1,0 +1,129 @@
+{
+ "subject_id": 149,
+ "name": "NTRCA প্রতিষ্ঠান প্রধান প্রস্তুতি",
+ "slug_or_type": "",
+ "exams_count": 12,
+ "questions_total": 630,
+ "exams": [
+  {
+   "exam_id": 14978,
+   "date": "Apr 03, 2026",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-14978",
+   "files": [
+    "exam_maps/exam_14978.json"
+   ]
+  },
+  {
+   "exam_id": 14980,
+   "date": "Apr 04, 2026",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-14980",
+   "files": [
+    "exam_maps/exam_14980.json"
+   ]
+  },
+  {
+   "exam_id": 14982,
+   "date": "Apr 05, 2026",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-14982",
+   "files": [
+    "exam_maps/exam_14982.json"
+   ]
+  },
+  {
+   "exam_id": 14983,
+   "date": "Apr 07, 2026",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-14983",
+   "files": [
+    "exam_maps/exam_14983.json"
+   ]
+  },
+  {
+   "exam_id": 14984,
+   "date": "Apr 09, 2026",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-14984",
+   "files": [
+    "exam_maps/exam_14984.json"
+   ]
+  },
+  {
+   "exam_id": 14985,
+   "date": "Apr 10, 2026",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-14985",
+   "files": [
+    "exam_maps/exam_14985.json"
+   ]
+  },
+  {
+   "exam_id": 14986,
+   "date": "Apr 11, 2026",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-14986",
+   "files": [
+    "exam_maps/exam_14986.json"
+   ]
+  },
+  {
+   "exam_id": 14987,
+   "date": "Apr 12, 2026",
+   "question_number": 60,
+   "is_omr": true,
+   "slug": "2344889-14987",
+   "files": [
+    "exam_maps/exam_14987.json"
+   ]
+  },
+  {
+   "exam_id": 14988,
+   "date": "Apr 13, 2026",
+   "question_number": 60,
+   "is_omr": true,
+   "slug": "2344889-14988",
+   "files": [
+    "exam_maps/exam_14988.json"
+   ]
+  },
+  {
+   "exam_id": 14989,
+   "date": "Apr 14, 2026",
+   "question_number": 60,
+   "is_omr": true,
+   "slug": "2344889-14989",
+   "files": [
+    "exam_maps/exam_14989.json"
+   ]
+  },
+  {
+   "exam_id": 14990,
+   "date": "Apr 15, 2026",
+   "question_number": 60,
+   "is_omr": true,
+   "slug": "2344889-14990",
+   "files": [
+    "exam_maps/exam_14990.json"
+   ]
+  },
+  {
+   "exam_id": 14991,
+   "date": "Apr 16, 2026",
+   "question_number": 60,
+   "is_omr": true,
+   "slug": "2344889-14991",
+   "files": [
+    "exam_maps/exam_14991.json"
+   ]
+  }
+ ]
+}

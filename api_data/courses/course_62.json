@@ -1,0 +1,789 @@
+{
+ "subject_id": 62,
+ "name": "নৈতিকতা, মূল্যবোধ ও সুশাসন",
+ "slug_or_type": "",
+ "exams_count": 78,
+ "questions_total": 1735,
+ "exams": [
+  {
+   "exam_id": 5957,
+   "date": "Sep 19, 2023",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-5957",
+   "files": [
+    "exam_maps/exam_5957.json"
+   ]
+  },
+  {
+   "exam_id": 5958,
+   "date": "Oct 04, 2023",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-5958",
+   "files": [
+    "exam_maps/exam_5958.json"
+   ]
+  },
+  {
+   "exam_id": 5959,
+   "date": "Oct 19, 2023",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-5959",
+   "files": [
+    "exam_maps/exam_5959.json"
+   ]
+  },
+  {
+   "exam_id": 5960,
+   "date": "Nov 02, 2023",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-5960",
+   "files": [
+    "exam_maps/exam_5960.json"
+   ]
+  },
+  {
+   "exam_id": 5961,
+   "date": "Jan 22, 2024",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-5961",
+   "files": [
+    "exam_maps/exam_5961.json"
+   ]
+  },
+  {
+   "exam_id": 5962,
+   "date": "Jan 25, 2024",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-5962",
+   "files": [
+    "exam_maps/exam_5962.json"
+   ]
+  },
+  {
+   "exam_id": 8174,
+   "date": "May 28, 2024",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-8174",
+   "files": [
+    "exam_maps/exam_8174.json"
+   ]
+  },
+  {
+   "exam_id": 8176,
+   "date": "Jun 13, 2024",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-8176",
+   "files": [
+    "exam_maps/exam_8176.json"
+   ]
+  },
+  {
+   "exam_id": 8178,
+   "date": "Jun 27, 2024",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-8178",
+   "files": [
+    "exam_maps/exam_8178.json"
+   ]
+  },
+  {
+   "exam_id": 8180,
+   "date": "Jul 04, 2024",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-8180",
+   "files": [
+    "exam_maps/exam_8180.json"
+   ]
+  },
+  {
+   "exam_id": 8182,
+   "date": "Jul 11, 2024",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-8182",
+   "files": [
+    "exam_maps/exam_8182.json"
+   ]
+  },
+  {
+   "exam_id": 8184,
+   "date": "Aug 22, 2024",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-8184",
+   "files": [
+    "exam_maps/exam_8184.json"
+   ]
+  },
+  {
+   "exam_id": 8186,
+   "date": "Aug 29, 2024",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-8186",
+   "files": [
+    "exam_maps/exam_8186.json"
+   ]
+  },
+  {
+   "exam_id": 8188,
+   "date": "Sep 05, 2024",
+   "question_number": 35,
+   "is_omr": false,
+   "slug": "2344889-8188",
+   "files": [
+    "exam_maps/exam_8188.json"
+   ]
+  },
+  {
+   "exam_id": 8931,
+   "date": "Oct 24, 2024",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-8931",
+   "files": [
+    "exam_maps/exam_8931.json"
+   ]
+  },
+  {
+   "exam_id": 8933,
+   "date": "Oct 31, 2024",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-8933",
+   "files": [
+    "exam_maps/exam_8933.json"
+   ]
+  },
+  {
+   "exam_id": 8935,
+   "date": "Nov 07, 2024",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-8935",
+   "files": [
+    "exam_maps/exam_8935.json"
+   ]
+  },
+  {
+   "exam_id": 8937,
+   "date": "Nov 14, 2024",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-8937",
+   "files": [
+    "exam_maps/exam_8937.json"
+   ]
+  },
+  {
+   "exam_id": 8939,
+   "date": "Nov 21, 2024",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-8939",
+   "files": [
+    "exam_maps/exam_8939.json"
+   ]
+  },
+  {
+   "exam_id": 8941,
+   "date": "Nov 28, 2024",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-8941",
+   "files": [
+    "exam_maps/exam_8941.json"
+   ]
+  },
+  {
+   "exam_id": 8943,
+   "date": "Dec 05, 2024",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-8943",
+   "files": [
+    "exam_maps/exam_8943.json"
+   ]
+  },
+  {
+   "exam_id": 8945,
+   "date": "Dec 12, 2024",
+   "question_number": 30,
+   "is_omr": false,
+   "slug": "2344889-8945",
+   "files": [
+    "exam_maps/exam_8945.json"
+   ]
+  },
+  {
+   "exam_id": 10400,
+   "date": "Jan 09, 2025",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-10400",
+   "files": [
+    "exam_maps/exam_10400.json"
+   ]
+  },
+  {
+   "exam_id": 10402,
+   "date": "Jan 16, 2025",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-10402",
+   "files": [
+    "exam_maps/exam_10402.json"
+   ]
+  },
+  {
+   "exam_id": 10404,
+   "date": "Jan 23, 2025",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-10404",
+   "files": [
+    "exam_maps/exam_10404.json"
+   ]
+  },
+  {
+   "exam_id": 10406,
+   "date": "Jan 30, 2025",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-10406",
+   "files": [
+    "exam_maps/exam_10406.json"
+   ]
+  },
+  {
+   "exam_id": 10408,
+   "date": "Feb 06, 2025",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-10408",
+   "files": [
+    "exam_maps/exam_10408.json"
+   ]
+  },
+  {
+   "exam_id": 10410,
+   "date": "Feb 13, 2025",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-10410",
+   "files": [
+    "exam_maps/exam_10410.json"
+   ]
+  },
+  {
+   "exam_id": 10412,
+   "date": "Feb 20, 2025",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-10412",
+   "files": [
+    "exam_maps/exam_10412.json"
+   ]
+  },
+  {
+   "exam_id": 10414,
+   "date": "Feb 27, 2025",
+   "question_number": 30,
+   "is_omr": false,
+   "slug": "2344889-10414",
+   "files": [
+    "exam_maps/exam_10414.json"
+   ]
+  },
+  {
+   "exam_id": 10965,
+   "date": "Apr 10, 2025",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-10965",
+   "files": [
+    "exam_maps/exam_10965.json"
+   ]
+  },
+  {
+   "exam_id": 10966,
+   "date": "Apr 17, 2025",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-10966",
+   "files": [
+    "exam_maps/exam_10966.json"
+   ]
+  },
+  {
+   "exam_id": 10967,
+   "date": "Apr 24, 2025",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-10967",
+   "files": [
+    "exam_maps/exam_10967.json"
+   ]
+  },
+  {
+   "exam_id": 10968,
+   "date": "May 01, 2025",
+   "question_number": 30,
+   "is_omr": false,
+   "slug": "2344889-10968",
+   "files": [
+    "exam_maps/exam_10968.json"
+   ]
+  },
+  {
+   "exam_id": 10969,
+   "date": "May 08, 2025",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-10969",
+   "files": [
+    "exam_maps/exam_10969.json"
+   ]
+  },
+  {
+   "exam_id": 10970,
+   "date": "May 15, 2025",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-10970",
+   "files": [
+    "exam_maps/exam_10970.json"
+   ]
+  },
+  {
+   "exam_id": 10971,
+   "date": "May 22, 2025",
+   "question_number": 30,
+   "is_omr": false,
+   "slug": "2344889-10971",
+   "files": [
+    "exam_maps/exam_10971.json"
+   ]
+  },
+  {
+   "exam_id": 10972,
+   "date": "May 29, 2025",
+   "question_number": 30,
+   "is_omr": false,
+   "slug": "2344889-10972",
+   "files": [
+    "exam_maps/exam_10972.json"
+   ]
+  },
+  {
+   "exam_id": 11722,
+   "date": "Jul 10, 2025",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-11722",
+   "files": [
+    "exam_maps/exam_11722.json"
+   ]
+  },
+  {
+   "exam_id": 11723,
+   "date": "Jul 17, 2025",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-11723",
+   "files": [
+    "exam_maps/exam_11723.json"
+   ]
+  },
+  {
+   "exam_id": 11724,
+   "date": "Jul 24, 2025",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-11724",
+   "files": [
+    "exam_maps/exam_11724.json"
+   ]
+  },
+  {
+   "exam_id": 11725,
+   "date": "Jul 31, 2025",
+   "question_number": 25,
+   "is_omr": true,
+   "slug": "2344889-11725",
+   "files": [
+    "exam_maps/exam_11725.json"
+   ]
+  },
+  {
+   "exam_id": 11726,
+   "date": "Aug 07, 2025",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-11726",
+   "files": [
+    "exam_maps/exam_11726.json"
+   ]
+  },
+  {
+   "exam_id": 11727,
+   "date": "Aug 14, 2025",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-11727",
+   "files": [
+    "exam_maps/exam_11727.json"
+   ]
+  },
+  {
+   "exam_id": 11728,
+   "date": "Aug 21, 2025",
+   "question_number": 25,
+   "is_omr": true,
+   "slug": "2344889-11728",
+   "files": [
+    "exam_maps/exam_11728.json"
+   ]
+  },
+  {
+   "exam_id": 11729,
+   "date": "Aug 28, 2025",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-11729",
+   "files": [
+    "exam_maps/exam_11729.json"
+   ]
+  },
+  {
+   "exam_id": 13263,
+   "date": "Nov 13, 2025",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-13263",
+   "files": [
+    "exam_maps/exam_13263.json"
+   ]
+  },
+  {
+   "exam_id": 13264,
+   "date": "Nov 20, 2025",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-13264",
+   "files": [
+    "exam_maps/exam_13264.json"
+   ]
+  },
+  {
+   "exam_id": 13265,
+   "date": "Nov 27, 2025",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-13265",
+   "files": [
+    "exam_maps/exam_13265.json"
+   ]
+  },
+  {
+   "exam_id": 13266,
+   "date": "Dec 04, 2025",
+   "question_number": 25,
+   "is_omr": true,
+   "slug": "2344889-13266",
+   "files": [
+    "exam_maps/exam_13266.json"
+   ]
+  },
+  {
+   "exam_id": 13267,
+   "date": "Dec 11, 2025",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-13267",
+   "files": [
+    "exam_maps/exam_13267.json"
+   ]
+  },
+  {
+   "exam_id": 13268,
+   "date": "Dec 18, 2025",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-13268",
+   "files": [
+    "exam_maps/exam_13268.json"
+   ]
+  },
+  {
+   "exam_id": 13270,
+   "date": "Dec 25, 2025",
+   "question_number": 25,
+   "is_omr": true,
+   "slug": "2344889-13270",
+   "files": [
+    "exam_maps/exam_13270.json"
+   ]
+  },
+  {
+   "exam_id": 13271,
+   "date": "Jan 06, 2026",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-13271",
+   "files": [
+    "exam_maps/exam_13271.json"
+   ]
+  },
+  {
+   "exam_id": 14563,
+   "date": "Feb 22, 2026",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-14563",
+   "files": [
+    "exam_maps/exam_14563.json"
+   ]
+  },
+  {
+   "exam_id": 14564,
+   "date": "Mar 01, 2026",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-14564",
+   "files": [
+    "exam_maps/exam_14564.json"
+   ]
+  },
+  {
+   "exam_id": 14565,
+   "date": "Mar 08, 2026",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-14565",
+   "files": [
+    "exam_maps/exam_14565.json"
+   ]
+  },
+  {
+   "exam_id": 14566,
+   "date": "Mar 15, 2026",
+   "question_number": 25,
+   "is_omr": true,
+   "slug": "2344889-14566",
+   "files": [
+    "exam_maps/exam_14566.json"
+   ]
+  },
+  {
+   "exam_id": 14567,
+   "date": "Mar 24, 2026",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-14567",
+   "files": [
+    "exam_maps/exam_14567.json"
+   ]
+  },
+  {
+   "exam_id": 14568,
+   "date": "Mar 29, 2026",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-14568",
+   "files": [
+    "exam_maps/exam_14568.json"
+   ]
+  },
+  {
+   "exam_id": 14569,
+   "date": "Apr 05, 2026",
+   "question_number": 25,
+   "is_omr": true,
+   "slug": "2344889-14569",
+   "files": [
+    "exam_maps/exam_14569.json"
+   ]
+  },
+  {
+   "exam_id": 14570,
+   "date": "Apr 12, 2026",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-14570",
+   "files": [
+    "exam_maps/exam_14570.json"
+   ]
+  },
+  {
+   "exam_id": 15289,
+   "date": "May 10, 2026",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-15289",
+   "files": [
+    "exam_maps/exam_15289.json"
+   ]
+  },
+  {
+   "exam_id": 15291,
+   "date": "May 17, 2026",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-15291",
+   "files": [
+    "exam_maps/exam_15291.json"
+   ]
+  },
+  {
+   "exam_id": 15293,
+   "date": "May 24, 2026",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-15293",
+   "files": [
+    "exam_maps/exam_15293.json"
+   ]
+  },
+  {
+   "exam_id": 15295,
+   "date": "Jun 07, 2026",
+   "question_number": 25,
+   "is_omr": true,
+   "slug": "2344889-15295",
+   "files": [
+    "exam_maps/exam_15295.json"
+   ]
+  },
+  {
+   "exam_id": 15297,
+   "date": "Jun 14, 2026",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-15297",
+   "files": [
+    "exam_maps/exam_15297.json"
+   ]
+  },
+  {
+   "exam_id": 15299,
+   "date": "Jun 21, 2026",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-15299",
+   "files": [
+    "exam_maps/exam_15299.json"
+   ]
+  },
+  {
+   "exam_id": 15301,
+   "date": "Jun 28, 2026",
+   "question_number": 25,
+   "is_omr": true,
+   "slug": "2344889-15301",
+   "files": [
+    "exam_maps/exam_15301.json"
+   ]
+  },
+  {
+   "exam_id": 15303,
+   "date": "Jul 05, 2026",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-15303",
+   "files": [
+    "exam_maps/exam_15303.json"
+   ]
+  },
+  {
+   "exam_id": 16396,
+   "date": "Aug 06, 2026",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-16396",
+   "files": [
+    "exam_maps/exam_16396.json"
+   ]
+  },
+  {
+   "exam_id": 16398,
+   "date": "Aug 13, 2026",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-16398",
+   "files": [
+    "exam_maps/exam_16398.json"
+   ]
+  },
+  {
+   "exam_id": 16400,
+   "date": "Aug 20, 2026",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-16400",
+   "files": [
+    "exam_maps/exam_16400.json"
+   ]
+  },
+  {
+   "exam_id": 16402,
+   "date": "Sep 03, 2026",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-16402",
+   "files": [
+    "exam_maps/exam_16402.json"
+   ]
+  },
+  {
+   "exam_id": 16404,
+   "date": "Sep 10, 2026",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-16404",
+   "files": [
+    "exam_maps/exam_16404.json"
+   ]
+  },
+  {
+   "exam_id": 16406,
+   "date": "Sep 17, 2026",
+   "question_number": 20,
+   "is_omr": true,
+   "slug": "2344889-16406",
+   "files": [
+    "exam_maps/exam_16406.json"
+   ]
+  },
+  {
+   "exam_id": 16408,
+   "date": "Sep 24, 2026",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-16408",
+   "files": [
+    "exam_maps/exam_16408.json"
+   ]
+  },
+  {
+   "exam_id": 16410,
+   "date": "Oct 01, 2026",
+   "question_number": 30,
+   "is_omr": true,
+   "slug": "2344889-16410",
+   "files": [
+    "exam_maps/exam_16410.json"
+   ]
+  }
+ ]
+}

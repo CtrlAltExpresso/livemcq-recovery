@@ -1,0 +1,807 @@
+[
+ {
+  "subject_id": 14,
+  "name": "১৪০ দিনে ৫২তম বিসিএস প্রস্তুতি",
+  "slug_or_type": "",
+  "exams_count": 926,
+  "questions_total": 57964
+ },
+ {
+  "subject_id": 32,
+  "name": "ফ্রি সাপ্তাহিক মডেল টেস্ট",
+  "slug_or_type": "",
+  "exams_count": 263,
+  "questions_total": 52600
+ },
+ {
+  "subject_id": 4,
+  "name": "ডেইলি কুইজ [২০০ দিন]",
+  "slug_or_type": "",
+  "exams_count": 1799,
+  "questions_total": 41521
+ },
+ {
+  "subject_id": 34,
+  "name": "৫২তম বিসিএস ফাইনাল মডেল টেস্ট ও রিভিশন",
+  "slug_or_type": "",
+  "exams_count": 252,
+  "questions_total": 31980
+ },
+ {
+  "subject_id": 16,
+  "name": "১০০ দিনে বিসিএস প্রস্তুতি [বিষয়ভিত্তিক]",
+  "slug_or_type": "",
+  "exams_count": 527,
+  "questions_total": 30952
+ },
+ {
+  "subject_id": 6,
+  "name": "৯ম - ১৩তম গ্রেড পরীক্ষার প্রস্তুতি",
+  "slug_or_type": "",
+  "exams_count": 496,
+  "questions_total": 27565
+ },
+ {
+  "subject_id": 11,
+  "name": "জব সল্যুশন [৯ম - ১৩তম গ্রেড]",
+  "slug_or_type": "",
+  "exams_count": 328,
+  "questions_total": 26762
+ },
+ {
+  "subject_id": 68,
+  "name": "ব্যাংক মডেল টেস্ট [সাপ্তাহিক]",
+  "slug_or_type": "",
+  "exams_count": 279,
+  "questions_total": 26760
+ },
+ {
+  "subject_id": 43,
+  "name": "নতুনদের বিসিএস প্রস্তুতি - ২০০ দিনে পুরো সিলেবাস",
+  "slug_or_type": "",
+  "exams_count": 492,
+  "questions_total": 24940
+ },
+ {
+  "subject_id": 30,
+  "name": "প্রাইমারি শিক্ষক নিয়োগ প্রস্তুতি [লং কোর্স]",
+  "slug_or_type": "",
+  "exams_count": 506,
+  "questions_total": 22401
+ },
+ {
+  "subject_id": 26,
+  "name": "৪০ দিনে ৪৭তম বিসিএস প্রস্তুতি - Archived",
+  "slug_or_type": "",
+  "exams_count": 286,
+  "questions_total": 21790
+ },
+ {
+  "subject_id": 66,
+  "name": "৩৯, ৪২ ও ৪৮তম স্পেশাল বিসিএস [স্বাস্থ্য]",
+  "slug_or_type": "",
+  "exams_count": 323,
+  "questions_total": 20294
+ },
+ {
+  "subject_id": 5,
+  "name": "ব্যাংক নিয়োগ প্রস্তুতি ⎯ লং কোর্স",
+  "slug_or_type": "",
+  "exams_count": 495,
+  "questions_total": 14945
+ },
+ {
+  "subject_id": 38,
+  "name": "বিসিএস জব সল্যুশন [১০ম - ৫০তম বিসিএস]",
+  "slug_or_type": "",
+  "exams_count": 99,
+  "questions_total": 13850
+ },
+ {
+  "subject_id": 7,
+  "name": "শিক্ষক নিবন্ধন (NTRCA) প্রস্তুতি [১৯তম]",
+  "slug_or_type": "",
+  "exams_count": 350,
+  "questions_total": 12460
+ },
+ {
+  "subject_id": 101,
+  "name": "জব সল্যুশন [১৪তম - ২০তম গ্রেড]",
+  "slug_or_type": "",
+  "exams_count": 170,
+  "questions_total": 12374
+ },
+ {
+  "subject_id": 73,
+  "name": "১৯তম জুডিসিয়াল সার্ভিস (BJS) প্রস্তুতি",
+  "slug_or_type": "",
+  "exams_count": 251,
+  "questions_total": 12110
+ },
+ {
+  "subject_id": 78,
+  "name": "বিসিএস জব সল্যুশন - রিভিশন",
+  "slug_or_type": "",
+  "exams_count": 132,
+  "questions_total": 11730
+ },
+ {
+  "subject_id": 27,
+  "name": "Vocabulary Booster",
+  "slug_or_type": "",
+  "exams_count": 434,
+  "questions_total": 11350
+ },
+ {
+  "subject_id": 19,
+  "name": "Math Master",
+  "slug_or_type": "",
+  "exams_count": 461,
+  "questions_total": 10051
+ },
+ {
+  "subject_id": 31,
+  "name": "ব্যাংক জব সল্যুশন",
+  "slug_or_type": "",
+  "exams_count": 123,
+  "questions_total": 9954
+ },
+ {
+  "subject_id": 56,
+  "name": "১৪তম - ২০তম গ্রেড পরীক্ষার প্রস্তুতি",
+  "slug_or_type": "",
+  "exams_count": 305,
+  "questions_total": 9750
+ },
+ {
+  "subject_id": 70,
+  "name": "NTRCA ফুল মডেল টেস্ট",
+  "slug_or_type": "",
+  "exams_count": 88,
+  "questions_total": 8800
+ },
+ {
+  "subject_id": 74,
+  "name": "৫০ দিনে ৫০তম বিসিএস প্রস্তুতি [সমন্বিত] - Archived",
+  "slug_or_type": "",
+  "exams_count": 134,
+  "questions_total": 8385
+ },
+ {
+  "subject_id": 86,
+  "name": "প্রাইমারি ফুল মডেল টেস্ট",
+  "slug_or_type": "",
+  "exams_count": 88,
+  "questions_total": 7305
+ },
+ {
+  "subject_id": 35,
+  "name": "প্রাইমারি জব সল্যুশন",
+  "slug_or_type": "",
+  "exams_count": 105,
+  "questions_total": 7285
+ },
+ {
+  "subject_id": 47,
+  "name": "গুরুত্বপূর্ণ টপিকের উপর পরীক্ষা - ১৩৫ মার্কস্‌ কাভার",
+  "slug_or_type": "",
+  "exams_count": 178,
+  "questions_total": 7150
+ },
+ {
+  "subject_id": 100,
+  "name": "বার কাউন্সিল এনরোলমেন্ট ⎯ ২০২৬",
+  "slug_or_type": "",
+  "exams_count": 104,
+  "questions_total": 7120
+ },
+ {
+  "subject_id": 77,
+  "name": "৪৫ দিনে ৫০তম বিসিএস প্রস্তুতি [বিষয়ভিত্তিক] - Archived",
+  "slug_or_type": "",
+  "exams_count": 137,
+  "questions_total": 5965
+ },
+ {
+  "subject_id": 94,
+  "name": "IBA ফ্যাকাল্টি ভিত্তিক মডেল টেস্ট",
+  "slug_or_type": "",
+  "exams_count": 76,
+  "questions_total": 5945
+ },
+ {
+  "subject_id": 72,
+  "name": "ব্যাংক ডেইলি কুইজ [লং কোর্সের অংশ]",
+  "slug_or_type": "",
+  "exams_count": 396,
+  "questions_total": 5940
+ },
+ {
+  "subject_id": 85,
+  "name": "প্রাইমারি ডেইলি কুইজ",
+  "slug_or_type": "",
+  "exams_count": 333,
+  "questions_total": 5920
+ },
+ {
+  "subject_id": 145,
+  "name": "প্রাইমারি প্রধান শিক্ষক নিয়োগ - ২০২৫",
+  "slug_or_type": "",
+  "exams_count": 139,
+  "questions_total": 5875
+ },
+ {
+  "subject_id": 54,
+  "name": "অন্যান্য জব সল্যুশন রিভিশন",
+  "slug_or_type": "",
+  "exams_count": 69,
+  "questions_total": 5780
+ },
+ {
+  "subject_id": 93,
+  "name": "ব্যাংক নিয়োগ ⎯ বিষয়ভিত্তিক প্রস্তুতি",
+  "slug_or_type": "",
+  "exams_count": 157,
+  "questions_total": 5570
+ },
+ {
+  "subject_id": 63,
+  "name": "বার কাউন্সিল প্রস্তুতি - লং কোর্স [আর্কাইভ]",
+  "slug_or_type": "",
+  "exams_count": 110,
+  "questions_total": 5470
+ },
+ {
+  "subject_id": 29,
+  "name": "English Wizard (Grammar)",
+  "slug_or_type": "",
+  "exams_count": 238,
+  "questions_total": 5460
+ },
+ {
+  "subject_id": 44,
+  "name": "ডেইলি কুইজ [১৪০ দিনের রুটিনের অংশ]",
+  "slug_or_type": "",
+  "exams_count": 266,
+  "questions_total": 5325
+ },
+ {
+  "subject_id": 41,
+  "name": "শিক্ষক নিবন্ধন (NTRCA) জব সল্যুশন",
+  "slug_or_type": "",
+  "exams_count": 49,
+  "questions_total": 4840
+ },
+ {
+  "subject_id": 39,
+  "name": "বাংলাবিদ (ব্যাকরণ)",
+  "slug_or_type": "",
+  "exams_count": 186,
+  "questions_total": 3935
+ },
+ {
+  "subject_id": 10,
+  "name": "স্পেশাল বিসিএস [স্বাস্থ্য] ⎯ ডেন্টাল অংশ [২০২৬]",
+  "slug_or_type": "",
+  "exams_count": 70,
+  "questions_total": 3930
+ },
+ {
+  "subject_id": 87,
+  "name": "খাদ্য অধিদপ্তর নিয়োগ প্রস্তুতি  [Archived]",
+  "slug_or_type": "",
+  "exams_count": 69,
+  "questions_total": 3750
+ },
+ {
+  "subject_id": 102,
+  "name": "সিনিয়র স্টাফ নার্স ও মিডওয়াইফারি নিয়োগ",
+  "slug_or_type": "",
+  "exams_count": 56,
+  "questions_total": 3600
+ },
+ {
+  "subject_id": 88,
+  "name": "সহকারী থানা শিক্ষা অফিসার (ATEO) [Archived]",
+  "slug_or_type": "",
+  "exams_count": 105,
+  "questions_total": 3555
+ },
+ {
+  "subject_id": 49,
+  "name": "বাংলাবিদ (সাহিত্য)",
+  "slug_or_type": "",
+  "exams_count": 158,
+  "questions_total": 3360
+ },
+ {
+  "subject_id": 52,
+  "name": "GKpedia - আন্তর্জাতিক বিষয়াবলি",
+  "slug_or_type": "",
+  "exams_count": 153,
+  "questions_total": 3240
+ },
+ {
+  "subject_id": 51,
+  "name": "English Essence (Literature)",
+  "slug_or_type": "",
+  "exams_count": 154,
+  "questions_total": 3210
+ },
+ {
+  "subject_id": 45,
+  "name": "Bank Math Master",
+  "slug_or_type": "",
+  "exams_count": 144,
+  "questions_total": 3165
+ },
+ {
+  "subject_id": 150,
+  "name": "প্রাইভেট ব্যাংক জব সল্যুশন",
+  "slug_or_type": "",
+  "exams_count": 52,
+  "questions_total": 3152
+ },
+ {
+  "subject_id": 48,
+  "name": "Science Expert",
+  "slug_or_type": "",
+  "exams_count": 151,
+  "questions_total": 3125
+ },
+ {
+  "subject_id": 42,
+  "name": "ICT Expert",
+  "slug_or_type": "",
+  "exams_count": 146,
+  "questions_total": 3105
+ },
+ {
+  "subject_id": 50,
+  "name": "GKPedia - বাংলাদেশ বিষয়াবলি",
+  "slug_or_type": "",
+  "exams_count": 139,
+  "questions_total": 3085
+ },
+ {
+  "subject_id": 80,
+  "name": "NTRCA জব সল্যুশন - রিভিশন",
+  "slug_or_type": "",
+  "exams_count": 26,
+  "questions_total": 2600
+ },
+ {
+  "subject_id": 99,
+  "name": "IBA ফ্যাকাল্টি ভিত্তিক প্রস্তুতি",
+  "slug_or_type": "",
+  "exams_count": 130,
+  "questions_total": 2600
+ },
+ {
+  "subject_id": 36,
+  "name": "সাম্প্রতিক সমাচার পরীক্ষা",
+  "slug_or_type": "",
+  "exams_count": 109,
+  "questions_total": 2550
+ },
+ {
+  "subject_id": 58,
+  "name": "ভূগোল, পরিবেশ ও দুর্যোগ ব্যবস্থাপনা",
+  "slug_or_type": "",
+  "exams_count": 115,
+  "questions_total": 2500
+ },
+ {
+  "subject_id": 64,
+  "name": "বার কাউন্সিল ও বিজেএস জব সল্যুশন",
+  "slug_or_type": "",
+  "exams_count": 25,
+  "questions_total": 2500
+ },
+ {
+  "subject_id": 104,
+  "name": "স্পেশাল বিসিএস [স্বাস্থ্য] ⎯ সাধারণ অংশ [২০২৬]",
+  "slug_or_type": "",
+  "exams_count": 52,
+  "questions_total": 2275
+ },
+ {
+  "subject_id": 90,
+  "name": "উপসহকারী কৃষি কর্মকর্তা নিয়োগ [Archived]",
+  "slug_or_type": "",
+  "exams_count": 50,
+  "questions_total": 2220
+ },
+ {
+  "subject_id": 146,
+  "name": "বাংলাদেশ ব্যাংক ⎯ সহকারী পরিচালক [AD]",
+  "slug_or_type": "",
+  "exams_count": 45,
+  "questions_total": 2120
+ },
+ {
+  "subject_id": 91,
+  "name": "সমাজসেবা অধিদপ্তরের নিয়োগ প্রস্তুতি",
+  "slug_or_type": "",
+  "exams_count": 84,
+  "questions_total": 2110
+ },
+ {
+  "subject_id": 106,
+  "name": "স্পেশাল বিসিএস [স্বাস্থ্য] ⎯ মডেল টেস্ট [২০২৬]",
+  "slug_or_type": "",
+  "exams_count": 13,
+  "questions_total": 2040
+ },
+ {
+  "subject_id": 105,
+  "name": "স্পেশাল বিসিএস [স্বাস্থ্য] ⎯ মেডিকেল অংশ [২০২৬]",
+  "slug_or_type": "",
+  "exams_count": 45,
+  "questions_total": 1960
+ },
+ {
+  "subject_id": 83,
+  "name": "পেট্রোবাংলা Combined প্রস্তুতি ⎯ ২০২৬",
+  "slug_or_type": "",
+  "exams_count": 55,
+  "questions_total": 1820
+ },
+ {
+  "subject_id": 108,
+  "name": "স্পেশাল বিসিএস [স্বাস্থ্য] ⎯ ডেন্টাল মডেল টেস্ট [২০২৬]",
+  "slug_or_type": "",
+  "exams_count": 12,
+  "questions_total": 1800
+ },
+ {
+  "subject_id": 151,
+  "name": "প্রাইভেট ব্যাংক প্রস্তুতি",
+  "slug_or_type": "",
+  "exams_count": 51,
+  "questions_total": 1735
+ },
+ {
+  "subject_id": 62,
+  "name": "নৈতিকতা, মূল্যবোধ ও সুশাসন",
+  "slug_or_type": "",
+  "exams_count": 78,
+  "questions_total": 1735
+ },
+ {
+  "subject_id": 122,
+  "name": "৪৯তম বিসিএস ⎯ উদ্ভিদবিদ্যা [৫৮১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1710
+ },
+ {
+  "subject_id": 113,
+  "name": "৪৯তম বিসিএস ⎯ রাষ্ট্রবিজ্ঞান [৩৪১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1710
+ },
+ {
+  "subject_id": 143,
+  "name": "৪৯তম বিসিএস ⎯ শিক্ষা [২২১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1690
+ },
+ {
+  "subject_id": 134,
+  "name": "৪৯তম বিসিএস ⎯ খাদ্য ও পুষ্টি [৬৬১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1690
+ },
+ {
+  "subject_id": 129,
+  "name": "৪৯তম বিসিএস ⎯ মনোবিজ্ঞান [১৭১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1690
+ },
+ {
+  "subject_id": 121,
+  "name": "৪৯তম বিসিএস ⎯ পদার্থবিদ্যা [৫১১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1690
+ },
+ {
+  "subject_id": 125,
+  "name": "৪৯তম বিসিএস ⎯ হিসাববিজ্ঞান [৭০১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1690
+ },
+ {
+  "subject_id": 82,
+  "name": "প্রাইমারি জব সল্যুশন - রিভিশন",
+  "slug_or_type": "",
+  "exams_count": 21,
+  "questions_total": 1680
+ },
+ {
+  "subject_id": 136,
+  "name": "৪৯তম বিসিএস ⎯ ফলিত রসায়ন [৫৪১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1670
+ },
+ {
+  "subject_id": 131,
+  "name": "৪৯তম বিসিএস ⎯ পরিসংখ্যান [৯৮১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1670
+ },
+ {
+  "subject_id": 128,
+  "name": "৪৯তম বিসিএস ⎯ ফিন্যান্স ও ব্যাংকিং [৭১১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1670
+ },
+ {
+  "subject_id": 127,
+  "name": "৪৯তম বিসিএস ⎯ ব্যবস্থাপনা [৭৩১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1670
+ },
+ {
+  "subject_id": 120,
+  "name": "৪৯তম বিসিএস ⎯ ইসলামের ইতিহাস ও সংস্কৃতি [১৯১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1670
+ },
+ {
+  "subject_id": 133,
+  "name": "৪৯তম বিসিএস ⎯ গার্হস্থ্য অর্থনীতি [৩৯১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1670
+ },
+ {
+  "subject_id": 141,
+  "name": "৪৯তম বিসিএস ⎯ তথ্য ও যোগাযোগ প্রযুক্তি (EEE) [ ৮৯২]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1670
+ },
+ {
+  "subject_id": 140,
+  "name": "৪৯তম বিসিএস ⎯ কম্পিউটার সায়েন্স (CSE) [৯৭১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1670
+ },
+ {
+  "subject_id": 118,
+  "name": "৪৯তম বিসিএস ⎯ সমাজকল্যাণ [৩৬১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1670
+ },
+ {
+  "subject_id": 126,
+  "name": "৪৯তম বিসিএস ⎯ মার্কেটিং [৭২১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1670
+ },
+ {
+  "subject_id": 116,
+  "name": "৪৯তম বিসিএস ⎯ প্রাণিবিদ্যা [৫৯১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1650
+ },
+ {
+  "subject_id": 142,
+  "name": "৪৯তম বিসিএস ⎯ তথ্য ও যোগাযোগ প্রযুক্তি [২৮১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1650
+ },
+ {
+  "subject_id": 137,
+  "name": "৪৯তম বিসিএস ⎯ প্রাণ রসায়ন [৬০১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1650
+ },
+ {
+  "subject_id": 135,
+  "name": "৪৯তম বিসিএস ⎯ রসায়ন [৫৩১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1650
+ },
+ {
+  "subject_id": 117,
+  "name": "৪৯তম বিসিএস ⎯ ইতিহাস [১৮১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1650
+ },
+ {
+  "subject_id": 119,
+  "name": "৪৯তম বিসিএস ⎯ ইসলামী শিক্ষা [২০১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1650
+ },
+ {
+  "subject_id": 111,
+  "name": "৪৯তম বিসিএস ⎯ বাংলা [১১১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1650
+ },
+ {
+  "subject_id": 115,
+  "name": "৪৯তম বিসিএস ⎯ অর্থনীতি [৩৩১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1650
+ },
+ {
+  "subject_id": 132,
+  "name": "৪৯তম বিসিএস ⎯ সংস্কৃত [১৫১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1640
+ },
+ {
+  "subject_id": 148,
+  "name": "বিসিএস প্রিলি ও লিখিত সমন্বিত প্রস্তুতি",
+  "slug_or_type": "",
+  "exams_count": 51,
+  "questions_total": 1626
+ },
+ {
+  "subject_id": 112,
+  "name": "৪৯তম বিসিএস ⎯ ইংরেজি [১২১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1620
+ },
+ {
+  "subject_id": 124,
+  "name": "৪৯তম বিসিএস ⎯ ভূগোল [৩১১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1560
+ },
+ {
+  "subject_id": 114,
+  "name": "৪৯তম বিসিএস ⎯ দর্শন [২১১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1560
+ },
+ {
+  "subject_id": 139,
+  "name": "৪৯তম বিসিএস ⎯ ফলিত গণিত [৫৬১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1560
+ },
+ {
+  "subject_id": 123,
+  "name": "৪৯তম বিসিএস ⎯ সমাজবিজ্ঞান [৩৫১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1550
+ },
+ {
+  "subject_id": 130,
+  "name": "৪৯তম বিসিএস ⎯ কৃষিবিজ্ঞান [৮০১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1550
+ },
+ {
+  "subject_id": 138,
+  "name": "৪৯তম বিসিএস ⎯ গণিত [৫৫১]",
+  "slug_or_type": "",
+  "exams_count": 20,
+  "questions_total": 1540
+ },
+ {
+  "subject_id": 65,
+  "name": "Bank English Preparation",
+  "slug_or_type": "",
+  "exams_count": 70,
+  "questions_total": 1430
+ },
+ {
+  "subject_id": 92,
+  "name": "মানসিক দক্ষতা",
+  "slug_or_type": "",
+  "exams_count": 56,
+  "questions_total": 1180
+ },
+ {
+  "subject_id": 110,
+  "name": "৪৯তম বিসিএস ⎯ জেনারেল পার্ট [Archived]",
+  "slug_or_type": "",
+  "exams_count": 30,
+  "questions_total": 1170
+ },
+ {
+  "subject_id": 79,
+  "name": "ব্যাংক জব সল্যুশন - রিভিশন",
+  "slug_or_type": "",
+  "exams_count": 10,
+  "questions_total": 980
+ },
+ {
+  "subject_id": 60,
+  "name": "প্রাথমিক শিক্ষক নিয়োগ প্রস্তুতি (আর্কাইভ)",
+  "slug_or_type": "",
+  "exams_count": 37,
+  "questions_total": 930
+ },
+ {
+  "subject_id": 149,
+  "name": "NTRCA প্রতিষ্ঠান প্রধান প্রস্তুতি",
+  "slug_or_type": "",
+  "exams_count": 12,
+  "questions_total": 630
+ },
+ {
+  "subject_id": 21,
+  "name": "এনএসআই [NSI] নিয়োগ প্রস্তুতি [Archived]",
+  "slug_or_type": "",
+  "exams_count": 16,
+  "questions_total": 580
+ },
+ {
+  "subject_id": 144,
+  "name": "২০ দিনে ৪৭তম বিসিএস রিভিশন - Archived",
+  "slug_or_type": "",
+  "exams_count": 10,
+  "questions_total": 560
+ },
+ {
+  "subject_id": 174,
+  "name": "ব্যাংক নিয়োগ ⎯ সিনিয়র অফিসার [SO]",
+  "slug_or_type": "",
+  "exams_count": 9,
+  "questions_total": 335
+ },
+ {
+  "subject_id": 155,
+  "name": "স্পেশাল বিসিএস ⎯ জেনারেল [Rapid ব্যাচ ⎯ ২০২৬]",
+  "slug_or_type": "",
+  "exams_count": 3,
+  "questions_total": 120
+ },
+ {
+  "subject_id": 17,
+  "name": "Bank Analytical Ability",
+  "slug_or_type": "",
+  "exams_count": 4,
+  "questions_total": 90
+ },
+ {
+  "subject_id": 156,
+  "name": "স্পেশাল বিসিএস [স্বাস্থ্য] ⎯ ডেন্টাল Rapid ব্যাচ [২০২৬]",
+  "slug_or_type": "",
+  "exams_count": 2,
+  "questions_total": 80
+ },
+ {
+  "subject_id": 154,
+  "name": "স্পেশাল বিসিএস ⎯ মেডিকেল [Rapid ব্যাচ ⎯ ২০২৬]",
+  "slug_or_type": "",
+  "exams_count": 1,
+  "questions_total": 40
+ }
+]

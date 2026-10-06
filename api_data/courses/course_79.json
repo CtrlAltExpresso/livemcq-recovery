@@ -1,0 +1,109 @@
+{
+ "subject_id": 79,
+ "name": "ব্যাংক জব সল্যুশন - রিভিশন",
+ "slug_or_type": "",
+ "exams_count": 10,
+ "questions_total": 980,
+ "exams": [
+  {
+   "exam_id": 2860,
+   "date": "Dec 10, 2021",
+   "question_number": 100,
+   "is_omr": false,
+   "slug": "2344889-2860",
+   "files": [
+    "exam_maps/exam_2860.json"
+   ]
+  },
+  {
+   "exam_id": 2865,
+   "date": "Jan 05, 2022",
+   "question_number": 100,
+   "is_omr": false,
+   "slug": "2344889-2865",
+   "files": [
+    "exam_maps/exam_2865.json"
+   ]
+  },
+  {
+   "exam_id": 3432,
+   "date": "Feb 22, 2022",
+   "question_number": 100,
+   "is_omr": false,
+   "slug": "2344889-3432",
+   "files": [
+    "exam_maps/exam_3432.json"
+   ]
+  },
+  {
+   "exam_id": 4078,
+   "date": "Apr 05, 2023",
+   "question_number": 80,
+   "is_omr": false,
+   "slug": "2344889-4078",
+   "files": [
+    "exam_maps/exam_4078.json"
+   ]
+  },
+  {
+   "exam_id": 16520,
+   "date": "Aug 10, 2026",
+   "question_number": 100,
+   "is_omr": true,
+   "slug": "2344889-16520",
+   "files": [
+    "exam_maps/exam_16520.json"
+   ]
+  },
+  {
+   "exam_id": 16521,
+   "date": "Aug 20, 2026",
+   "question_number": 100,
+   "is_omr": true,
+   "slug": "2344889-16521",
+   "files": [
+    "exam_maps/exam_16521.json"
+   ]
+  },
+  {
+   "exam_id": 16522,
+   "date": "Aug 30, 2026",
+   "question_number": 100,
+   "is_omr": true,
+   "slug": "2344889-16522",
+   "files": [
+    "exam_maps/exam_16522.json"
+   ]
+  },
+  {
+   "exam_id": 16523,
+   "date": "Sep 13, 2026",
+   "question_number": 100,
+   "is_omr": true,
+   "slug": "2344889-16523",
+   "files": [
+    "exam_maps/exam_16523.json"
+   ]
+  },
+  {
+   "exam_id": 16524,
+   "date": "Sep 20, 2026",
+   "question_number": 100,
+   "is_omr": true,
+   "slug": "2344889-16524",
+   "files": [
+    "exam_maps/exam_16524.json"
+   ]
+  },
+  {
+   "exam_id": 16525,
+   "date": "Sep 30, 2026",
+   "question_number": 100,
+   "is_omr": true,
+   "slug": "2344889-16525",
+   "files": [
+    "exam_maps/exam_16525.json"
+   ]
+  }
+ ]
+}

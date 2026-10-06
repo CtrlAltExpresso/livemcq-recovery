@@ -1,0 +1,109 @@
+{
+ "subject_id": 144,
+ "name": "২০ দিনে ৪৭তম বিসিএস রিভিশন - Archived",
+ "slug_or_type": "",
+ "exams_count": 10,
+ "questions_total": 560,
+ "exams": [
+  {
+   "exam_id": 12710,
+   "date": "Aug 23, 2025",
+   "question_number": 60,
+   "is_omr": true,
+   "slug": "2344889-12710",
+   "files": [
+    "exam_maps/exam_12710.json"
+   ]
+  },
+  {
+   "exam_id": 12711,
+   "date": "Aug 25, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12711",
+   "files": [
+    "exam_maps/exam_12711.json"
+   ]
+  },
+  {
+   "exam_id": 12712,
+   "date": "Aug 27, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12712",
+   "files": [
+    "exam_maps/exam_12712.json"
+   ]
+  },
+  {
+   "exam_id": 12713,
+   "date": "Aug 29, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12713",
+   "files": [
+    "exam_maps/exam_12713.json"
+   ]
+  },
+  {
+   "exam_id": 12714,
+   "date": "Sep 01, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12714",
+   "files": [
+    "exam_maps/exam_12714.json"
+   ]
+  },
+  {
+   "exam_id": 12715,
+   "date": "Sep 03, 2025",
+   "question_number": 60,
+   "is_omr": true,
+   "slug": "2344889-12715",
+   "files": [
+    "exam_maps/exam_12715.json"
+   ]
+  },
+  {
+   "exam_id": 12716,
+   "date": "Sep 05, 2025",
+   "question_number": 50,
+   "is_omr": true,
+   "slug": "2344889-12716",
+   "files": [
+    "exam_maps/exam_12716.json"
+   ]
+  },
+  {
+   "exam_id": 12717,
+   "date": "Sep 08, 2025",
+   "question_number": 70,
+   "is_omr": true,
+   "slug": "2344889-12717",
+   "files": [
+    "exam_maps/exam_12717.json"
+   ]
+  },
+  {
+   "exam_id": 12718,
+   "date": "Sep 10, 2025",
+   "question_number": 60,
+   "is_omr": true,
+   "slug": "2344889-12718",
+   "files": [
+    "exam_maps/exam_12718.json"
+   ]
+  },
+  {
+   "exam_id": 12719,
+   "date": "Sep 12, 2025",
+   "question_number": 60,
+   "is_omr": true,
+   "slug": "2344889-12719",
+   "files": [
+    "exam_maps/exam_12719.json"
+   ]
+  }
+ ]
+}

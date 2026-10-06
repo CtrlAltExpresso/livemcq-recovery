@@ -1,0 +1,29 @@
+{
+ "subject_id": 156,
+ "name": "স্পেশাল বিসিএস [স্বাস্থ্য] ⎯ ডেন্টাল Rapid ব্যাচ [২০২৬]",
+ "slug_or_type": "",
+ "exams_count": 2,
+ "questions_total": 80,
+ "exams": [
+  {
+   "exam_id": 17105,
+   "date": "Oct 02, 2026",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-17105",
+   "files": [
+    "exam_maps/exam_17105.json"
+   ]
+  },
+  {
+   "exam_id": 17106,
+   "date": "Oct 04, 2026",
+   "question_number": 40,
+   "is_omr": true,
+   "slug": "2344889-17106",
+   "files": [
+    "exam_maps/exam_17106.json"
+   ]
+  }
+ ]
+}

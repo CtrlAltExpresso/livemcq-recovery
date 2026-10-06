@@ -1,0 +1,169 @@
+{
+ "subject_id": 21,
+ "name": "এনএসআই [NSI] নিয়োগ প্রস্তুতি [Archived]",
+ "slug_or_type": "",
+ "exams_count": 16,
+ "questions_total": 580,
+ "exams": [
+  {
+   "exam_id": 11090,
+   "date": "Apr 21, 2025",
+   "question_number": 25,
+   "is_omr": false,
+   "slug": "2344889-11090",
+   "files": [
+    "exam_maps/exam_11090.json"
+   ]
+  },
+  {
+   "exam_id": 11091,
+   "date": "Apr 23, 2025",
+   "question_number": 25,
+   "is_omr": false,
+   "slug": "2344889-11091",
+   "files": [
+    "exam_maps/exam_11091.json"
+   ]
+  },
+  {
+   "exam_id": 11092,
+   "date": "Apr 25, 2025",
+   "question_number": 25,
+   "is_omr": false,
+   "slug": "2344889-11092",
+   "files": [
+    "exam_maps/exam_11092.json"
+   ]
+  },
+  {
+   "exam_id": 11093,
+   "date": "Apr 27, 2025",
+   "question_number": 25,
+   "is_omr": false,
+   "slug": "2344889-11093",
+   "files": [
+    "exam_maps/exam_11093.json"
+   ]
+  },
+  {
+   "exam_id": 11094,
+   "date": "Apr 29, 2025",
+   "question_number": 25,
+   "is_omr": false,
+   "slug": "2344889-11094",
+   "files": [
+    "exam_maps/exam_11094.json"
+   ]
+  },
+  {
+   "exam_id": 11095,
+   "date": "May 01, 2025",
+   "question_number": 25,
+   "is_omr": false,
+   "slug": "2344889-11095",
+   "files": [
+    "exam_maps/exam_11095.json"
+   ]
+  },
+  {
+   "exam_id": 11096,
+   "date": "May 03, 2025",
+   "question_number": 25,
+   "is_omr": false,
+   "slug": "2344889-11096",
+   "files": [
+    "exam_maps/exam_11096.json"
+   ]
+  },
+  {
+   "exam_id": 11097,
+   "date": "May 05, 2025",
+   "question_number": 25,
+   "is_omr": false,
+   "slug": "2344889-11097",
+   "files": [
+    "exam_maps/exam_11097.json"
+   ]
+  },
+  {
+   "exam_id": 11098,
+   "date": "May 07, 2025",
+   "question_number": 25,
+   "is_omr": false,
+   "slug": "2344889-11098",
+   "files": [
+    "exam_maps/exam_11098.json"
+   ]
+  },
+  {
+   "exam_id": 11099,
+   "date": "May 10, 2025",
+   "question_number": 20,
+   "is_omr": false,
+   "slug": "2344889-11099",
+   "files": [
+    "exam_maps/exam_11099.json"
+   ]
+  },
+  {
+   "exam_id": 11100,
+   "date": "May 11, 2025",
+   "question_number": 25,
+   "is_omr": false,
+   "slug": "2344889-11100",
+   "files": [
+    "exam_maps/exam_11100.json"
+   ]
+  },
+  {
+   "exam_id": 11101,
+   "date": "May 13, 2025",
+   "question_number": 25,
+   "is_omr": false,
+   "slug": "2344889-11101",
+   "files": [
+    "exam_maps/exam_11101.json"
+   ]
+  },
+  {
+   "exam_id": 11102,
+   "date": "May 15, 2025",
+   "question_number": 25,
+   "is_omr": false,
+   "slug": "2344889-11102",
+   "files": [
+    "exam_maps/exam_11102.json"
+   ]
+  },
+  {
+   "exam_id": 11115,
+   "date": "May 17, 2025",
+   "question_number": 80,
+   "is_omr": false,
+   "slug": "2344889-11115",
+   "files": [
+    "exam_maps/exam_11115.json"
+   ]
+  },
+  {
+   "exam_id": 11117,
+   "date": "May 19, 2025",
+   "question_number": 80,
+   "is_omr": false,
+   "slug": "2344889-11117",
+   "files": [
+    "exam_maps/exam_11117.json"
+   ]
+  },
+  {
+   "exam_id": 11119,
+   "date": "May 21, 2025",
+   "question_number": 100,
+   "is_omr": false,
+   "slug": "2344889-11119",
+   "files": [
+    "exam_maps/exam_11119.json"
+   ]
+  }
+ ]
+}
