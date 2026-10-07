@@ -41,7 +41,7 @@ Paid/"payment-gated" exams are included too (fetched through the app's alternate
 | Archive exams | 15,429 | [`api_data/exam_list_canonical.jsonl`](api_data/exam_list_canonical.jsonl) |
 | Routine exams | 1,263 | [`api_data/routine_list_canonical.jsonl`](api_data/routine_list_canonical.jsonl) |
 | Questions (master bank) | 80,162 | [`api_data/question_bank_chunks/`](api_data/question_bank_chunks/) |
-| Per-exam question maps | 16,692 (in progress) | [`api_data/exam_maps/`](api_data/exam_maps/) |
+| Per-exam question maps | 16,167 | [`api_data/exam_maps/`](api_data/exam_maps/) |
 | App artifacts (APKs + original data) | — | [`extracted/`](extracted/) |
 | Discovery/verification | — | [`docs/`](docs/), [`scripts/`](scripts/), `MANIFEST.tsv` |
 
@@ -98,9 +98,15 @@ cd api_data && sed -n '2p' MANIFEST.tsv
 | App extraction (APK + original data) | ✅ |
 | Exam lists (3-pass verified) | ✅ 15,429 + 1,263 |
 | Question bank | ✅ 80,162 |
-| Per-exam maps | ⏳ in progress (~13%) |
-| Media (PDFs / images / videos) | ⬜ queued |
-| Final layout + freeze | ⬜ after maps complete |
+| Per-exam maps | ✅ 16,167 (525 exams are permanently empty/locked in the API) |
+| Media (PDFs / images / videos) | ⬜ queued next |
+
+**About the 525:** 16,692 `exam-view`/`archive-question-subject` fetches were attempted.
+525 (3.1%) return an empty question set in the API itself (payment-locked at database
+level) — the same view a non-owner account sees in the app. The remaining 16,167 all
+fetch valid question sets. These 525 exams still appear in their course files
+(`exam_maps` entry shows no `files`); a future owner-level account/server dump can
+fill them in.
 
 ## 🛠 Background
 

@@ -69,4 +69,4 @@ _Primary content endpoints used for the dumps are listed below this table._
 ## Notes
 
 - `500/502/504` endpoints exist server-side but error without the right parameters.
-- `000` entries are unreliable connection captures (rate-limit/upstream); re-tried individually in `responses3/`.
+- `000` entries are unreliable connection captures (rate-limit/upstream); re-tried individually — consolidated samples live in `api_data/endpoints/`.

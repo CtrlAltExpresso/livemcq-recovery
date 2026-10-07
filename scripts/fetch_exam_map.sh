@@ -50,6 +50,10 @@ json.dump(out_d,open(out,'w'),ensure_ascii=False)
 PY
 }
 
+# permanent NO_CONTENT (already verified) -> skip within existing run? not needed; exit clean
+# detect permanently-locked exam right after a validated no-content check below.
+if grep -qs NO_CONTENT "$DIR/error_${id}" 2>/dev/null; then exit 0; fi
+
 tries=0
 while [ $tries -lt 3 ]; do
   code=$(fetch "$B/exam-view/$id")
@@ -62,6 +66,10 @@ while [ $tries -lt 3 ]; do
     mv "$f.tmp" "$f"; rm -f "$DIR/error_${id}"; exit 0
   fi
   rm -f "$f.tmp"
+  # both returned 200 but unusable -> no-paywall / empty-exam: permanent, don't retry
+  if [ "$code" = "200" ] && [ "$code2" = "200" ]; then
+    echo "NO_CONTENT (primary+fallback 200, no valid body)" > "$DIR/error_${id}"; exit 0
+  fi
   tries=$((tries+1)); sleep $((tries * 30))
 done
 echo "FAIL:primary=$code,fallback=$code2" > "$DIR/error_${id}"

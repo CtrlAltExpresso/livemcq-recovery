@@ -77,7 +77,7 @@ merged JSONL id-set == page id-set ✓, content equality on a 500-ID random samp
 **Note on the bank size:** the API reports 1,604 × 50 pages but the last page holds 12,
 giving exactly 80,162 (not 80,200).
 
-### 3.3 Legacy exam content (per-exam maps, in progress)
+### 3.3 Legacy exam content (per-exam maps)
 
 `exam-view/<id>` returns one exam's questions grouped by subject. **Viewing is
 payment-gated** for some exams (`{"ERROR": "Payment not Valid"}` → ~20% of the older set).
@@ -85,11 +85,17 @@ payment-gated** for some exams (`{"ERROR": "Payment not Valid"}` → ~20% of the
 **Fallback confirmed same-content:** `archive-question-subject/<id>` returns the same
 questions without the payment check. Verified by:
 1. byte-identical question/answer/option match on non-gated exams,
-2. every fallback file matching its course-declared question count (262/263 so far; the 1
-   exception was stale *metadata* — both endpoints agree at 40 questions).
+2. every fallback file matching its course-declared question count (262/263 during
+   development; the 1 exception was stale *metadata* — both endpoints agree at 40).
 
 Every map is written atomically (`*.tmp` → rename), validated on read, and only fully-valid
 files count. Resumable after any interruption (e.g., power loss).
+
+**Result (completed):** 16,692 attempts → **16,167 exam maps** (788,466 question
+instances), **525 permanent NO_CONTENT** (both endpoints return 200 with an empty
+question set — payment-locked at DB level, same as an app non-owner view), plus a few
+dozen transient 403 retries that succeeded on re-run. Final: 0 transient errors, 0
+missing, 0 extras vs the canonical lists.
 
 ## 4. Endpoint inventory
 
