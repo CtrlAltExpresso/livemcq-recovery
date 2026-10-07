@@ -5,3 +5,6 @@ api_data/all_questions.jsonl
 *.out
 *.log
 .DS_Store
+# local media downloads (several GB; manifest media_manifest.tsv is committed instead)
+media/
+media_progress.tsv

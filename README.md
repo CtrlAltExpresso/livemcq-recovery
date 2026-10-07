@@ -99,7 +99,7 @@ cd api_data && sed -n '2p' MANIFEST.tsv
 | Exam lists (3-pass verified) | ✅ 15,429 + 1,263 |
 | Question bank | ✅ 80,162 |
 | Per-exam maps | ✅ 16,167 (525 exams are permanently empty/locked in the API) |
-| Media (PDFs / images / videos) | ⬜ queued next |
+| Media (images / PDFs / videos) | ✅ images + study PDFs (local, manifest committed) |
 
 **About the 525:** 16,692 `exam-view`/`archive-question-subject` fetches were attempted.
 525 (3.1%) return an empty question set in the API itself (payment-locked at database
