@@ -193,7 +193,7 @@ function mountQuestion() {
     </div>
     <div class="qcard">
       <div class="qindex">QUESTION ${T.idx + 1}</div>
-      <div class="qtext">${esc(q.question)}${q.is_audio ? '<span class="qaudio">🔊 audio</span>' : ""}</div>
+      <div class="qtext">${esc(q.question)}${q.is_audio ? '<span class="qaudio" title="Listening question — the audio files are served from the app\u2019s internal player server (bdix1.livemcq.com) and are not recoverable from the API capture.">🔊 audio question</span>' : ""}</div>
       ${[1, 2, 3, 4].map(i => optHTML(q, i, key, sel)).join("")}
       ${T.revealed ? explainHTML(q, sel) : ""}
       <div class="qnav">

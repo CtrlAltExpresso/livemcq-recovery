@@ -145,6 +145,15 @@ sqlite3 viewer/livemcq.db \
 `viewer/livemcq.db` and `viewer/data/` are regenerable build artifacts (gitignored);
 the committed pieces are the generator script and the viewer sources.
 
+**About the audio questions:** the 🔊 you may see on questions is a **real** app feature —
+the API flags **271,834 questions** across **8,280 audio-pack exams** (`audio_all_list`),
+and the app keeps them in an `IsarAudioModel(audioUrl)`. But the audio *files* are served
+from `bdix1.livemcq.com/audio-files/audios/<slug>` — an internal/BDIX-only hostname with no
+public DNS — and no audio URL appears in any saved API response or in the app's own database.
+So the flag is honest, but the audio bytes are unrecoverable from the current access (the same
+class of limitation as the video streams). The viewer marks these questions with a
+non-interactive "🔊 audio question" chip rather than a dead play button.
+
 ## 📦 Status
 
 | Step | State |
