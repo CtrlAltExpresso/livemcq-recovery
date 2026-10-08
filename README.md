@@ -164,7 +164,7 @@ the video streams). The viewer simply doesn't surface the flag.
 | Per-exam maps | ✅ 16,167 (525 exams are permanently empty/locked in the API) |
 | Media (images / PDFs) | ✅ 35,206 files / 8.98 GB (`media/`, manifest committed) |
 | Video catalog (75 series → 2,198 classes) | ✅ metadata + study PDFs; streams are player-side |
-| **Offline viewer** (`viewer/`) | ✅ app-style clone: exams, answers, search, classes, PDFs |
+| **Offline viewer** (`viewer/`) | ✅ app-style clone: Home · Routine · Search · Classes · PDFs |
 | **SQLite DB** (`viewer/livemcq.db`, ~1.9 GB) | ✅ mirrors Isar model + FTS5 search |
 
 **About the 525:** 16,692 `exam-view`/`archive-question-subject` fetches were attempted.
@@ -172,7 +172,8 @@ the video streams). The viewer simply doesn't surface the flag.
 level) — the same view a non-owner account sees in the app. The remaining 16,167 all
 fetch valid question sets. These 525 exams still appear in their course files
 (`exam_maps` entry shows no `files`); a future owner-level account/server dump can
-fill them in.
+fill them in. All 525 are members of the routine list, and the viewer's **Routine** tab
+shows the full 1,263-exam routine schedule — 297 with content, the rest marked Locked.
 
 **About the media:** every unique asset URL referenced by the app's own content was
 downloaded from the three hosts it uses (`elasticbeanstalk…s3.amazonaws.com`,

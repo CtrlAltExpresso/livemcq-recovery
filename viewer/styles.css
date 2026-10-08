@@ -64,8 +64,7 @@ main { max-width: 860px; margin: 0 auto; padding: 18px 16px 84px; }
 .pill-free { background: var(--ok-bg); color: var(--ok); }
 .pill-premium { background: #fdf1d7; color: var(--amber-ink); }
 .pill-new { background: var(--ok-bg); color: var(--ok); }
-.pill-extra { background: #ffe27a; color: #5a3e00; margin-left: auto; position: relative; z-index: 1; }
-.course-card.extra .cc-head { background: linear-gradient(135deg, #1d1b4b, #011b78); }
+.pill-today { background: var(--ok-bg); color: var(--ok); }
 
 /* ---------- hero / home ---------- */
 .hero { background: linear-gradient(135deg, var(--navy-deep), var(--navy) 60%, var(--navy-2));

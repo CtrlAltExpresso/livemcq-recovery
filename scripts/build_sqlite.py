@@ -436,6 +436,38 @@ extra = [dict(id=r['id'], date=r['date'], qn=eq_count.get(r['id'], 0),
 json.dump(extra, open(f'{VD}/extra_exams.json', 'w'), ensure_ascii=False)
 print(f'extra exams (not in any course): {len(extra)}')
 
+# daily routine tab: every entry of the app's routine list, openable state included
+_MONTHS = {m: i + 1 for i, m in enumerate(
+    ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])}
+def _rdate(s):
+    m = re.match(r'[A-Za-z]+, (\d{1,2}) ([A-Za-z]{3}), (\d{4})', s or '')
+    if not m:
+        return ''
+    mo = _MONTHS.get(m.group(2))
+    if not mo:
+        return ''
+    return f'{m.group(3)}-{mo:02d}-{int(m.group(1)):02d}'
+routine = []
+if os.path.exists(f'{API}/routine_list_canonical.jsonl'):
+    for line in open(f'{API}/routine_list_canonical.jsonl', encoding='utf-8'):
+        try:
+            r = json.loads(line)
+        except Exception:
+            continue
+        eid = r.get('id')
+        if eid is None:
+            continue
+        qn = eq_count.get(eid, 0)
+        routine.append(dict(
+            id=eid, date=r.get('date') or '', iso=_rdate(r.get('date') or ''),
+            subj=r.get('subject_name') or '', mark=r.get('mark') or '',
+            time=r.get('examtime') or '', qn=qn, has=1 if qn else 0,
+            today=1 if r.get('is_today') else 0,
+            title=_clean(exams.get(eid, {}).get('title')) or ''))
+json.dump(routine, open(f'{VD}/routine.json', 'w'), ensure_ascii=False)
+print(f'routine exams listed: {len(routine)}')
+
 # full bank search shard (all questions that also live in the 80k bank feed)
 bank_qids = [q['qid'] for q in qrows.values() if q['has_bank']]
 json.dump(to_shard(bank_qids), open(f'{VD}/search/search_bank.json', 'w'),
@@ -475,6 +507,7 @@ json.dump(media_url, open(f'{VD}/media_url.json', 'w'), ensure_ascii=False)
 about = dict(courses=len(course_idx), exams=len(exams), questions=len(qrows),
              bank=len(bank_qids), exam_questions=len(eq_rows),
              videos=len({v['video_id'] for v in vids}),
-             series=len(series), pdfs=len(pdfs), media=len(media))
+             series=len(series), pdfs=len(pdfs), media=len(media),
+             routine=len(routine))
 json.dump(about, open(f'{VD}/about.json', 'w'), ensure_ascii=False)
 print('viewer data written to', VD)
