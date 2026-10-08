@@ -153,6 +153,18 @@ and no audio URL appears in any saved API response or in the app's own database,
 audio bytes are unrecoverable from the current access (the same class of limitation as
 the video streams). The viewer simply doesn't surface the flag.
 
+### 3) Android APK — the whole viewer on a phone, fully offline
+
+`android/` (see [`android/README.md`](android/README.md)) builds a small sideloadable
+APK (`dist/LiveMCQ_Offline.apk`, ~25 KB) that runs the viewer on a phone or tablet with
+zero internet after setup. On first launch you paste one URL (or a baked-in one); the app
+downloads the ~9 GB content bundle itself — SHA-256-verified, HTTP-Range-resumable,
+free-space-checked — then extracts and serves it from a loopback server to an embedded
+WebView. The bundle (18 indexless zip parts + `livemcq_manifest.json`, +8.95 GB) is
+produced by `scripts/make_content_bundle.py` and uploadable to archive.org or any
+Range-capable host. A single >4 GB "all-in-one" APK was proven impossible (Android's APK
+reader and Google's sign/align tools lack zip64; PDFs alone are 4.8 GB).
+
 ## 📦 Status
 
 | Step | State |
@@ -166,6 +178,7 @@ the video streams). The viewer simply doesn't surface the flag.
 | Video catalog (75 series → 2,198 classes) | ✅ metadata + study PDFs; streams are player-side |
 | **Offline viewer** (`viewer/`) | ✅ app-style clone: Home · Routine · Search · Classes · PDFs |
 | **SQLite DB** (`viewer/livemcq.db`, ~1.9 GB) | ✅ mirrors Isar model + FTS5 search |
+| **Android APK** (`android/` → `dist/LiveMCQ_Offline.apk`) | ✅ signed ~25 KB; downloads the 8.95 GB bundle on first run |
 
 **About the 525:** 16,692 `exam-view`/`archive-question-subject` fetches were attempted.
 525 (3.1%) return an empty question set in the API itself (payment-locked at database
