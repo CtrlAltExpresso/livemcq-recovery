@@ -410,7 +410,7 @@ def to_shard(qids):
 
 course_idx = []
 for sid, (name, slugs) in sorted(subjects.items()):
-    excs = sorted(exams_by_subj.get(sid, []), key=lambda e: e['date'] or '')
+    excs = exams_by_subj.get(sid, [])
     qset = subj_qids.get(sid, set())
     json.dump(to_shard(qset), open(f'{VD}/search/search_{sid}.json', 'w'),
               ensure_ascii=False)

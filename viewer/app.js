@@ -73,11 +73,12 @@ async function course(id) {
     loadJSON(`data/exams_${id}.json`)]);
   const c = courses.find(x => x.id === id);
   topbarCount.textContent = esc(c ? c.name : "");
-  const rows = [...exams].sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+  const byDate = (a, b) => dateMs(b.date) - dateMs(a.date) || b.id - a.id;
+  const rows = [...exams].sort(byDate);
   render(`<div class="screen">
     <div class="section-title"><h2>${esc(c.name)}</h2>
-      <span class="muted" style="font-size:12.5px">${num(c.exams)} exams</span></div>
-    ${rows.map(e => examRow(e)).join("") || '<div class="empty">No exams in this course.</div>'}
+      <span class="muted" style="font-size:12.5px">${num(c.exams)} exams · newest first</span></div>
+    ${rows.map((e, i) => examRow(e, i + 1)).join("") || '<div class="empty">No exams in this course.</div>'}
   </div>`);
 }
 
@@ -87,7 +88,12 @@ function fmtDate(d) {
   if (isNaN(x)) return null;
   return { d: x.getDate(), m: x.toLocaleString("en", { month: "short" }), y: x.getFullYear() };
 }
-function examRow(e) {
+function dateMs(s) {
+  if (!s) return 0;
+  const t = Date.parse(String(s).replace(/(\d+)(st|nd|rd|th)\b/, "$1"));
+  return isNaN(t) ? 0 : t;
+}
+function examRow(e, pos) {
   const f = fmtDate(e.date);
   const badges = [];
   if (e.omr) badges.push('<span class="pill pill-omr">OMR</span>');
@@ -96,7 +102,7 @@ function examRow(e) {
     <div class="exam-date">${f ? `<span class="d">${f.d}</span><span class="m">${f.m} ${f.y}</span>` : '<span class="d">—</span><span class="m">no date</span>'}</div>
     <div class="mid">
       <h3>${e.title ? esc(e.title) : `Exam #${e.id}`}</h3>
-      <div class="meta"><span>${num(e.qn)} questions</span>${badges.join("")}</div>
+      <div class="meta"><span>${num(e.qn)} questions</span>${badges.join("")}${pos != null ? `<span class="muted" style="font-size:11.5px">#${pos}</span>` : ""}</div>
     </div>
     <span class="chev">›</span>
   </div>`;
