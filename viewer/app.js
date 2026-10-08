@@ -41,9 +41,11 @@ function setNav(name) {
 async function home() {
   setNav("home");
   backBtn.style.visibility = "hidden";
-  const [about, courses] = await Promise.all([
-    loadJSON("data/about.json"), loadJSON("data/courses_index.json")]);
-  window.LOCAL.about = about; window.LOCAL.courses = courses;
+  const [about, courses, extra] = await Promise.all([
+    loadJSON("data/about.json"), loadJSON("data/courses_index.json"),
+    loadJSON("data/extra_exams.json").catch(() => [])]);
+  window.LOCAL.about = about; window.LOCAL.courses = courses; window.LOCAL.extra = extra;
+  const extraQ = extra.reduce((s, r) => s + (r.has ? (r.qn || 0) : 0), 0);
   topbarCount.textContent = `${num(about.exams)} exams · ${num(about.videos)} classes`;
   render(`<div class="screen">
     <div class="hero"><h1>LiveMCQ · bangla practice hub</h1>
@@ -55,12 +57,34 @@ async function home() {
     </div>
     <div class="section-title"><h2>All Courses</h2><span class="muted" style="font-size:12.5px">${num(about.pdfs)} study PDFs · ${num(about.media)} media</span></div>
     <div class="course-grid">
+      ${extra.length ? `<div class="course-card extra" onclick="go('#/extra')">
+        <div class="cc-head"><span class="cc-name">অন্যান্য পরীক্ষা</span><span class="pill pill-extra">extras</span></div>
+        <div class="cc-body"><span><b>${num(extra.length)}</b> exams</span><span><b>${num(extraQ)}</b> questions</span></div>
+      </div>` : ""}
       ${courses.map(c => `<div class="course-card" onclick="go('#/course/${c.id}')">
         <div class="cc-head"><span class="cc-name">${esc(c.name)}</span></div>
         <div class="cc-body"><span><b>${num(c.exams)}</b> exams</span><span><b>${num(c.questions)}</b> questions</span></div>
       </div>`).join("")}
     </div>
     <div class="foot">Recovered from the LiveMCQ app/API, authorized ref LMCQ-DR-2026-1006 · viewer$ v1 · 100% offline</div>
+  </div>`);
+}
+
+/* ---------------- extra (course-less) exams ---------------- */
+async function extra() {
+  setNav("home");
+  backBtn.style.visibility = "visible";
+  const [exlist] = await Promise.all([loadJSON("data/extra_exams.json").catch(() => [])]);
+  const sorted = [...exlist].sort((a, b) => (b.has - a.has) || (dateMs(b.date) - dateMs(a.date)) || (b.id - a.id));
+  const have = sorted.filter(r => r.has), locked = sorted.filter(r => !r.has);
+  topbarCount.textContent = `${exlist.length} extra exams`;
+  render(`<div class="screen">
+    <div class="section-title"><h2>অন্যান্য পরীক্ষা</h2>
+      <span class="muted" style="font-size:12.5px">job solution · live · subject finals — not tied to any course tab</span></div>
+    ${have.map((e, i) => examRow(e, i + 1)).join("") || '<div class="empty">No exams.</div>'}
+    ${locked.length ? `<div style="margin-top:22px" class="section-title"><h3>Locked in the API</h3>
+      <span class="muted" style="font-size:12.5px">${locked.length} exams return no question content</span></div>
+      ${locked.map((e, i) => examRow(e, null)).join("")}` : ""}
   </div>`);
 }
 
@@ -450,6 +474,7 @@ async function route() {
   const h = location.hash || "#/";
   let mm = h.match(/^#\/course\/(\d+)$/);
   if (mm) return course(+mm[1]);
+  if (h === "#/extra") return extra();
   mm = h.match(/^#\/exam\/(\d+)(\/review)?$/);
   if (mm) return exam(+mm[1], !!mm[2]);
   if (h.startsWith("#/search")) return search();

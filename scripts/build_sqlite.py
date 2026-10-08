@@ -419,6 +419,19 @@ for sid, (name, slugs) in sorted(subjects.items()):
                            exams=len(excs), questions=len(qset)))
 json.dump(course_idx, open(f'{VD}/courses_index.json', 'w'), ensure_ascii=False)
 
+# orphan exams (job-solution / live / subject-final) not attached to any course
+def _clean(t):
+    return re.sub(r'\s+', ' ', (t or '').strip()) if (t or '').strip() else None
+from collections import Counter
+eq_count = Counter(eid for eid, _q, _p, _g in eq_rows)
+extra = [dict(id=r['id'], date=r['date'], qn=eq_count.get(r['id'], 0),
+              omr=r['omr'], has=1 if eq_count.get(r['id'], 0) else 0,
+              title=_clean(r['title']) or '',
+              syl=_clean(r['syl']))
+         for r in exams_by_subj.get(None, [])]
+json.dump(extra, open(f'{VD}/extra_exams.json', 'w'), ensure_ascii=False)
+print(f'extra exams (not in any course): {len(extra)}')
+
 # full bank search shard (all questions that also live in the 80k bank feed)
 bank_qids = [q['qid'] for q in qrows.values() if q['has_bank']]
 json.dump(to_shard(bank_qids), open(f'{VD}/search/search_bank.json', 'w'),
