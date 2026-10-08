@@ -19,6 +19,7 @@ None of them modify existing dump files.
 | `dump_video_catalog.sh` | Video series + class catalog from the videoseries endpoints | `api_data/video_catalog/` |
 | `verify_lists.py` | Cross-checks dump passes (alignment, duplicates, union totals) | console report |
 | `audit.py` | sha256 + record-count manifest for every file | `api_data/MANIFEST.tsv`, `INDEX.md` |
+| `query.py` | Read-only CLI over `viewer/livemcq.db` (stats, exam lookup, exam question dumps, per-qid detail, FTS search, audio stats) — see the Usage block at its top | console |
 
 ## Resume-after-power-loss
 
