@@ -90,6 +90,21 @@ for f in glob.glob(f'{API}/courses/*.json'):
     n_s += 1
 print(f'subjects: {n_s}')
 
+# ---- per-exam name source: canonical lists carry syllabus/subject_name ----
+exam_info = {}   # exam_id -> dict (syllabus, subject_name, type)
+for _f in (f'{API}/exam_list_canonical.jsonl', f'{API}/routine_list_canonical.jsonl'):
+    if not os.path.exists(_f):
+        continue
+    with open(_f, encoding='utf-8') as fh:
+        for line in fh:
+            try:
+                d = json.loads(line)
+            except Exception:
+                continue
+            if isinstance(d, dict) and d.get('id') is not None:
+                exam_info[d['id']] = d
+print(f'canonical list info: {len(exam_info)} exams')
+
 # ---------------- exams ----------------
 exams = {}        # id -> dict
 n_e = 0
@@ -128,7 +143,24 @@ for f in glob.glob(f'{API}/exam_maps/exam_*.json'):
     d['is_omr'] = 1 if str(raw.get('is_omr')).lower() in ('true', '1') else d.get('is_omr', 0)
     if raw.get('examname'):
         d['title'] = raw['examname']
+    if raw.get('syllabus') and not d.get('title'):
+        d['title'] = raw['syllabus']
 print(f'exams total: {len(exams)}')
+
+# ---- exam titles: only this exam's own API fields, never invented ----
+# order of trust: exam_map.examname > exam_map.syllabus > canonical.syllabus
+for eid, d in exams.items():
+    if d.get('title'):
+        continue
+    info = exam_info.get(eid)
+    if info:
+        syl = (info.get('syllabus') or '').strip()
+        if syl:
+            d['title'] = re.sub(r'\s+', ' ', syl).strip()
+        else:
+            d['title'] = ''
+    else:
+        d['title'] = ''
 
 # ---------------- questions (union of exam maps + bank) ----------------
 qrows = {}        # norm -> dict
@@ -330,20 +362,32 @@ print(f'DONE — {OUT}  ({os.path.getsize(OUT)/1e6:.1f} MB) in {time.time()-t0:.
 # ============================================================ viewer data
 # Compact JSON shards for the offline viewer (which reads api_data/exam_maps/
 # itself, like the app fetched per-exam data).
-import shutil
+import shutil, zipfile
 VD = f'{ROOT}/viewer/data'
 os.makedirs(f'{VD}/search', exist_ok=True)
 os.makedirs(f'{ROOT}/viewer/fonts', exist_ok=True)
-for f in ('anek-bangla.ttf', 'Montserrat-Bold.ttf', 'kalpurush.ttf'):
-    shutil.copy(f'{ROOT}/_build/fonts/{f}', f'{ROOT}/viewer/fonts/{f}')
-shutil.copy(f'{ROOT}/_build/icon/livemcq_icon.png', f'{ROOT}/viewer/icon.png')
+APK = f'{ROOT}/extracted/base.apk'
+if os.path.exists(APK):
+    with zipfile.ZipFile(APK) as z:
+        for f in ('anek-bangla.ttf', 'Montserrat-Bold.ttf', 'kalpurush.ttf',
+                  'notosans.ttf', 'notoserif.ttf'):
+            src = f'assets/flutter_assets/assets/fonts/{f}'
+            data = z.read(src)
+            open(f'{ROOT}/viewer/fonts/{f}', 'wb').write(data)
+    icon_src = glob.glob(f'{ROOT}/extracted/apk_base/res/mipmap-*/ic_launcher.png')
+    shutil.copy(icon_src[0], f'{ROOT}/viewer/icon.png') if icon_src else None
+else:
+    print('WARN: base.apk missing; fonts/icon not refreshed')
 
 exams_by_subj = {}
 for eid, d in exams.items():
+    info = exam_info.get(eid)
     exams_by_subj.setdefault(d.get('subject_id'), []).append(
         dict(id=eid, date=d.get('date'), qn=d.get('question_number'),
              omr=d.get('is_omr', 0), has=d.get('has_content', 0),
-             title=d.get('title')))
+             title=d.get('title'),
+             syl=re.sub(r'\s+', ' ', (info.get('syllabus') or '').strip()) if info
+             and (info.get('syllabus') or '').strip() else None))
 key_of = {r['qid']: k for k, r in qrows.items()}
 
 subj_qids = {}
@@ -379,6 +423,14 @@ json.dump(course_idx, open(f'{VD}/courses_index.json', 'w'), ensure_ascii=False)
 bank_qids = [q['qid'] for q in qrows.values() if q['has_bank']]
 json.dump(to_shard(bank_qids), open(f'{VD}/search/search_bank.json', 'w'),
           ensure_ascii=False)
+
+# exam name lookup for the exam view (title + syllabus of the same exam id)
+json.dump({str(eid): dict(t=d.get('title') or '',
+                          s=re.sub(r'\s+', ' ', (exam_info[eid].get('syllabus') or '').strip())
+                          if eid in exam_info and (exam_info[eid].get('syllabus') or '').strip()
+                          else '')
+           for eid, d in exams.items()},
+          open(f'{VD}/exam_titles.json', 'w'), ensure_ascii=False)
 
 # videos index (grouped by series) + pdfs index
 vids_by_series = {}

@@ -113,6 +113,9 @@ async function exam(id, review) {
   try { raw = await loadJSON(`${BASE}/exam_maps/exam_${id}.json`); }
   catch (e) { render(lockPanel(id)); return; }
   if (!raw || !raw.question_text) { render(lockPanel(id)); return; }
+  if (!window.LOCAL.titles) window.LOCAL.titles = await loadJSON("data/exam_titles.json");
+  const t = window.LOCAL.titles[String(id)] || { t: "", s: "" };
+  topbarCount.textContent = t.t || `Exam #${id}`;
   const qs = [];
   const groups = raw.question_text || {};
   for (const [g, list] of Object.entries(groups)) {
@@ -122,9 +125,9 @@ async function exam(id, review) {
     });
   }
   if (!qs.length) { render(lockPanel(id, "Paper has no readable questions.")); return; }
-  Object.assign(T, { questions: qs, idx: 0, picks: new Array(qs.length).fill(null), revealed: false, started: false });
+  Object.assign(T, { questions: qs, idx: 0, picks: new Array(qs.length).fill(null), revealed: false, started: false, title: t.t, syl: t.s });
   if (review) mountReview();
-  else examIntro(id, raw);
+  else examIntro(id, raw, t);
 }
 
 function lockPanel(id, msg) {
@@ -134,11 +137,13 @@ function lockPanel(id, msg) {
     <button class="btn btn-ghost" onclick="history.back()">Go back</button></div>`;
 }
 
-function examIntro(id, raw) {
+function examIntro(id, raw, t) {
   const tm = raw.exam_time ? (raw.exam_time / 60000).toFixed(0) : null;
   const n = T.questions.length;
+  const title = (t && t.t) ? t.t : `Exam #${id}`;
   render(`<div class="screen exam-head">
-    <h2>Exam #${id}</h2>
+    <h2>${esc(title)}</h2>
+    ${t && t.s ? `<p class="muted" style="margin:6px 0 10px;font-size:13.5px">${esc(t.s)}</p>` : ""}
     <div class="meta">
       <span><b>${n}</b> questions</span>
       <span>${Object.keys(raw.question_text).length} sections</span>
