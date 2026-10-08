@@ -90,6 +90,61 @@ cat api_data/question_bank_chunks/question_bank.* > /tmp/all_questions.jsonl
 cd api_data && sed -n '2p' MANIFEST.tsv
 ```
 
+## ✨ Offline app clone + SQLite
+
+Two browse-ready deliverables are generated from the dumps. Both are 100% local / offline.
+
+### 1) Offline viewer — an exact-style clone of the app
+
+`viewer/` is a tiny static PWA-free site that reproduces the LiveMCQ in-app experience
+(brand navy + amber, the app's own `anekbangla` / `Montserrat` fonts pulled from the APK):
+course cards → exam lists → full exam-taking (pick an option, see correct/wrong, read the
+HTML explanation, get a score), question search, the video-class library and the study-PDF
+library with in-app PDF preview.
+
+```bash
+python3 viewer/serve.py
+# → open http://localhost:8000/viewer/
+```
+
+Everything it needs already ships in the repo: the compact shards under `viewer/data/`
+(regenerate locally with the script below) and the per-exam JSON in `api_data/exam_maps/`.
+Video thumbnails and PDF handouts load from `media/` (present on this machine).
+
+### 2) SQLite database — mirrors the app's own Isar data model
+
+`scripts/build_sqlite.py` folds every dataset into one file, `viewer/livemcq.db`
+(≈1.9 GB), with tables that mirror the collections recovered from the app's own
+`default.isar` schema, plus a contentless-FTS5 full-text index:
+
+```
+subject(id, name, slug_or_type)            ← exam subject cards
+exam(id, subject_id, date, question_number, is_omr, slug, exam_time_ms,
+     omr_time_ms, is_mapping, has_content, title)            ← IsarExamModel
+question(qid, question, options_json, answer_index, answer_text,
+         explanation_html, is_audio, q_duration_ms, a_duration_ms,
+         e_duration_ms, slug, syllabus, source, has_bank)     ← IsarExamModel+bank
+exam_question(exam_id, qid, position, subject_group)         ← questionSlugList
+video_series(id, type, title) / video(video_id, series_id, title, thumbnail_url,
+         pdf_url, secret_key, is_free, duration, class_date, created_at, sort_order)
+                                                            ← IsarVideoModel
+pdf(url, title, rel_path, size_bytes, sha256)  /  media_url(rel_path, …)
+question_fts — FTS5 (contentless) + fts_doc(rowid → qid)     ← search
+```
+
+```bash
+python3 scripts/build_sqlite.py     # (re)builds viewer/livemcq.db + viewer/data/*
+sqlite3 viewer/livemcq.db "SELECT count(*) FROM question;"
+sqlite3 viewer/livemcq.db \
+  "SELECT q.question, q.answer_text FROM question_fts
+   JOIN fts_doc ON fts_doc.rowid = question_fts.rowid
+   JOIN question q ON q.qid = fts_doc.qid
+   WHERE question_fts MATCH 'সঞ্চারপথ' ORDER BY rank LIMIT 5;"
+```
+
+`viewer/livemcq.db` and `viewer/data/` are regenerable build artifacts (gitignored);
+the committed pieces are the generator script and the viewer sources.
+
 ## 📦 Status
 
 | Step | State |
@@ -101,6 +156,8 @@ cd api_data && sed -n '2p' MANIFEST.tsv
 | Per-exam maps | ✅ 16,167 (525 exams are permanently empty/locked in the API) |
 | Media (images / PDFs) | ✅ 35,206 files / 8.98 GB (`media/`, manifest committed) |
 | Video catalog (75 series → 2,198 classes) | ✅ metadata + study PDFs; streams are player-side |
+| **Offline viewer** (`viewer/`) | ✅ app-style clone: exams, answers, search, classes, PDFs |
+| **SQLite DB** (`viewer/livemcq.db`, ~1.9 GB) | ✅ mirrors Isar model + FTS5 search |
 
 **About the 525:** 16,692 `exam-view`/`archive-question-subject` fetches were attempted.
 525 (3.1%) return an empty question set in the API itself (payment-locked at database

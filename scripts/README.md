@@ -12,6 +12,11 @@ None of them modify existing dump files.
 | `fetch_exam_map.sh` | One exam: `exam-view` → payment-gate fallback `archive-question-subject`; atomic+validated write | one `exam_maps/` file or `error_<id>` marker |
 | `scan_endpoints.sh` | Endpoint discovery sweep (polite pacing) | `api_data/endpoint_report*.tsv`, `responses3/` |
 | `build_courses.py` | Rebuilds the 115 course files from canonical lists | `api_data/courses/*.json` |
+| `build_sqlite.py` | Folds all dumps into one SQLite DB mirroring the app's Isar model (+FTS5) and emits the viewer's compact JSON shards | `viewer/livemcq.db`, `viewer/data/` |
+| `build_media_list.py` | Collects every unique media URL referenced by saved content (3 hosts) | `api_data/media_download_list.tsv` |
+| `download_media.py` | Resume-aware media fetcher (sha-verified, safe filenames) | `media/` |
+| `build_media_manifest.py` | Disk-truth manifest (re-hashes every downloaded file) | `api_data/media_manifest.tsv` |
+| `dump_video_catalog.sh` | Video series + class catalog from the videoseries endpoints | `api_data/video_catalog/` |
 | `verify_lists.py` | Cross-checks dump passes (alignment, duplicates, union totals) | console report |
 | `audit.py` | sha256 + record-count manifest for every file | `api_data/MANIFEST.tsv`, `INDEX.md` |
 

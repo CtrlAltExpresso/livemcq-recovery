@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LiveMCQ — Offline Archive</title>
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <button class="brand-back" id="backBtn" aria-label="Back">‹</button>
+  <a class="brand" href="#/">
+    <img src="icon.png" alt="LiveMCQ" class="brand-ic">
+    <span class="brand-name">Live<span class="brand-accent">MCQ</span></span>
+    <span class="brand-sub">offline archive</span>
+  </a>
+  <div class="topbar-count" id="topbarCount"></div>
+</header>
+
+<main id="view"></main>
+
+<nav class="bottomnav" aria-label="Main">
+  <a href="#/" class="bn-item" data-nav="home">Home</a>
+  <a href="#/search" class="bn-item" data-nav="search">Search</a>
+  <a href="#/videos" class="bn-item" data-nav="videos">Classes</a>
+  <a href="#/pdfs" class="bn-item" data-nav="pdfs">PDFs</a>
+</nav>
+
+<div class="modal hidden" id="pdfModal">
+  <div class="modal-bar">
+    <span class="modal-title" id="pdfModalTitle"></span>
+    <button class="modal-close" id="pdfModalClose">✕</button>
+  </div>
+  <iframe id="pdfModalFrame"></iframe>
+</div>
+
+<div class="toast hidden" id="toast"></div>
+
+<script src="vendor/sql-wasm.js"></script>
+<script>window.LOCAL = { about: null, courses: null, media: null, bank: null, pdfs: null };</script>
+<script src="app.js"></script>
+</body>
+</html>

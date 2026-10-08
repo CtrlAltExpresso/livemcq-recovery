@@ -1,0 +1,449 @@
+"use strict";
+/* LiveMCQ — offline archive viewer.
+   Reads prebuilt shards in ./data and the raw per-exam maps in ../api_data.
+   Everything here runs from local files; no network required. */
+
+const BASE = "../api_data";    // relative to /viewer/
+
+const view = document.getElementById("view");
+const backBtn = document.getElementById("backBtn");
+const topbarCount = document.getElementById("topbarCount");
+const pdfModal = document.getElementById("pdfModal");
+const pdfFrame = document.getElementById("pdfModalFrame");
+const pdfModalTitle = document.getElementById("pdfModalTitle");
+const toast = document.getElementById("toast");
+
+let MEDIA_URL = {};   // url -> rel_path
+
+const go = (p) => { location.hash = p; };
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const num = (n) => (n ?? 0).toLocaleString("en-US");
+
+function showToast(msg) {
+  toast.textContent = msg;
+  toast.classList.remove("hidden");
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => toast.classList.add("hidden"), 2600);
+}
+
+function render(html) { view.innerHTML = html; scrollY ? window.scrollTo({ top: 0 }) : null; }
+
+function loadJSON(p) { return fetch(p).then(r => { if (!r.ok) throw new Error(p); return r.json(); }); }
+
+function spin() { view.innerHTML = '<div class="center"><div class="spinner"></div></div>'; }
+
+function setNav(name) {
+  document.querySelectorAll(".bn-item").forEach(b =>
+    b.classList.toggle("on", b.dataset.nav === name));
+}
+
+/* ---------------- home ---------------- */
+async function home() {
+  setNav("home");
+  backBtn.style.visibility = "hidden";
+  const [about, courses] = await Promise.all([
+    loadJSON("data/about.json"), loadJSON("data/courses_index.json")]);
+  window.LOCAL.about = about; window.LOCAL.courses = courses;
+  topbarCount.textContent = `${num(about.exams)} exams · ${num(about.videos)} classes`;
+  render(`<div class="screen">
+    <div class="hero"><h1>LiveMCQ · bangla practice hub</h1>
+      <p>Full offline copy of the 2026 LiveMCQ content — exams, exam papers, answer explanations, video class library and study PDFs.</p>
+      <span class="hero-stat"><span class="muted" style="color:#b9c6f0">course</span> <b>${num(about.courses)}</b></span>
+      <span class="hero-stat"><span class="muted" style="color:#b9c6f0">exam</span> <b>${num(about.exams)}</b></span>
+      <span class="hero-stat"><span class="muted" style="color:#b9c6f0">question</span> <b>${num(about.questions)}</b></span>
+      <span class="hero-stat"><span class="muted" style="color:#b9c6f0">class</span> <b>${num(about.videos)}</b></span>
+    </div>
+    <div class="section-title"><h2>All Courses</h2><span class="muted" style="font-size:12.5px">${num(about.pdfs)} study PDFs · ${num(about.media)} media</span></div>
+    <div class="course-grid">
+      ${courses.map(c => `<div class="course-card" onclick="go('#/course/${c.id}')">
+        <div class="cc-head"><span class="cc-name">${esc(c.name)}</span></div>
+        <div class="cc-body"><span><b>${num(c.exams)}</b> exams</span><span><b>${num(c.questions)}</b> questions</span></div>
+      </div>`).join("")}
+    </div>
+    <div class="foot">Recovered from the LiveMCQ app/API, authorized ref LMCQ-DR-2026-1006 · viewer$ v1 · 100% offline</div>
+  </div>`);
+}
+
+/* ---------------- course -> exam list ---------------- */
+async function course(id) {
+  setNav("home");
+  backBtn.style.visibility = "visible";
+  const [about, courses, exams] = await Promise.all([
+    loadJSON("data/about.json"), loadJSON("data/courses_index.json"),
+    loadJSON(`data/exams_${id}.json`)]);
+  const c = courses.find(x => x.id === id);
+  topbarCount.textContent = esc(c ? c.name : "");
+  const rows = [...exams].sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+  render(`<div class="screen">
+    <div class="section-title"><h2>${esc(c.name)}</h2>
+      <span class="muted" style="font-size:12.5px">${num(c.exams)} exams</span></div>
+    ${rows.map(e => examRow(e)).join("") || '<div class="empty">No exams in this course.</div>'}
+  </div>`);
+}
+
+function fmtDate(d) {
+  if (!d) return null;
+  const x = new Date(d);
+  if (isNaN(x)) return null;
+  return { d: x.getDate(), m: x.toLocaleString("en", { month: "short" }), y: x.getFullYear() };
+}
+function examRow(e) {
+  const f = fmtDate(e.date);
+  const badges = [];
+  if (e.omr) badges.push('<span class="pill pill-omr">OMR</span>');
+  if (!e.has) badges.push('<span class="pill pill-lock">Locked</span>');
+  return `<div class="exam-row ${e.has ? "" : "locked"}" onclick="${e.has ? `go('#/exam/${e.id}')` : ''}">
+    <div class="exam-date">${f ? `<span class="d">${f.d}</span><span class="m">${f.m} ${f.y}</span>` : '<span class="d">—</span><span class="m">no date</span>'}</div>
+    <div class="mid">
+      <h3>${e.title ? esc(e.title) : `Exam #${e.id}`}</h3>
+      <div class="meta"><span>${num(e.qn)} questions</span>${badges.join("")}</div>
+    </div>
+    <span class="chev">›</span>
+  </div>`;
+}
+
+/* ---------------- exam taking ---------------- */
+const T = { questions: [], idx: 0, picks: [], revealed: false, timer: null, sec: 0, started: false };
+
+async function exam(id, review) {
+  setNav("home");
+  backBtn.style.visibility = "visible";
+  topbarCount.textContent = `Exam #${id}`;
+  let raw;
+  try { raw = await loadJSON(`${BASE}/exam_maps/exam_${id}.json`); }
+  catch (e) { render(lockPanel(id)); return; }
+  if (!raw || !raw.question_text) { render(lockPanel(id)); return; }
+  const qs = [];
+  const groups = raw.question_text || {};
+  for (const [g, list] of Object.entries(groups)) {
+    (list || []).forEach((q) => {
+      if (!q || !q.question) return;
+      qs.push({ g: g || "Group", ...q });
+    });
+  }
+  if (!qs.length) { render(lockPanel(id, "Paper has no readable questions.")); return; }
+  Object.assign(T, { questions: qs, idx: 0, picks: new Array(qs.length).fill(null), revealed: false, started: false });
+  if (review) mountReview();
+  else examIntro(id, raw);
+}
+
+function lockPanel(id, msg) {
+  return `<div class="screen locked-panel"><div class="qindex">EXAM #${id}</div>
+    <h2>${msg || "This exam is locked"}</h2>
+    <p class="muted">The server returned a locked / paywall response for this exam and no question content is available.</p>
+    <button class="btn btn-ghost" onclick="history.back()">Go back</button></div>`;
+}
+
+function examIntro(id, raw) {
+  const tm = raw.exam_time ? (raw.exam_time / 60000).toFixed(0) : null;
+  const n = T.questions.length;
+  render(`<div class="screen exam-head">
+    <h2>Exam #${id}</h2>
+    <div class="meta">
+      <span><b>${n}</b> questions</span>
+      <span>${Object.keys(raw.question_text).length} sections</span>
+      ${tm ? `<span class="timer">⏱ ${tm} min</span>` : ""}
+      ${raw.is_omr ? '<span class="pill pill-omr">OMR</span>' : ""}
+    </div>
+    <p class="muted" style="margin:10px 0 0;font-size:14px">Answer each question, then see the correct answer and full explanation instantly. Your score is tallied at the end.</p>
+    <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn btn-primary" onclick="startExam()">Start test</button>
+      <button class="btn btn-ghost" onclick="go('#/exam/${id}/review')">Review all answers</button>
+  </div>`);
+}
+window.startExam = startExam;
+
+function startExam() {
+  T.started = true; T.revealed = false;
+  clearInterval(T.timer);
+  T.sec = 0;
+  T.timer = setInterval(() => {
+    T.sec++;
+    const el = document.getElementById("clock");
+    if (el) { const m = Math.floor(T.sec / 60), s = T.sec % 60; el.textContent = `⏱ ${m}:${String(s).padStart(2, "0")}`; }
+  }, 1000);
+  mountQuestion();
+}
+
+function mountQuestion() {
+  const q = T.questions[T.idx];
+  const key = T.revealed ? q.answer : null;
+  const sel = T.picks[T.idx];
+  const progress = ((T.idx) / T.questions.length * 100).toFixed(1);
+  render(`<div class="screen">
+    <div class="exam-head"><h2>${esc(q.g)}</h2>
+      <div class="meta"><span class="timer" id="clock">${T.started ? "⏱ 0:00" : "⏱ —"}</span>
+        <span>question ${T.idx + 1} / ${T.questions.length}</span></div>
+      <div class="progress"><div style="width:${progress}%"></div></div>
+    </div>
+    <div class="qcard">
+      <div class="qindex">QUESTION ${T.idx + 1}</div>
+      <div class="qtext">${esc(q.question)}${q.is_audio ? '<span class="qaudio">🔊 audio</span>' : ""}</div>
+      ${[1, 2, 3, 4].map(i => optHTML(q, i, key, sel)).join("")}
+      ${T.revealed ? explainHTML(q, sel) : ""}
+      <div class="qnav">
+        <button class="btn btn-ghost" ${T.idx === 0 ? "disabled" : ""} onclick="prevQ()">‹ Prev</button>
+        <span class="qcounter">${T.idx + 1} / ${T.questions.length}</span>
+        <button class="btn btn-primary" ${T.idx === T.questions.length - 1 ? "disabled" : ""} onclick="nextQ()">Next ›</button>
+      </div>
+      ${T.idx === T.questions.length - 1 ? '<button class="btn btn-primary" style="width:100%;margin-top:10px" onclick="finishExam()">Finish — see score</button>' : ""}
+    </div>
+  </div>`);
+}
+
+const KEYS = ["A", "B", "C", "D", "E"];
+function optHTML(q, i, key, sel) {
+  const txt = q[`option${i}`];
+  if (!txt) return "";
+  let cls = "opt disabled";
+  if (key !== null) {
+    if (i === key) cls += " right";
+    else if (i === sel) cls += " wrong";
+  } else {
+    cls = `opt ${sel === i ? "sel" : ""}`;
+  }
+  return `<div class="${cls}" ${key === null ? `onclick="pick(${i})"` : ""}>
+    <span class="key">${KEYS[i - 1]}</span><span>${esc(txt)}</span>${key !== null && i === key ? ' <span class="pill pill-ok" style="margin-left:auto;background:var(--ok);color:#fff">Correct</span>' : ""}
+  </div>`;
+}
+function explainHTML(q, sel) {
+  const right = q.answer;
+  const status = sel === right ? "✅ Correct" : (sel == null ? "Skipped" : "✖ Wrong");
+  return `<div class="explain"><h4>${status} — Answer: ${esc(q[`option${right}`])}</h4>${localImg(q.exp) || '<p class="muted">No explanation available.</p>'}</div>`;
+}
+function localImg(html) {
+  if (!html || !MEDIA_URL) return html;
+  return html.replace(/src=["'](https?:\/\/[^"']+)["']/g, (m, u) => {
+    const r = MEDIA_URL[u];
+    return r ? `src="../${r}"` : m;
+  });
+}
+window.pick = function (i) {
+  if (T.revealed) return;
+  T.picks[T.idx] = i; T.revealed = true; mountQuestion();
+};
+window.prevQ = function () { if (T.idx > 0) { T.idx--; T.revealed = T.picks[T.idx] !== null; mountQuestion(); } };
+window.nextQ = function () { if (T.idx < T.questions.length - 1) { T.idx++; T.revealed = false; mountQuestion(); } };
+function finishExam() {
+  clearInterval(T.timer);
+  const qs = T.questions;
+  const right = qs.filter((q, i) => T.picks[i] === q.answer).length;
+  const wrong = qs.filter((q, i) => T.picks[i] != null && T.picks[i] !== q.answer).length;
+  const skip = qs.length - right - wrong;
+  const pct = qs.length ? Math.round(right / qs.length * 100) : 0;
+  render(`<div class="screen">
+    <div class="result-summary">
+      <div class="result-score">${right} / ${qs.length}</div>
+      <div class="result-label">${pct}% correct</div>
+      <div class="result-details"><span>✅ ${right} right</span><span>✖ ${wrong} wrong</span><span>— ${skip} skipped</span></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap">
+      <button class="btn btn-primary" onclick="startExam()">Retake</button>
+      <button class="btn btn-ghost" onclick="reviewAll()">Review answers</button>
+    </div>
+    ${qs.map((q, i) => `<div class="review-item">
+      <span class="qindex">Q${i + 1} · ${esc(q.g)}</span>
+      <div class="q">${esc(q.question)}</div>
+      <div class="a">${T.picks[i] === q.answer ? "✅ You: " : "✖ You: "}<b>${KEYS[(T.picks[i] || 0) - 1] || "—"}</b> · Correct: <b>${KEYS[q.answer - 1]}</b> — ${esc(q[`option${q.answer}`])}</div>
+    </div>`).join("")}
+  </div>`);
+}
+window.finishExam = finishExam;
+window.reviewAll = reviewAll;
+function reviewAll() {
+  T.revealed = true;
+  mountReview();
+}
+function mountReview() {
+  const qs = T.questions;
+  render(`<div class="screen"><div class="section-title"><h2>All answers</h2><span class="muted" style="font-size:12px">${qs.length} questions</span></div>
+    ${qs.map((q, i) => `<div class="review-item"><span class="qindex">Q${i + 1} · ${esc(q.g)}</span>
+      <div class="q">${esc(q.question)}</div>
+      <div class="review-right">${[1, 2, 3, 4].map(k => optHTML(q, k, q.answer, null)).join("")}</div>
+      ${explainHTML(q, null)}
+    </div>`).join("")}
+  </div>`);
+}
+
+/* ---------------- search ---------------- */
+async function search() {
+  setNav("search");
+  const [courses, bankShard] = await Promise.all([
+    loadJSON("data/courses_index.json"),
+    loadJSON("data/search/search_bank.json")]);
+  window.LOCAL.bank = bankShard;
+  render(`<div class="screen">
+    <div class="search-box">
+      <div class="search-field"><span class="s">🔍</span>
+        <input id="q" type="search" placeholder="Search questions…  e.g.  সঞ্চারপথ" autocomplete="off">
+      </div>
+      <div class="scope" id="scope"></div>
+      <div class="search-meta" id="smeta"></div>
+    </div>
+    <div id="results"></div>
+  </div>`);
+  const scopeEl = document.getElementById("scope");
+  const mkChip = (id, label, on) => `<span class="scope-chip ${on ? "on" : ""}" data-s="${id}">${esc(label)}</span>`;
+  scopeEl.innerHTML = mkChip("bank", "All questions", true) +
+    courses.map(c => mkChip(c.id, c.name, false)).join("");
+  scopeEl.addEventListener("click", (e) => {
+    const chip = e.target.closest(".scope-chip");
+    if (!chip) return;
+    scopeEl.querySelectorAll(".scope-chip").forEach(x => x.classList.toggle("on", x === chip));
+    runSearch();
+  });
+  const input = document.getElementById("q");
+  let deb = null;
+  input.addEventListener("input", () => { clearTimeout(deb); deb = setTimeout(runSearch, 140); });
+  input.focus();
+}
+
+async function scopeData() {
+  const sel = document.querySelector(".scope-chip.on");
+  const sid = sel ? sel.dataset.s : "bank";
+  if (sid === "bank") return window.LOCAL.bank;
+  if (!window.LOCAL._shard) window.LOCAL._shard = {};
+  if (!window.LOCAL._shard[sid]) window.LOCAL._shard[sid] = await loadJSON(`data/search/search_${sid}.json`);
+  return window.LOCAL._shard[sid];
+}
+
+async function runSearch() {
+  const q = document.getElementById("q").value.trim();
+  const res = document.getElementById("results");
+  const meta = document.getElementById("smeta");
+  if (!q) { res.innerHTML = ""; meta.textContent = "Type to search — bank of 80k+ and every exam question."; return; }
+  meta.textContent = "Searching…";
+  let data;
+  try { data = await scopeData(); } catch (e) { meta.textContent = "No local shard for this scope."; return; }
+  const ql = q.toLowerCase();
+  const hits = [];
+  for (let i = 0; i < data.length; i++) {
+    const it = data[i];
+    const idx = (it.q || "").toLowerCase().indexOf(ql);
+    const idxo = idx < 0 ? (it.o.join(" ").toLowerCase().indexOf(ql)) : idx;
+    if (idxo >= 0) hits.push({ it, idx: idx >= 0 ? idx : idxo, text: it.q + " " + it.o.join(" ") });
+    if (hits.length >= 200) break;
+  }
+  meta.textContent = `${hits.length.toLocaleString()} matching from ${data.length.toLocaleString()} questions`;
+  if (!hits.length) { res.innerHTML = '<div class="empty">No matches.</div>'; return; }
+  res.innerHTML = hits.map(h => `<div class="srow" data-i="${hits.indexOf(h)}">
+    <div class="q">${hl(h.it.q, ql)}</div>
+    <div class="o">${(h.it.o || []).map(t => t ? `<span>${esc(t)}</span>` : "").join("")}</div>
+    <div class="x" style="display:none"></div>
+  </div>`).join("");
+  res.querySelectorAll(".srow").forEach(row => {
+    row.addEventListener("click", () => row.classList.toggle("expanded"));
+  });
+}
+function hl(text, ql) {
+  const i = (text || "").toLowerCase().indexOf(ql);
+  if (i < 0) return esc(text);
+  return esc(text.slice(0, i)) + "<mark>" + esc(text.slice(i, i + ql.length)) + "</mark>" + esc(text.slice(i + ql.length));
+}
+
+/* ---------------- videos ---------------- */
+async function videos() {
+  setNav("videos");
+  const vid = await loadJSON("data/videos_index.json");
+  backBtn.style.visibility = "visible";
+  topbarCount.textContent = `${vid.reduce((a, s) => a + s.videos.length, 0)} classes`;
+  render(`<div class="screen">
+    <div class="section-title"><h2>Video Classes</h2>
+      <span class="muted" style="font-size:12.5px">${vid.length} series</span></div>
+    ${vid.map(s => `<div class="acc" id="acc-${s.s.id}">
+      <div class="acc-head" onclick="accToggle(this)">
+        <span class="arr">▶</span><span class="tt">${esc(s.s.title)}</span><span class="n">${s.videos.length}</span>
+      </div>
+      <div class="acc-body">${s.videos.map(v => vRow(v)).join("")}</div>
+    </div>`).join("")}
+    <div class="foot">Video streams are keyed by the app player (secret key) and are not recoverable. Thumbnails + PDF handouts are local.</div>
+  </div>`);
+}
+window.accToggle = function (head) {
+  head.parentElement.classList.toggle("open");
+};
+function vRow(v) {
+  const rel = v.th ? MEDIA_URL[v.th] : null;
+  const dur = v.dur || "";
+  const date = v.date || "";
+  return `<div class="vrow" onclick="vOpen(${v.id})">
+    <div class="thumb">${rel ? `<img src="../${rel}" loading="lazy" alt="">` : '<span class="ph">▶</span>'}</div>
+    <div class="vi">
+      <h4>${esc(v.t)}</h4>
+      <div class="meta"><span>${esc(date)}</span>${dur ? `<span>⏱ ${esc(dur)}</span>` : ""}
+        ${v.free ? '<span class="pill pill-free">Free</span>' : '<span class="pill pill-premium">Premium</span>'}</div>
+      <div class="mets">${v.p ? `<span class="vpdf" onclick="event.stopPropagation();openPdf('${esc(v.p).replace(/'/g, "\\'")}')">📄 PDF notes</span>` : ""}<span class="vlock">▶ video not in archive</span></div>
+    </div>
+  </div>`;
+}
+window.vOpen = function (id) {
+  showToast("Video streams are stored app-side (secret key) — not recoverable. PDF notes & thumbnails are available.");
+};
+
+/* ---------------- pdfs ---------------- */
+async function pdfs() {
+  setNav("pdfs");
+  const pdfsList = await loadJSON("data/pdfs_index.json");
+  backBtn.style.visibility = "visible";
+  topbarCount.textContent = `${pdfsList.length} PDFs`;
+  render(`<div class="screen">
+    <div class="section-title"><h2>Study PDF Library</h2></div>
+    <div class="pdf-count">${pdfsList.length.toLocaleString()} PDF &amp; DOCX handouts — open straight from local disk.</div>
+    <div class="search-field" style="margin-bottom:14px"><span class="s">🔍</span>
+      <input id="pfilter" type="search" placeholder="Filter by name…" autocomplete="off"></div>
+    <div id="prows"></div>
+  </div>`);
+  const el = document.getElementById("prows");
+  const draw = (f) => {
+    const list = f ? pdfsList.filter(p => p.n.toLowerCase().includes(f)) : pdfsList;
+    el.innerHTML = list.map(p => `<div class="prow" onclick="openPdfFile('${esc(p.u).replace(/'/g, "\\'")}')">
+      <span class="ic">📄</span><span class="nm">${esc(p.n)}</span><span class="sz">${(p.sz / 1024).toFixed(0)} KB</span>
+    </div>`).join("") || '<div class="empty">Nothing matches.</div>';
+  };
+  draw("");
+  let deb;
+  document.getElementById("pfilter").addEventListener("input", (e) => {
+    clearTimeout(deb); deb = setTimeout(() => draw(e.target.value.trim().toLowerCase()), 120);
+  });
+}
+
+function resolvePdf(url) {
+  const rel = MEDIA_URL[url];
+  if (!rel) return null;
+  return "/" + rel.replace(/^\.?\//, "");
+}
+function openPdfFile(url) {
+  const rel = MEDIA_URL[url];
+  if (!rel) { showToast("File not on disk."); return; }
+  const src = "../" + rel;
+  pdfFrame.src = src;
+  pdfModalTitle.textContent = rel.split("/").pop();
+  pdfModal.classList.remove("hidden");
+}
+window.openPdf = openPdfFile;
+window.openPdfFile = openPdfFile;
+document.getElementById("pdfModalClose").addEventListener("click", () => {
+  pdfFrame.src = "";
+  pdfModal.classList.add("hidden");
+});
+pdfModal.addEventListener("click", (e) => { if (e.target === pdfModal) { pdfFrame.src = ""; pdfModal.classList.add("hidden"); } });
+
+/* ---------------- routing ---------------- */
+backBtn.addEventListener("click", () => history.back());
+window.addEventListener("hashchange", route);
+async function route() {
+  const h = location.hash || "#/";
+  let mm = h.match(/^#\/course\/(\d+)$/);
+  if (mm) return course(+mm[1]);
+  mm = h.match(/^#\/exam\/(\d+)(\/review)?$/);
+  if (mm) return exam(+mm[1], !!mm[2]);
+  if (h.startsWith("#/search")) return search();
+  if (h.startsWith("#/videos")) return videos();
+  if (h.startsWith("#/pdfs")) return pdfs();
+  return home();
+}
+
+(async function boot() {
+  await loadJSON("data/media_url.json").then(m => { MEDIA_URL = m; }).catch(() => {});
+  route();
+})();
