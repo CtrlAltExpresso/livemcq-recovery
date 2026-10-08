@@ -298,13 +298,17 @@ print('FTS done', flush=True)
 series = {}
 vids = []
 for f in glob.glob(f'{API}/video_catalog/video_*.json'):
+    m = re.match(r'video_(\d+)\.json$', os.path.basename(f))
+    if not m:
+        continue
     try:
         d = json.load(open(f))
     except Exception:
         continue
+    fsid = int(m.group(1))
     for v in d.get('videos', []):
         y = dict(video_id=int(v.get('id') or 0),
-                 series_id=int(v.get('exam_name_type') or 0) if str(v.get('exam_name_type') or '').isdigit() else None,
+                 series_id=fsid,
                  title=v.get('title') or '',
                  thumbnail_url=v.get('thumbnail_url') or '',
                  pdf_url=v.get('pdf_link') or '',
@@ -446,8 +450,10 @@ json.dump({str(eid): dict(t=d.get('title') or '',
           open(f'{VD}/exam_titles.json', 'w'), ensure_ascii=False)
 
 # videos index (grouped by series) + pdfs index
+uniq_vids = {v['video_id']: v
+             for v in sorted(vids, key=lambda x: (x['series_id'] or 0, x['sort_order']))}
 vids_by_series = {}
-for v in sorted(vids, key=lambda x: (x['series_id'] or 0, x['sort_order'])):
+for v in sorted(uniq_vids.values(), key=lambda x: (x['series_id'] or 0, x['sort_order'])):
     vids_by_series.setdefault(v['series_id'], []).append(
         dict(id=v['video_id'], t=v['title'], th=v['thumbnail_url'],
              p=v['pdf_url'], free=v['is_free'], dur=v['duration'],
