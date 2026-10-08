@@ -98,11 +98,15 @@ function examRow(e, pos) {
   const badges = [];
   if (e.omr) badges.push('<span class="pill pill-omr">OMR</span>');
   if (!e.has) badges.push('<span class="pill pill-lock">Locked</span>');
+  const dateTxt = f ? `${f.d} ${f.m} ${f.y}` : null;
   return `<div class="exam-row ${e.has ? "" : "locked"}" onclick="${e.has ? `go('#/exam/${e.id}')` : ''}">
-    <div class="exam-date">${f ? `<span class="d">${f.d}</span><span class="m">${f.m} ${f.y}</span>` : '<span class="d">—</span><span class="m">no date</span>'}</div>
     <div class="mid">
       <h3>${e.title ? esc(e.title) : `Exam #${e.id}`}</h3>
-      <div class="meta"><span>${num(e.qn)} questions</span>${badges.join("")}${pos != null ? `<span class="muted" style="font-size:11.5px">#${pos}</span>` : ""}</div>
+      <div class="meta">
+        ${dateTxt ? `<span class="meta-date">📅 ${dateTxt}</span>` : ""}
+        <span>${num(e.qn)} questions</span>${badges.join("")}
+        ${pos != null ? `<span>#${pos}</span>` : ""}
+      </div>
     </div>
     <span class="chev">›</span>
   </div>`;

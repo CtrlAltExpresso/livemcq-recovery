@@ -93,13 +93,11 @@ main { max-width: 860px; margin: 0 auto; padding: 18px 16px 84px; }
 .exam-row { display: flex; gap: 14px; align-items: center; background: var(--card); border: 1px solid var(--line);
   border-radius: var(--radius); padding: 14px; margin-bottom: 10px; box-shadow: var(--shadow); cursor: pointer; }
 .exam-row:hover { border-color: #c3d0f0; }
-.exam-date { flex: 0 0 62px; text-align: center; background: #eef3ff; border-radius: 12px; padding: 8px 4px; }
-.exam-date .d { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 18px; color: var(--navy); display: block; }
-.exam-date .m { font-size: 11px; color: var(--muted); }
 .exam-row .mid { flex: 1; min-width: 0; }
 .exam-row .mid h3 { font-size: 15px; margin-bottom: 3px;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .exam-row .meta { font-size: 12.5px; color: var(--muted); display: flex; gap: 10px; flex-wrap: wrap; }
+.meta-date { background: #eef3ff; color: var(--navy); border-radius: 999px; padding: 2px 10px; font-weight: 600; }
 .exam-row .chev { color: #b9c6f0; font-size: 20px; }
 .exam-row.locked { opacity: .62; cursor: not-allowed; }
 
