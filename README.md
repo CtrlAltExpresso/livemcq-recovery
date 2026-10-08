@@ -99,7 +99,8 @@ cd api_data && sed -n '2p' MANIFEST.tsv
 | Exam lists (3-pass verified) | ✅ 15,429 + 1,263 |
 | Question bank | ✅ 80,162 |
 | Per-exam maps | ✅ 16,167 (525 exams are permanently empty/locked in the API) |
-| Media (images / PDFs / videos) | ✅ images + study PDFs (local, manifest committed) |
+| Media (images / PDFs) | ✅ 35,206 files / 8.98 GB (`media/`, manifest committed) |
+| Video catalog (75 series → 2,198 classes) | ✅ metadata + study PDFs; streams are player-side |
 
 **About the 525:** 16,692 `exam-view`/`archive-question-subject` fetches were attempted.
 525 (3.1%) return an empty question set in the API itself (payment-locked at database
@@ -107,6 +108,23 @@ level) — the same view a non-owner account sees in the app. The remaining 16,1
 fetch valid question sets. These 525 exams still appear in their course files
 (`exam_maps` entry shows no `files`); a future owner-level account/server dump can
 fill them in.
+
+**About the media:** every unique asset URL referenced by the app's own content was
+downloaded from the three hosts it uses (`elasticbeanstalk…s3.amazonaws.com`,
+`assets.livemcq.com`, `files.livemcq.app`): **35,210 URLs → 35,206 files (8.98 GB)**.
+Kinds: 32,600+ images (png/jpg/jpeg/webp/gif/avif/svg), 1,846 class/study PDFs and a
+docx that live in `media/documents/`. Only 4 URLs are unrecoverable (3 removed from S3
+→ HTTP 403; 1 is a URL truncated inside the app's own database → HTTP 400). The full
+registry — `media_manifest.tsv` (url ⇄ sha256 ⇄ size ⇄ status) and
+`media_download_list.tsv` (url ⇄ relpath) — is committed; the binary files themselves
+are kept in `media/` (gitignored, ~9 GB) so the repo stays under GitHub's limits.
+
+**About the videos:** `videoseries-subject-list` exposes **75 video-series subjects**;
+`get-video-list/<subject_id>` returns their **2,198 class sessions** (title, date,
+duration, free/paid, thumbnail, `pdf_link`, embed `secret_key`) — saved under
+`api_data/video_catalog/video_<subject>.json`. Playback streams are served by the app's
+own player keyed on `secret_key`, so video *bytes* aren't recoverable from the API, but
+every class's full catalog + attached PDFs are.
 
 ## 🛠 Background
 

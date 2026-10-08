@@ -1,44 +1,61 @@
 #!/usr/bin/env python3
-"""media_progress.tsv (status,url,size,sha256) -> committed media_manifest.tsv
-Grouped by status; used to document exactly what media exists locally and what
-could not be fetched.
+"""Build api_data/media_manifest.tsv from disk truth:
+walks api_data/media_download_list.tsv, resolves the local file (with the
+same safe_rel used by download_media.py), re-hashes it, and records the
+status of anything not on disk (from media_progress.tsv failure rows).
+
+Output (tab-separated, git-committed): status  size  sha256  relpath  url
 """
-import os, json, io, sys, collections
+import os, hashlib
 
-PROG = '/home/sakib/offlineMCQ/media_progress.tsv'
-OUT = '/home/sakib/offlineMCQ/api_data/media_manifest.tsv'
-if not os.path.isfile(PROG):
-    sys.exit('no progress file')
+ROOT = '/home/sakib/offlineMCQ'
+LIST = f'{ROOT}/api_data/media_download_list.tsv'
+PROG = f'{ROOT}/media_progress.tsv'
+MEDIA = f'{ROOT}/media'
+OUT = f'{ROOT}/api_data/media_manifest.tsv'
 
-best = {}
+def safe_rel(rel):
+    rel = rel.replace('\\n', '').replace('\n', '').replace('\r', '').replace('\t', '').replace('\x00', '')
+    rel = rel.rstrip('/')
+    base = os.path.basename(rel)
+    if len(base.encode('utf-8')) > 180:
+        stem, dot, ext = base.rpartition('.')
+        keep = stem.encode('utf-8')[:120].decode('utf-8', 'ignore')
+        base = keep + '_' + hashlib.md5(base.encode()).hexdigest()[:8] + (dot + ext if dot else '')
+        rel = os.path.join(os.path.dirname(rel), base)
+    return rel
 
-for line in open(PROG, encoding='utf-8'):
-    line = line.rstrip('\n')
-    if not line: continue
-    parts = line.split('\t')
-    if len(parts) != 4:
-        continue
-    st, url, size, h = parts
-    # later rows (latest run) win; prefer rows backed by a real file
-    if url in best:
-        cur = best[url]
-        cur_ok = cur[0] in ('ok', 'skip') and int(cur[1] or 0) > 0
-        new_ok = st in ('ok', 'skip') and int(size or 0) > 0
-        if cur_ok or not new_ok:
+last = {}
+if os.path.isfile(PROG):
+    for ln in open(PROG, encoding='utf-8'):
+        p = ln.rstrip('\n').split('\t')
+        if len(p) == 4:
+            last[p[1]] = p[0]
+
+ok = fail = 0
+total = 0
+with open(OUT, 'w') as out:
+    out.write('# status\tsize_bytes\tsha256\trelpath\turl\n')
+    for ln in open(LIST, encoding='utf-8'):
+        if not ln.strip():
             continue
-    best[url] = (st.replace('skip', 'ok'), size or '0', h)
-
-rows = []
-for url, (st, size, h) in best.items():
-    rows.append((st, url, size, h))
-
-by = collections.Counter(r[0] for r in rows)
-with open(OUT, 'w') as f:
-    f.write('# status\tsize_bytes\tsha256\turl\n')
-    for r in sorted(rows, key=lambda x: x[0]):
-        f.write('\t'.join(r) + '\n')
-
-print(f'{len(rows)} rows -> {OUT}')
-print('status counts:', dict(by.most_common()))
-ok = sum(int(sz) for st, url, sz, h in rows if st in ('ok', 'skip'))
-print(f'total bytes on disk referenced: {ok:,}  ({ok/1e6:.1f} MB)')
+        url, rel = ln.rstrip('\n').split('\t')
+        path = os.path.join(MEDIA, safe_rel(rel))
+        if os.path.isfile(path) and os.path.getsize(path) > 0:
+            with open(path, 'rb') as f:
+                b = f.read()
+            out.write(f'ok\t{len(b)}\t{hashlib.sha256(b).hexdigest()}\t{safe_rel(rel)}\t{url}\n')
+            ok += 1
+            total += len(b)
+        else:
+            status = last.get(url, 'unknown')
+            out.write(f'{status}\t0\t\t{safe_rel(rel)}\t{url}\n')
+            fail += 1
+print(f'manifest rows: ok={ok} fail={fail} bytes={total:,} ({total/1e9:.2f} GB)')
+if fail:
+    for ln in open(LIST, encoding='utf-8'):
+        if not ln.strip():
+            continue
+        url, rel = ln.rstrip('\n').split('\t')
+        if not (os.path.isfile(os.path.join(MEDIA, safe_rel(rel))) and os.path.getsize(os.path.join(MEDIA, safe_rel(rel))) > 0):
+            print('  FAIL', last.get(url, 'unknown'), url)

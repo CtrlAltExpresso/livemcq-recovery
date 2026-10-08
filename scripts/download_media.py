@@ -12,7 +12,7 @@ import urllib3
 urllib3.disable_warnings()
 
 a = argparse.ArgumentParser()
-a.add_argument('--manifest', default='/tmp/opencode/media_download_list.tsv')
+a.add_argument('--manifest', default='/home/sakib/offlineMCQ/api_data/media_download_list.tsv')
 a.add_argument('--out', default=os.environ.get('MEDIA_ROOT', '/home/sakib/offlineMCQ/media'))
 a.add_argument('--workers', type=int, default=16)
 a.add_argument('--resume', default=os.environ.get('MEDIA_PROGRESS', '/home/sakib/offlineMCQ/media_progress.tsv'))
@@ -37,7 +37,15 @@ if opt.limit: lines = lines[:opt.limit]
 print(f'{len(lines)} URLs to consider', flush=True)
 
 prog = open(opt.resume, 'a', buffering=1)
-failf = open(os.environ.get('MEDIA_FAILS', '/tmp/opencode/media_failures.tsv'), 'a')
+failf = open(os.environ.get('MEDIA_FAILS', '/home/sakib/offlineMCQ/.media_failures.tsv'), 'a')
+# URLs already signed off in a previous run (avoid flooding the progress file
+# with duplicate 'skip' rows on every restart)
+seen_urls = set()
+if os.path.isfile(opt.resume):
+    for ln in open(opt.resume, encoding='utf-8'):
+        p = ln.split('\t')
+        if len(p) == 4:
+            seen_urls.add(p[1])
 
 def safe_rel(rel):
     """Sanitize a media-relative path: drop control chars, shorten basename."""
@@ -107,8 +115,12 @@ def run(items):
                 failf.write(f'ERR_unhandled\t{url}\t{type(e).__name__}\n')
                 res = ('ERR_unhandled', url, item.split('\t')[1], 0, '')
             st, url, rel, size, h = res
-            prog.write(f'{st}\t{url}\t{size}\t{h}\n')
             n += 1
+            if url in seen_urls and st == 'skip':
+                stats['skip'] = stats.get('skip', 0) + 1
+                continue
+            seen_urls.add(url)
+            prog.write(f'{st}\t{url}\t{size}\t{h}\n')
             stats[st] = stats.get(st, 0) + 1
             if st in ('ok', 'skip'):
                 if stats.get('ok', 0) and stats['ok'] % 1000 == 0:

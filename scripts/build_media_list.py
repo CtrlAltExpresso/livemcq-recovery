@@ -38,9 +38,6 @@ for p in files:
         if host not in HOSTS:
             continue
         path = scheme_rest.split('/', 1)[1] if '/' in scheme_rest else ''
-        # HTML/JSON artifacts: URL may be followed by '</span>', "\", "'", ';' etc.
-        # strip trailing slash FIRST (so an embedded quote then shows up), then
-        # punctuation, then any remaining trailing slash.
         clean = path.rstrip('/')
         clean = clean.rstrip('\'"`,;).:')
         clean = clean.rstrip('/') or 'index/'
@@ -48,7 +45,7 @@ for p in files:
         if key not in seen:
             seen[key] = f'https://{host}/{clean}'
 
-with open('/tmp/opencode/media_download_list.tsv', 'w') as f:
+with open('/home/sakib/offlineMCQ/api_data/media_download_list.tsv', 'w') as f:
     for key, url in sorted(seen.items()):
         f.write(f'{url}\t{key}\n')
 

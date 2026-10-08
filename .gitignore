@@ -8,3 +8,6 @@ api_data/all_questions.jsonl
 # local media downloads (several GB; manifest media_manifest.tsv is committed instead)
 media/
 media_progress.tsv
+.media_run.log
+.media_downloader.pid
+.media_failures.tsv
