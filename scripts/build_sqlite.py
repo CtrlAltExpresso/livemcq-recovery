@@ -473,6 +473,18 @@ bank_qids = [q['qid'] for q in qrows.values() if q['has_bank']]
 json.dump(to_shard(bank_qids), open(f'{VD}/search/search_bank.json', 'w'),
           ensure_ascii=False)
 
+# routine/extras scope: questions that appear only in course-less exams
+# (subject_id NULL) — those are in the DB but in no per-course shard nor the bank.
+extra_qids = []
+seen_x = set()
+for eid, qid, _p, _g in eq_rows:
+    if exams.get(eid, {}).get('subject_id') is None and qid not in seen_x:
+        seen_x.add(qid)
+        extra_qids.append(qid)
+json.dump(to_shard(extra_qids), open(f'{VD}/search/search_routine.json', 'w'),
+          ensure_ascii=False)
+print(f'search routine scope: {len(extra_qids)} questions')
+
 # exam name lookup for the exam view (title + syllabus of the same exam id)
 json.dump({str(eid): dict(t=d.get('title') or '',
                           s=re.sub(r'\s+', ' ', (exam_info[eid].get('syllabus') or '').strip())

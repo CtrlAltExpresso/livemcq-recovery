@@ -339,6 +339,7 @@ async function search() {
   const scopeEl = document.getElementById("scope");
   const mkChip = (id, label, on) => `<span class="scope-chip ${on ? "on" : ""}" data-s="${id}">${esc(label)}</span>`;
   scopeEl.innerHTML = mkChip("bank", "All questions", true) +
+    mkChip("routine", "Routine", false) +
     courses.map(c => mkChip(c.id, c.name, false)).join("");
   scopeEl.addEventListener("click", (e) => {
     const chip = e.target.closest(".scope-chip");
