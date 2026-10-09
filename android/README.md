@@ -16,24 +16,58 @@ can never fit in one APK.
 
 - `AndroidManifest.xml`, `res/` — app manifest and resources.
 - `src/io/livemcq/offline/` — plain-Java app, no AndroidX/Gradle:
-  - `MainActivity.java` — setup screen (URL field + progress), then a WebView.
-  - `ContentManager.java` — downloads the manifest + 18 `.zip` parts with HTTP
-    Range resume into internal storage, verifies each part's SHA-256 and
-    extracts it. Safe against interrupted downloads (resumes) and non-Range
-    servers (a `200` full-body reply is caught by the SHA check and re-done).
-  - `AssetServer.java` — minimal HTTP server on `127.0.0.1` that streams the
-    extracted tree to the WebView. Paths map 1:1 (disk filenames are their
-    literal percent-escaped forms, which browsers send verbatim); traversal and
-    missing files return 404.
-  - `Config.java` — commit-time default manifest URL (empty unless baked).
+- `MainActivity.java` — setup screen (URL field + live progress), then a WebView.
+- `DownloadService.java` — foreground service that owns the sync so the download
+  keeps running when the app is backgrounded or the screen is off. Puts a live
+  progress notification in the tray and relays progress to the activity.
+- `ContentManager.java` — downloads the manifest + 18 `.zip` parts with HTTP
+  Range resume into internal storage, verifies each part's SHA-256 and
+  extracts it. Reports real-time cumulative bytes (updated ~every 0.4 s) so the
+  progress bar/percent move continuously instead of per-part. Completed parts
+  are marked on disk (`.ok` files), so a paused/interrupted download resumes
+  exactly where it stopped — already-done parts are skipped and the progress
+  continues from the saved byte count, never from 0. Safe against interrupted
+  downloads and non-Range servers (a `200` full-body reply is caught by the
+  SHA check and re-done).
+- `AssetServer.java` — minimal HTTP server on `127.0.0.1` that streams the
+  extracted tree to the WebView. Paths map 1:1 (disk filenames are their
+  literal percent-escaped forms, which browsers send verbatim); traversal and
+  missing files return 404.
+- `Config.java` — commit-time default manifest URL (empty unless baked).
 - `build_apk.sh` — build pipeline (javac → d8 → aapt2 → zipalign → apksigner).
 
 ## What the user does
 
-1. Install `LiveMCQ_Offline.apk` (built below) and open it.
+1. Install `LiveMCQ_Offline.apk` (built below) and open it (a notification
+   permission prompt appears on Android 13+ — allow it so the tray shows
+   download progress).
 2. Paste the manifest URL (`https://…/livemcq_manifest.json`) into the field.
-3. Tap **Start download** (~9 GB; show progress; resumable; the screen stays
-   on). Once finished the viewer opens and everything works offline.
+3. Tap **Start download** (~9 GB; live progress bar + percentage). If you're on
+   mobile data, a warning dialog asks you to confirm before starting. The download
+   runs in a foreground service, so you can background the app or turn the
+   screen off and it keeps going — watch the notification. It resumes where it
+   stopped if interrupted. Once finished the viewer opens and everything works
+   offline.
+
+## Installing: the Play Protect warning is expected
+
+Sideloading any new APK triggers Google Play Protect's "App blocked to protect
+your device — Play Protect hasn't seen an app from this developer before."
+This is normal for a freshly-signed app, not a sign of a problem. The APK is
+~29 KB, requests only INTERNET / network-state / notification / wake-lock /
+foreground-service permissions, and is signed with the same keystore for every
+build (checksum is identical between rebuilds).
+
+To get past it:
+
+1. On the "App blocked" screen tap **More details**.
+2. Tap **Install anyway**.
+3. If prompted again, tap **Install anyway** one more time.
+
+To silence the warning permanently, submit the APK for a Play Protect scan
+review (Google Play Console → Play Protect status → request a scan review, or
+the support form at `https://support.google.com/googleplay/android-developer`).
+After approval the warning stops for every install signed with this keystore.
 
 ## Build prerequisites
 

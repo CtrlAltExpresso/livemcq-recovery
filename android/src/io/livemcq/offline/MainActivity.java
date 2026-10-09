@@ -1,8 +1,14 @@
 package io.livemcq.offline;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkCapabilities;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Gravity;
@@ -23,7 +29,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 
-public class MainActivity extends Activity implements ContentManager.Listener {
+public class MainActivity extends Activity implements DownloadService.Listener {
+
+    private static final int REQ_NOTIF = 1001;
 
     private ContentManager cm;
     private AssetServer server;
@@ -32,9 +40,11 @@ public class MainActivity extends Activity implements ContentManager.Listener {
     private EditText urlField;
     private TextView tvStatus;
     private TextView tvProgress;
+    private TextView tvPercent;
     private ProgressBar progressBar;
     private View startButton;
     private View cancelButton;
+    private ScrollView scroll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +52,26 @@ public class MainActivity extends Activity implements ContentManager.Listener {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         cm = new ContentManager(this);
 
+        if (Build.VERSION.SDK_INT >= 33
+                && checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)
+                   != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(
+                    new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, REQ_NOTIF);
+        }
+
         if (cm.isReady()) {
             openViewer();
             return;
         }
         buildSetupUi();
+        if (DownloadService.isRunning()) {
+            showProgressUi("Restarting download…");
+            DownloadService.setListener(this);
+            return;
+        }
+        if (!Config.DEFAULT_MANIFEST_URL.isEmpty()) {
+            startButton.post(this::startSync);
+        }
     }
 
     // ---------------------------------------------------------------- setup
@@ -112,12 +137,20 @@ public class MainActivity extends Activity implements ContentManager.Listener {
         tvProgress.setVisibility(View.GONE);
         box.addView(tvProgress);
 
+        tvPercent = new TextView(this);
+        tvPercent.setTextSize(26);
+        tvPercent.setTypeface(null, Typeface.BOLD);
+        tvPercent.setTextColor(Color.parseColor("#1a237e"));
+        tvPercent.setVisibility(View.GONE);
+        box.addView(tvPercent);
+
         cancelButton = newButton("Cancel", "#c62828");
         cancelButton.setVisibility(View.GONE);
-        cancelButton.setOnClickListener(v -> cm.cancel());
+        cancelButton.setOnClickListener(v -> DownloadService.cancel());
         box.addView(cancelButton);
 
         ScrollView scroll = new ScrollView(this);
+        this.scroll = scroll;
         scroll.addView(box);
         frame.addView(scroll);
         setContentView(frame);
@@ -145,26 +178,62 @@ public class MainActivity extends Activity implements ContentManager.Listener {
             tvStatus.setTextColor(Color.parseColor("#c62828"));
             return;
         }
+        if (isMeteredData()) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Mobile data warning")
+                    .setMessage("You're on mobile data. This download is ~9 GB and may use a large amount of your data plan or incur charges. Continue?")
+                    .setPositiveButton("Continue", (d, w) -> beginSync(url))
+                    .setNegativeButton("Cancel", null)
+                    .show();
+        } else {
+            beginSync(url);
+        }
+    }
+
+    private void beginSync(String url) {
+        DownloadService.setListener(this);
+        showProgressUi("Contacting " + url);
+        DownloadService.start(this, url);
+    }
+
+    private boolean isMeteredData() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null) {
+            return false;
+        }
+        if (Build.VERSION.SDK_INT >= 23) {
+            NetworkCapabilities nc = cm.getNetworkCapabilities(cm.getActiveNetwork());
+            if (nc != null && nc.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
+                return !nc.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED);
+            }
+        }
+        return false;
+    }
+
+    private void showProgressUi(String status) {
         urlField.setEnabled(false);
         startButton.setVisibility(View.GONE);
         progressBar.setVisibility(View.VISIBLE);
         tvProgress.setVisibility(View.VISIBLE);
+        tvPercent.setVisibility(View.VISIBLE);
+        progressBar.setIndeterminate(true);
+        progressBar.setProgress(0);
+        tvProgress.setText(status);
+        tvPercent.setText("0%");
         cancelButton.setVisibility(View.VISIBLE);
-        tvStatus.setText("Contacting " + url);
-
-        cm.sync(url, this);
+        tvStatus.setText(status);
+        scroll.post(() -> scroll.fullScroll(View.FOCUS_DOWN));
     }
 
     @Override
     public void onProgress(final long doneBytes, final long totalBytes, final String detail) {
         runOnUiThread(() -> {
-            if (totalBytes > 0) {
-                progressBar.setProgress((int) Math.min(999, doneBytes * 1000 / totalBytes));
-                tvProgress.setText(String.format(Locale.US, "%.2f / %.2f GB   %s",
-                        doneBytes / 1073741824.0, totalBytes / 1073741824.0, detail));
-            } else {
-                tvProgress.setText(detail);
-            }
+            progressBar.setIndeterminate(false);
+            double pct = totalBytes > 0 ? doneBytes * 100.0 / totalBytes : 0.0;
+            tvPercent.setText(String.format(Locale.US, "%.1f%%", Math.min(100.0, pct)));
+            progressBar.setProgress((int) Math.min(999, doneBytes * 1000 / Math.max(1, totalBytes)));
+            tvProgress.setText(String.format(Locale.US, "%.2f / %.2f GB   %s",
+                    doneBytes / 1073741824.0, totalBytes / 1073741824.0, detail));
         });
     }
 
@@ -176,6 +245,7 @@ public class MainActivity extends Activity implements ContentManager.Listener {
             startButton.setVisibility(View.VISIBLE);
             urlField.setEnabled(true);
             cancelButton.setVisibility(View.GONE);
+            tvPercent.setVisibility(View.GONE);
         });
     }
 
@@ -185,6 +255,14 @@ public class MainActivity extends Activity implements ContentManager.Listener {
             tvStatus.setText("Done. Opening viewer…");
             openViewer();
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (cm != null && !cm.isReady() && DownloadService.isRunning()) {
+            DownloadService.setListener(this);
+        }
     }
 
     // ---------------------------------------------------------------- viewer
@@ -217,6 +295,7 @@ public class MainActivity extends Activity implements ContentManager.Listener {
 
     @Override
     protected void onDestroy() {
+        DownloadService.setListener(null);
         if (server != null) {
             server.stop();
         }

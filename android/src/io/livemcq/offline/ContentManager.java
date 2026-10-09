@@ -33,8 +33,9 @@ import java.util.zip.ZipInputStream;
  * Downloads the chunked content bundle (manifest + .zip parts), verifies each
  * part's sha256 and extracts it under the internal files dir. Downloads use
  * HTTP Range resume into a temp file that survives restarts, so an
- * interrupted sync resumes where it stopped. Thread-safe listener callbacks
- * arrive on worker threads; the caller should marshal to the UI thread.
+ * interrupted sync resumes where it stopped. Real-time cumulative progress
+ * (bytes done across all parts) is streamed to the {@link Listener}; callers
+ * only need to throttle UI refreshes.
  */
 public final class ContentManager {
 
@@ -45,7 +46,8 @@ public final class ContentManager {
     }
 
     private static final int WORKERS = 3;
-    private static final int MAX_PART_RETRIES = 4;
+    private static final int MAX_PART_RETRIES = 15;
+    private static final long PROGRESS_INTERVAL_MS = 400;
     private static final String PREFS = "livemcq";
     private static final String KEY_URL = "manifest_url";
     private static final String KEY_READY = "content_ready";
@@ -54,18 +56,63 @@ public final class ContentManager {
     private final File root;
     private final SharedPreferences prefs;
     private final AtomicBoolean cancelled = new AtomicBoolean();
+    private final AtomicBoolean userCancelled = new AtomicBoolean();
+    private volatile String failure;
     private final AtomicLong downloaded = new AtomicLong();
     private final AtomicInteger nextPart = new AtomicInteger();
+    private final long[] partLive;
+    private volatile long lastProgress;
+    private int totalParts;
     private ExecutorService pool;
 
     public ContentManager(Context ctx) {
         this.ctx = ctx.getApplicationContext();
         this.root = new File(this.ctx.getFilesDir(), "content");
         this.prefs = this.ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
+        this.partLive = new long[64];
+        for (int i = 0; i < partLive.length; i++) {
+            partLive[i] = -1;
+        }
     }
 
     public File contentRoot() {
         return root;
+    }
+
+    private File doneDir() {
+        return new File(root.getParentFile(), "done");
+    }
+
+    private File doneFile(int index) {
+        return new File(doneDir(), "part_" + index + ".ok");
+    }
+
+    private boolean isDone(int index) {
+        return doneFile(index).exists();
+    }
+
+    private void markDone(int index) {
+        try {
+            File d = doneDir();
+            d.mkdirs();
+            try (OutputStream o = new FileOutputStream(doneFile(index))) {
+                o.write("ok\n".getBytes("UTF-8"));
+            }
+        } catch (IOException ignored) {
+        }
+    }
+
+    private long baselineBytes(JSONArray parts) {
+        long base = 0;
+        for (int i = 0; i < parts.length(); i++) {
+            if (isDone(i)) {
+                JSONObject p = parts.optJSONObject(i);
+                if (p != null) {
+                    base += p.optLong("size", 0);
+                }
+            }
+        }
+        return base;
     }
 
     public boolean isReady() {
@@ -76,6 +123,10 @@ public final class ContentManager {
         return prefs.getString(KEY_URL, "");
     }
 
+    public boolean isSyncing() {
+        return pool != null && !pool.isShutdown();
+    }
+
     public long freeMegabytes() {
         StatFs sf = new StatFs(ctx.getFilesDir().getAbsolutePath());
         long bytes = (long) sf.getAvailableBlocks() * sf.getBlockSize();
@@ -83,11 +134,14 @@ public final class ContentManager {
     }
 
     public void cancel() {
+        userCancelled.set(true);
         cancelled.set(true);
     }
 
     public void sync(final String manifestUrl, final Listener listener) {
         cancelled.set(false);
+        userCancelled.set(false);
+        failure = null;
         new Thread(() -> run(manifestUrl, listener), "content-sync").start();
     }
 
@@ -104,6 +158,7 @@ public final class ContentManager {
                 return;
             }
             long totalBytes = Math.max(manifest.optLong("total_bytes", 0), 1);
+            totalParts = parts.length();
             String base = manifestUrl.substring(0, manifestUrl.lastIndexOf('/') + 1);
 
             long neededMB = totalBytes / (1024 * 1024) + 2048;
@@ -116,10 +171,19 @@ public final class ContentManager {
 
             root.mkdirs();
             prefs.edit().putString(KEY_URL, manifestUrl).apply();
-            downloaded.set(0);
+            downloaded.set(baselineBytes(parts));
             nextPart.set(0);
+            lastProgress = 0;
+            for (int i = 0; i < partLive.length; i++) {
+                partLive[i] = -1;
+            }
 
-            AtomicInteger completed = new AtomicInteger();
+            AtomicInteger completed = new AtomicInteger(0);
+            for (int i = 0; i < parts.length(); i++) {
+                if (isDone(i)) {
+                    completed.incrementAndGet();
+                }
+            }
             pool = Executors.newFixedThreadPool(WORKERS);
             for (int w = 0; w < WORKERS; w++) {
                 pool.execute(() -> {
@@ -133,23 +197,35 @@ public final class ContentManager {
                         if (file == null || file.isEmpty()) {
                             continue;
                         }
+                        if (isDone(i)) {
+                            continue;
+                        }
                         String sha = part.optString("sha256");
                         long size = part.optLong("size", 0);
-                        if (!process(base + file, file, sha, size, listener)) {
-                            if (!cancelled.get()) {
-                                listener.onError("Download failed: " + file);
+                        if (!process(i, base + file, file, sha, size, totalBytes, listener)) {
+                            if (failure == null) {
+                                failure = "Download failed: " + file;
                             }
                             cancelled.set(true);
                             return;
                         }
+                        markDone(i);
                         completed.incrementAndGet();
-                        progress(listener, downloaded.get(), totalBytes, completed.get(), parts.length());
+                        report(listener, totalBytes, String.format(Locale.US, "%d/%d parts done", completed.get(), parts.length()));
                     }
                 });
             }
             pool.shutdown();
             pool.awaitTermination(8, TimeUnit.HOURS);
-            if (cancelled.get() || completed.get() != parts.length()) {
+            if (userCancelled.get()) {
+                listener.onError("Download cancelled.");
+                return;
+            }
+            if (failure != null) {
+                listener.onError(failure);
+                return;
+            }
+            if (completed.get() != parts.length()) {
                 return;
             }
             writeMarker();
@@ -164,7 +240,8 @@ public final class ContentManager {
         }
     }
 
-    private boolean process(String partUrl, String file, String sha, long size, Listener listener) {
+private boolean process(int index, String partUrl, String file, String sha, long size,
+                        long totalBytes, Listener listener) {
         File tmp = new File(root, file + ".part");
         for (int attempt = 0; attempt < MAX_PART_RETRIES; attempt++) {
             if (cancelled.get()) {
@@ -172,29 +249,52 @@ public final class ContentManager {
             }
             try {
                 long have = tmp.exists() ? tmp.length() : 0;
+                partLive[index] = have;
+                if (have > 0) {
+                    report(listener, totalBytes, partLabel(index) + " (resuming)");
+                }
                 if (have < size || !valid(tmp, sha)) {
-                    download(partUrl, tmp, size, have, listener);
+                    download(index, partUrl, tmp, size, have, totalBytes, listener);
                 }
                 if (!valid(tmp, sha)) {
                     tmp.delete();
+                    partLive[index] = 0;
+                    report(listener, totalBytes, partLabel(index) + " checksum mismatch, retrying");
                     continue;
                 }
+                report(listener, totalBytes, partLabel(index) + " extracting…");
                 extract(tmp);
                 downloaded.addAndGet(tmp.length());
                 tmp.delete();
+                partLive[index] = -1;
                 return true;
             } catch (IOException e) {
-                tmp.delete();
                 if (cancelled.get()) {
                     return false;
                 }
-                listener.onProgress(-1, -1, "Retrying " + file + " (" + (attempt + 1) + ")");
+                partLive[index] = tmp.exists() ? tmp.length() : -1;
+                int wait = (int) Math.min(10000, 1000L * (attempt + 1));
+                try {
+                    Thread.sleep(wait);
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                    return false;
+                }
+                if (cancelled.get()) {
+                    return false;
+                }
+                report(listener, totalBytes, partLabel(index) + " retrying (" + (attempt + 1) + ")");
             }
         }
         return false;
     }
 
-    private void download(String partUrl, File tmp, long size, long have, Listener listener) throws IOException {
+    private String partLabel(int index) {
+        return "Part " + (index + 1) + "/" + totalParts;
+    }
+
+    private void download(int index, String partUrl, File tmp, long size, long have,
+                          long totalBytes, Listener listener) throws IOException {
         HttpURLConnection conn = null;
         InputStream in = null;
         OutputStream out = null;
@@ -218,15 +318,9 @@ public final class ContentManager {
             byte[] buf = new byte[128 * 1024];
             int r;
             while ((r = in.read(buf)) > 0) {
-                if (cancelled.get()) {
-                    throw new IOException("cancelled");
-                }
                 out.write(buf, 0, r);
-                if (size > 0 && (r % (buf.length * 8)) == 0) {
-                    listener.onProgress(-1, -1,
-                            String.format(Locale.US, "%.1f / %.1f MB  %s",
-                                    tmp.length() / 1048576.0, size / 1048576.0, tmp.getName()));
-                }
+                partLive[index] = tmp.length();
+                report(listener, totalBytes, partLabel(index));
             }
             out.flush();
         } finally {
@@ -236,6 +330,23 @@ public final class ContentManager {
                 conn.disconnect();
             }
         }
+    }
+
+    private void report(Listener l, long totalBytes, String detail) {
+        long now = System.currentTimeMillis();
+        if (now - lastProgress < PROGRESS_INTERVAL_MS && totalBytes > 0) {
+            return;
+        }
+        lastProgress = now;
+        long done = downloaded.get();
+        synchronized (partLive) {
+            for (long v : partLive) {
+                if (v > 0) {
+                    done += v;
+                }
+            }
+        }
+        l.onProgress(Math.min(done, totalBytes), totalBytes, detail);
     }
 
     private boolean valid(File f, String sha) {
@@ -356,9 +467,5 @@ public final class ContentManager {
                 conn.disconnect();
             }
         }
-    }
-
-    private static void progress(Listener l, long done, long total, int partsDone, int partsTotal) {
-        l.onProgress(done, total, String.format(Locale.US, "%d/%d parts done", partsDone, partsTotal));
     }
 }
