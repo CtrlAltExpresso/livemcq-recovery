@@ -61,6 +61,7 @@ public class MainActivity extends Activity implements DownloadService.Listener {
 
         if (cm.isReady()) {
             openViewer();
+            maybeUpdate();
             return;
         }
         buildSetupUi();
@@ -169,6 +170,24 @@ public class MainActivity extends Activity implements DownloadService.Listener {
         lp.topMargin = dp(10);
         b.setLayoutParams(lp);
         return b;
+    }
+
+    private void maybeUpdate() {
+        new Thread(() -> {
+            boolean upd;
+            try {
+                upd = cm.checkForUpdate();
+            } catch (Exception e) {
+                return;
+            }
+            if (upd) {
+                runOnUiThread(() -> {
+                    cm.clearReady();
+                    buildSetupUi();
+                    startSync();
+                });
+            }
+        }, "content-update-check").start();
     }
 
     private void startSync() {

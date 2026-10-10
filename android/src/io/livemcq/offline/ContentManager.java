@@ -51,6 +51,8 @@ public final class ContentManager {
     private static final String PREFS = "livemcq";
     private static final String KEY_URL = "manifest_url";
     private static final String KEY_READY = "content_ready";
+    private static final String KEY_VERSION = "content_version";
+    private static final String KEY_PARTS = "content_parts";
 
     private final Context ctx;
     private final File root;
@@ -119,6 +121,37 @@ public final class ContentManager {
         return prefs.getBoolean(KEY_READY, false) && new File(root, ".ready").exists();
     }
 
+    /** Drop the ready state so the next sync re-downloads only missing parts. */
+    public void clearReady() {
+        prefs.edit().putBoolean(KEY_READY, false).apply();
+        new File(root, ".ready").delete();
+    }
+
+    /**
+     * Fetch the manifest behind {@link #savedUrl()} and report whether it is a
+     * newer revision than the one already applied (a version bump or a change
+     * in the number of parts). Returns false when offline so the viewer keeps
+     * working with no network.
+     */
+    public boolean checkForUpdate() {
+        String url = savedUrl();
+        if (url.isEmpty()) {
+            return false;
+        }
+        JSONObject m = fetchJson(url);
+        if (m == null) {
+            return false;
+        }
+        int remoteVersion = m.optInt("version", 0);
+        if (remoteVersion > prefs.getInt(KEY_VERSION, 0)) {
+            return true;
+        }
+        JSONArray remoteParts = m.optJSONArray("parts");
+        int remoteCount = remoteParts != null ? remoteParts.length() : 0;
+        int storedCount = prefs.getInt(KEY_PARTS, 0);
+        return remoteCount > 0 && remoteCount != storedCount;
+    }
+
     public String savedUrl() {
         return prefs.getString(KEY_URL, "");
     }
@@ -161,7 +194,8 @@ public final class ContentManager {
             totalParts = parts.length();
             String base = manifestUrl.substring(0, manifestUrl.lastIndexOf('/') + 1);
 
-            long neededMB = totalBytes / (1024 * 1024) + 2048;
+            long doneBytes = baselineBytes(parts);
+            long neededMB = Math.max(0, totalBytes - doneBytes) / (1024 * 1024) + 1024;
             if (freeMegabytes() < neededMB) {
                 listener.onError(String.format(Locale.US,
                         "Not enough free space (have %.1f GB, need ~%.1f GB). Free up space, then retry.",
@@ -229,7 +263,9 @@ public final class ContentManager {
                 return;
             }
             writeMarker();
-            prefs.edit().putBoolean(KEY_READY, true).apply();
+            prefs.edit().putBoolean(KEY_READY, true)
+                    .putInt(KEY_VERSION, manifest.optInt("version", 0))
+                    .putInt(KEY_PARTS, parts.length()).apply();
             listener.onDone();
         } catch (Exception e) {
             listener.onError("Unexpected error: " + e.getMessage());

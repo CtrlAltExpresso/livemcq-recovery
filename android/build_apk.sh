@@ -51,7 +51,7 @@ echo "== resources/manifest =="
 "$BT/aapt2" link -o "$OUT/base.apk" -I "$PLAT" \
   --manifest "$REPO/android/AndroidManifest.xml" \
   --min-sdk-version 24 --target-sdk-version 34 \
-  --version-code 1 --version-name "1.0" \
+  --version-code 4 --version-name "1.3" \
   "$OUT/res.zip"
 
 echo "== add dex =="
