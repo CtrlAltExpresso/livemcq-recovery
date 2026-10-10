@@ -138,7 +138,7 @@ function examRow(e, pos) {
   if (e.omr) badges.push('<span class="pill pill-omr">OMR</span>');
   if (!e.has) badges.push('<span class="pill pill-lock">Locked</span>');
   const dateTxt = f ? `${f.d} ${f.m} ${f.y}` : null;
-  return `  <div class="exam-row ${e.has ? "" : "locked"}" onclick="go('#/exam/${e.id}')">
+  return `<div class="exam-row ${e.has ? "" : "locked"}" onclick="go('#/exam/${e.id}')">
     <div class="mid">
       <h3>${e.title ? esc(e.title) : `Exam #${e.id}`}</h3>
       <div class="meta">
