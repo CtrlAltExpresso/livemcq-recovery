@@ -5,14 +5,11 @@ viewer/livemcq.db
 viewer/data/
 # staging area for extracted fonts/icon (copied into viewer/ by the builder)
 _build/
-# android build intermediates (the finished APK and signing key are committed)
-dist/classes/
-dist/gen/
-dist/*.dex
-dist/base.apk
-dist/aligned.apk
-dist/res.zip
-dist/*.idsig
+# android build intermediates + signing key (kept local only, never commit)
+dist/
+# original app extraction data — contained PII + a live API token; purged from
+# history 2026-10-10. Keep local only, never commit again.
+extracted/
 # temp/derived-local
 *.tmp
 *.out
