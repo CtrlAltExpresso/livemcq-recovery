@@ -1,22 +1,55 @@
 <div align="center">
 
-# 📱 LiveMCQ Data Recovery
+# 📲 offlineMCQ
 
-**The complete content of the LiveMCQ Android app — every exam, every question, every answer,
-downloaded and rebuilt from its own live API into a clean, browsable structure.**
+**The LiveMCQ exam app — every exam, every question, fully on your phone.**
+**No internet needed after setup. Free. No account. No ads.**
 
-**15,429 archive exams** + **1,263 routine entries** + **80,162 questions with answers &
-explanations**, organized as **115 courses → exams → questions**, verified with
-checksums and cross-checked across independent dump passes.
+<br>
+
+<a href="https://github.com/CtrlAltExpresso/offlineMCQ/releases/latest/download/offlineMCQ.apk">
+  <img src="https://img.shields.io/badge/📥%20DOWNLOAD%20THE%20APP-Android%20APK-16a34a?style=for-the-badge&logo=android&logoColor=white" width="460" alt="DOWNLOAD THE APP — Android APK">
+</a>
+
+<br>
+<br>
+
+**⬇️ Download &nbsp;·&nbsp; 📂 Open file &nbsp;·&nbsp; ✅ Install &nbsp;·&nbsp; 🎉 Done**
+
+*No Google Play · No login · No hidden fees*
+
+</div>
+
+---
+
+## 📥 Install in 2 minutes
+
+1. **Tap the green button above** — your phone downloads `offlineMCQ.apk` (only 33 KB).
+   Direct link: **https://github.com/CtrlAltExpresso/offlineMCQ/releases/latest/download/offlineMCQ.apk**
+2. **Open the downloaded file** (from your browser or file manager).
+3. Tap **Install**. If Android asks, allow *"install unknown apps"* for your browser / file manager.
+4. **Open offlineMCQ.** It automatically downloads all exams & questions once (**~9 GB — use Wi-Fi**), then works **100% offline — forever**.
+
+> 💡 That's it. The app fetches its own content on first launch; you never download or move anything manually.
+
+---
+
+## ℹ️ What is this?
+
+**offlineMCQ** is the complete content of the LiveMCQ Android app (Bangladeshi BCS / Bank /
+Government-job MCQ test platform) — **15,429 archive exams** + **1,263 routine entries** +
+**80,162 questions with answers & explanations**, organized as **115 courses → exams → questions**,
+verified with checksums and cross-checked across independent dump passes.
 
 [![Exams](https://img.shields.io/badge/exams-15%2C429%20%2B%201%2C263-16a34a?style=flat-square)](#-whats-inside)
 [![Questions](https://img.shields.io/badge/questions-80%2C162-0f172a?style=flat-square)](#-whats-inside)
 [![Courses](https://img.shields.io/badge/courses-115-3b82f6?style=flat-square)](#-course--exam--question)
 [![Integrity](https://img.shields.io/badge/integrity-sha256%20verified-64748b?style=flat-square)](#-integrity)
 
-</div>
-
----
+The app was built behind a growing collection of exams and questions that were at risk of being
+lost. With the app owner's authorization (see [`authorization/`](authorization/)), everything the
+app serves was pulled from its live API and re-organized into a structure that mirrors what the
+app shows:
 
 ## 🎯 What is this?
 
@@ -156,11 +189,11 @@ the video streams). The viewer simply doesn't surface the flag.
 ### 3) Android APK — the whole viewer on a phone, fully offline
 
 `android/` (see [`android/README.md`](android/README.md)) builds a small sideloadable
-APK (`dist/LiveMCQ_Offline.apk`, ~25 KB) that runs the viewer on a phone or tablet with
-zero internet after setup. On first launch you paste one URL (or a baked-in one); the app
-downloads the ~9 GB content bundle itself — SHA-256-verified, HTTP-Range-resumable,
+APK (`offlineMCQ.apk`, 33 KB) that runs the viewer on a phone or tablet with
+zero internet after setup. On first launch the app downloads the ~9 GB content bundle
+itself — SHA-256-verified, HTTP-Range-resumable,
 free-space-checked — then extracts and serves it from a loopback server to an embedded
-WebView. The bundle (18 indexless zip parts + `livemcq_manifest.json`, +8.95 GB) is
+WebView. The bundle (21 zip parts + `livemcq_manifest.json`, 8.76 GB) is
 produced by `scripts/make_content_bundle.py` and uploadable to archive.org or any
 Range-capable host. A single >4 GB "all-in-one" APK was proven impossible (Android's APK
 reader and Google's sign/align tools lack zip64; PDFs alone are 4.8 GB).
@@ -178,7 +211,7 @@ reader and Google's sign/align tools lack zip64; PDFs alone are 4.8 GB).
 | Video catalog (75 series → 2,198 classes) | ✅ metadata + study PDFs; streams are player-side |
 | **Offline viewer** (`viewer/`) | ✅ app-style clone: Home · Routine · Search · Classes · PDFs |
 | **SQLite DB** (`viewer/livemcq.db`, ~1.9 GB) | ✅ mirrors Isar model + FTS5 search |
-| **Android APK** (`android/` → `dist/LiveMCQ_Offline.apk`) | ✅ signed ~25 KB; downloads the 8.95 GB bundle on first run |
+| **Android APK** (`android/` → `dist/LiveMCQ_Offline.apk`) | ✅ signed 33 KB; downloads the 8.76 GB bundle on first run |
 
 **About the 525:** 16,692 `exam-view`/`archive-question-subject` fetches were attempted.
 525 (3.1%) return an empty question set in the API itself (payment-locked at database

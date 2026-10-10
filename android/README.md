@@ -3,7 +3,7 @@
 Sideloadable Android app that bundles the recovered LiveMCQ viewer/site for
 fully-offline use on a phone or tablet.
 
-The app itself is tiny (~25 KB). The ~9 GB content is delivered as a chunked,
+The app itself is tiny (~33 KB). The ~9 GB content is delivered as a chunked,
 SHA-256-verified bundle that the app downloads and installs itself on first
 launch — no manual file placement, no OBB, no second app.
 
@@ -38,7 +38,7 @@ can never fit in one APK.
 
 ## What the user does
 
-1. Install `LiveMCQ_Offline.apk` (built below) and open it (a notification
+1. Install `offlineMCQ.apk` (built below) and open it (a notification
    permission prompt appears on Android 13+ — allow it so the tray shows
    download progress).
 2. Paste the manifest URL (`https://…/livemcq_manifest.json`) into the field.
