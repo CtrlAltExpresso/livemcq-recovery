@@ -305,8 +305,8 @@ public class MainActivity extends Activity implements DownloadService.Listener {
         s.setAllowFileAccess(false);
         s.setAllowContentAccess(false);
         s.setCacheMode(WebSettings.LOAD_NO_CACHE);
-        web.setWebViewClient(new WebViewClient());
-        web.setWebChromeClient(new WebChromeClient());
+        web.setWebViewClient(new LogClient());
+        web.setWebChromeClient(new LogChrome());
         web.setKeepScreenOn(true);
         web.loadUrl("http://127.0.0.1:" + server.port() + "/viewer/index.html");
         setContentView(web);
@@ -335,5 +335,23 @@ public class MainActivity extends Activity implements DownloadService.Listener {
 
     private int dp(int n) {
         return Math.round(n * getResources().getDisplayMetrics().density);
+    }
+
+    private static class LogClient extends WebViewClient {
+        @Override
+        public void onReceivedError(WebView v, android.webkit.WebResourceRequest r,
+                                    android.webkit.WebResourceError e) {
+            android.util.Log.e("LiveMCQWeb", "onReceivedError " + r.getUrl()
+                    + " -> " + e.getErrorCode() + " " + e.getDescription());
+        }
+    }
+
+    private static class LogChrome extends WebChromeClient {
+        @Override
+        public boolean onConsoleMessage(android.webkit.ConsoleMessage m) {
+            android.util.Log.i("LiveMCQWeb", m.messageLevel() + " " + m.message()
+                    + " @" + m.sourceId() + ":" + m.lineNumber());
+            return true;
+        }
     }
 }

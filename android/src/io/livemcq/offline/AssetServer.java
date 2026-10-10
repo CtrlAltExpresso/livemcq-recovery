@@ -74,9 +74,18 @@ public final class AssetServer {
         try (Socket s = client) {
             s.setSoTimeout(30000);
             s.setTcpNoDelay(true);
-            String line = readLine(s.getInputStream());
+            InputStream reqIn = s.getInputStream();
+            String line = readLine(reqIn);
             if (line == null) {
                 return;
+            }
+            // Drain the rest of the request headers. Closing a socket while the
+            // peer's bytes are still unread makes the kernel send RST instead of
+            // FIN, which the WebView reports as net::ERR_CONNECTION_RESET and the
+            // page load silently dies.
+            String header;
+            while ((header = readLine(reqIn)) != null && header.length() > 0) {
+                // discarded
             }
             String[] parts = line.split(" ");
             if (parts.length < 2) {

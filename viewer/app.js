@@ -138,7 +138,7 @@ function examRow(e, pos) {
   if (e.omr) badges.push('<span class="pill pill-omr">OMR</span>');
   if (!e.has) badges.push('<span class="pill pill-lock">Locked</span>');
   const dateTxt = f ? `${f.d} ${f.m} ${f.y}` : null;
-  return `<div class="exam-row ${e.has ? "" : "locked"}" onclick="${e.has ? `go('#/exam/${e.id}')` : ''}">
+  return `  <div class="exam-row ${e.has ? "" : "locked"}" onclick="go('#/exam/${e.id}')">
     <div class="mid">
       <h3>${e.title ? esc(e.title) : `Exam #${e.id}`}</h3>
       <div class="meta">
@@ -162,7 +162,11 @@ async function exam(id, review) {
   try { raw = await loadJSON(`${BASE}/exam_maps/exam_${id}.json`); }
   catch (e) { render(lockPanel(id)); return; }
   if (!raw || !raw.question_text) { render(lockPanel(id)); return; }
-  if (!window.LOCAL.titles) window.LOCAL.titles = await loadJSON("data/exam_titles.json");
+  if (!window.LOCAL.titles) {
+    try { window.LOCAL.titles = await loadJSON("data/exam_titles.json"); }
+    catch (e2) { window.LOCAL.titles = {}; }
+  }
+  if (!window.LOCAL.titles) window.LOCAL.titles = {};
   const t = window.LOCAL.titles[String(id)] || { t: "", s: "" };
   topbarCount.textContent = t.t || `Exam #${id}`;
   const qs = [];
